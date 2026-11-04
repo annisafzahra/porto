@@ -8,80 +8,52 @@ export default function AboutMe() {
     <section className="section-spacing about-section reveal-on-scroll" id="about-me">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">Profil Lengkap</div>
+          <div className="section-pill section-pill-dark">Tentang Saya</div>
           <h2 className="section-title section-title-dark">
-            Tentang <span className="gradient-text-soft">Annisa Zahra</span>
+            About <span className="gradient-text-soft">Me</span>
           </h2>
           <p className="section-description section-description-dark">
-            Latar belakang akademik, pengalaman praktik pengujian sistem, dan ketelitian kerja operasional.
+            Pengenalan ringkas mengenai fokus keahlian, minat karir, dan dedikasi pada penjaminan mutu perangkat lunak.
           </p>
         </div>
 
-        <div className="about-grid">
-          {/* Main Story Narrative Card */}
-          <div className="about-narrative-card glass-card">
-            <div className="narrative-lead">
-              Lulusan <strong>D3 Teknik Informatika Politeknik Negeri Indramayu</strong> dengan <strong>IPK 3,94/4,00</strong>. 
-              Memiliki pengalaman magang 6 bulan di <em>CV. Indokoding Sukses Makmur</em> dalam 
-              <strong> pengujian API menggunakan Postman</strong>, verifikasi respons server, pelaporan temuan bug, 
-              serta pengembangan antarmuka web modern. Berbekal latar belakang perhotelan yang membentuk 
-              ketelitian administrasi dan fokus pada kenyamanan pengguna.
+        {/* Clean, Focused Statement Card (No Redundant Bento Boxes) */}
+        <div className="about-card-container">
+          <div className="about-editorial-card glass-card">
+            <div className="quote-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
             </div>
 
-            <div className="narrative-divider"></div>
+            <div className="statement-content">
+              <p className="statement-lead">
+                Hi! I&apos;m <strong>Annisa Fathimatuz Zahra</strong>, a fresh graduate of 
+                <strong> D3 Teknik Informatika from Politeknik Negeri Indramayu</strong> (GPA 3.94/4.00) 
+                with a strong interest in <strong>Software Quality Assurance</strong> and <strong>frontend development</strong>. 
+                I am used to working across API testing using <strong>Postman</strong>, web application development with 
+                <strong> Next.js</strong> and <strong>React</strong>, and ensuring software functionality and quality through structured verification.
+              </p>
 
-            <div className="narrative-paragraphs">
-              {PERSONAL_INFO.aboutParagraphs.map((para, idx) => (
-                <p key={idx} className="narrative-text">
-                  {para}
-                </p>
-              ))}
-            </div>
-          </div>
+              <div className="statement-divider"></div>
 
-          {/* Highlights Bento Column */}
-          <div className="about-highlights-col">
-            {/* Card 1: Fokus Minat Karir */}
-            <div className="highlight-box glass-card">
-              <div className="hl-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <polyline points="9 12 12 15 16 10"></polyline>
-                </svg>
-              </div>
-              <h4 className="hl-title">Fokus & Minat Karir</h4>
-              <p className="hl-desc">
-                Software Quality Assurance (QA), Software Testing, API Validation, Systems Analysis, dan Application Management.
+              <p className="statement-id">
+                Lulusan D3 Teknik Informatika Politeknik Negeri Indramayu dengan dedikasi tinggi pada penjaminan kualitas sistem (SQA). Berpengalaman dalam verifikasi endpoint API, identifikasi dan pelaporan temuan bug, serta pengembangan antarmuka web modern dengan kode yang bersih dan berorientasi pada kepuasan pengguna.
               </p>
             </div>
 
-            {/* Card 2: Pengalaman Praktik */}
-            <div className="highlight-box glass-card">
-              <div className="hl-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
+            <div className="statement-footer">
+              <div className="author-pill">
+                <span className="dot-active"></span>
+                <span>Annisa Fathimatuz Zahra, A.Md.Kom</span>
               </div>
-              <h4 className="hl-title">Pengalaman Industri</h4>
-              <p className="hl-desc">
-                <strong>CV. Indokoding (6 Bulan):</strong> Pengujian API Postman & Frontend Next.js.<br />
-                <strong>Vinotel Cirebon (7 Bulan):</strong> Ketelitian administrasi data & standar layanan.
-              </p>
-            </div>
-
-            {/* Card 3: Nilai Tambah Kerja */}
-            <div className="highlight-box glass-card">
-              <div className="hl-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
+              <div className="location-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
                 </svg>
+                <span>Cirebon &amp; Indramayu, Jawa Barat</span>
               </div>
-              <h4 className="hl-title">Karakteristik & Nilai Kerja</h4>
-              <p className="hl-desc">
-                Terbiasa kerja terstruktur, komunikasi tim terbuka, pencatatan teliti, serta disiplin terhadap tenggat waktu dan standar kualitas.
-              </p>
             </div>
           </div>
         </div>
@@ -116,118 +88,118 @@ export default function AboutMe() {
           color: #f3ede4 !important;
         }
 
-        .about-grid {
-          display: grid;
-          grid-template-columns: 1.45fr 1fr;
-          gap: 1.5rem;
-          align-items: flex-start;
+        .about-card-container {
+          max-width: 860px;
+          margin: 0 auto;
           width: 100%;
         }
 
-        .about-narrative-card {
-          padding: 2.25rem;
+        .about-editorial-card {
+          position: relative;
+          padding: 2.5rem 3rem;
           background: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.85);
+          border: 1px solid rgba(255, 255, 255, 0.9);
           border-radius: var(--radius-lg);
-          box-shadow: 0 6px 24px rgba(35, 24, 14, 0.16);
-          transition: transform 0.28s ease, box-shadow 0.28s ease;
+          box-shadow: 0 10px 32px rgba(35, 24, 14, 0.18);
+          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .about-narrative-card:hover {
+        .about-editorial-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 14px 36px rgba(35, 24, 14, 0.22);
+          box-shadow: 0 18px 46px rgba(35, 24, 14, 0.24);
         }
 
-        .narrative-lead {
-          font-size: 1.05rem;
-          color: var(--text-primary);
-          line-height: 1.75;
-          margin-bottom: 1.25rem;
-        }
-
-        .narrative-lead strong {
-          color: var(--text-primary);
-        }
-
-        .narrative-lead em {
-          color: var(--accent-taupe-dark);
-          font-style: normal;
-          font-weight: 600;
-        }
-
-        .narrative-divider {
-          height: 1px;
-          background: var(--border-subtle);
-          margin-bottom: 1.25rem;
-        }
-
-        .narrative-paragraphs {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .narrative-text {
-          font-size: 0.92rem;
-          color: var(--text-secondary);
-          line-height: 1.7;
-        }
-
-        .about-highlights-col {
-          display: flex;
-          flex-direction: column;
-          gap: 1.15rem;
-        }
-
-        .highlight-box {
-          padding: 1.4rem;
-          background: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.85);
-          border-radius: var(--radius-md);
-          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
-          cursor: pointer;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .highlight-box:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 30px rgba(35, 24, 14, 0.2);
-        }
-
-        .hl-icon {
+        .quote-badge {
+          position: absolute;
+          top: -16px;
+          left: 2.5rem;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: var(--accent-taupe);
+          color: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 38px;
-          height: 38px;
-          border-radius: 9px;
-          background: var(--accent-taupe-soft);
+          box-shadow: 0 4px 12px rgba(138, 110, 84, 0.35);
+        }
+
+        .statement-content {
+          margin-top: 0.5rem;
+        }
+
+        .statement-lead {
+          font-size: 1.12rem;
+          line-height: 1.75;
+          color: var(--text-primary);
+          font-weight: 400;
+        }
+
+        .statement-lead strong {
           color: var(--accent-taupe-dark);
-          margin-bottom: 0.75rem;
+          font-weight: 600;
         }
 
-        .hl-title {
-          font-size: 1.05rem;
-          margin-bottom: 0.4rem;
-          color: var(--text-primary);
+        .statement-divider {
+          width: 100%;
+          height: 1px;
+          background: var(--border-subtle);
+          margin: 1.5rem 0;
         }
 
-        .hl-desc {
-          font-size: 0.85rem;
+        .statement-id {
+          font-size: 0.95rem;
+          line-height: 1.65;
           color: var(--text-secondary);
-          line-height: 1.55;
         }
 
-        .hl-desc strong {
-          color: var(--text-primary);
+        .statement-footer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 1.75rem;
+          padding-top: 1.25rem;
+          border-top: 1px dashed var(--border-medium);
+          flex-wrap: wrap;
+          gap: 0.75rem;
         }
 
-        @media (max-width: 960px) {
-          .about-grid {
-            grid-template-columns: 1fr;
+        .author-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--accent-taupe-dark);
+        }
+
+        .dot-active {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: var(--accent-sage);
+        }
+
+        .location-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          font-size: 0.82rem;
+          color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+          .about-editorial-card {
+            padding: 2rem 1.5rem;
           }
-          .about-narrative-card {
-            padding: 1.6rem;
+
+          .statement-lead {
+            font-size: 1rem;
+          }
+
+          .statement-footer {
+            flex-direction: column;
+            align-items: flex-start;
           }
         }
       `}</style>

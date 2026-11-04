@@ -1,86 +1,53 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { SKILL_CATEGORIES } from '@/data/portfolioData';
 
-function getSkillIcon(type: string) {
-  switch (type) {
-    case 'api':
+// Clean SVG icon renderer
+function SkillSvgIcon({ iconType }: { iconType?: string }) {
+  switch (iconType) {
+    case 'shield':
       return (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="3"></circle>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-        </svg>
-      );
-    case 'check':
-      return (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           <polyline points="9 12 12 15 16 10"></polyline>
         </svg>
       );
-    case 'file':
+    case 'check':
       return (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-          <line x1="16" y1="13" x2="8" y2="13"></line>
-          <line x1="16" y1="17" x2="8" y2="17"></line>
-        </svg>
-      );
-    case 'inspect':
-      return (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      );
-    case 'devices':
-      return (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-          <line x1="8" y1="21" x2="16" y2="21"></line>
-          <line x1="12" y1="17" x2="12" y2="21"></line>
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
         </svg>
       );
     case 'code':
       return (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
       );
-    case 'terminal':
+    case 'layers':
       return (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="4 17 10 11 4 5"></polyline>
-          <line x1="12" y1="19" x2="20" y2="19"></line>
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
         </svg>
       );
-    case 'database':
+    case 'wrench':
       return (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-        </svg>
-      );
-    case 'server':
-      return (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-          <line x1="6" y1="6" x2="6.01" y2="6"></line>
-          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
         </svg>
       );
     case 'git':
       return (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="6" y1="3" x2="6" y2="15"></line>
-          <circle cx="18" cy="6" r="3"></circle>
-          <circle cx="6" cy="18" r="3"></circle>
-          <path d="M18 9a9 9 0 0 1-9 9"></path>
+          <circle cx="18" cy="18" r="3"></circle>
+          <circle cx="6" cy="6" r="3"></circle>
+          <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+          <line x1="6" y1="9" x2="6" y2="21"></line>
         </svg>
       );
     case 'figma':
@@ -91,6 +58,21 @@ function getSkillIcon(type: string) {
           <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
           <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
           <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+        </svg>
+      );
+    case 'cpu':
+      return (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+          <rect x="9" y="9" width="6" height="6"></rect>
+          <line x1="9" y1="1" x2="9" y2="4"></line>
+          <line x1="15" y1="1" x2="15" y2="4"></line>
+          <line x1="9" y1="20" x2="9" y2="23"></line>
+          <line x1="15" y1="20" x2="15" y2="23"></line>
+          <line x1="20" y1="9" x2="23" y2="9"></line>
+          <line x1="20" y1="14" x2="23" y2="14"></line>
+          <line x1="1" y1="9" x2="4" y2="9"></line>
+          <line x1="1" y1="14" x2="4" y2="14"></line>
         </svg>
       );
     case 'target':
@@ -136,34 +118,37 @@ export default function Skills() {
     <section className="section-spacing skills-section reveal-on-scroll" id="skills">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Keahlian & Toolkit</div>
-          <h2 className="section-title">
-            Kompetensi <span className="gradient-text">Teknis</span>
+          <div className="section-pill section-pill-dark">Keahlian &amp; Toolkit</div>
+          <h2 className="section-title section-title-dark">
+            Keahlian <span className="gradient-text-soft">Teknis</span>
           </h2>
-          <p className="section-description">
-            Alat dan kemampuan yang dipraktikkan dalam pengujian API Postman, inspeksi sistem web, 
-            serta perancangan antarmuka pengguna.
+          <p className="section-description section-description-dark">
+            Kombinasi kapabilitas pengujian fungsionalitas sistem, rekayasa frontend modern, dan alur kerja kolaboratif.
           </p>
         </div>
 
-        {/* 3 Compact Cards Grid */}
+        {/* 3 Categories Grid */}
         <div className="skills-grid">
-          {SKILL_CATEGORIES.map((category, idx) => (
+          {SKILL_CATEGORIES.map((cat, idx) => (
             <div key={idx} className="skill-card glass-card">
               <div className="skill-card-header">
                 <span className="category-num">0{idx + 1}</span>
-                <h3 className="category-title">{category.title}</h3>
-                <p className="category-desc">{category.description}</p>
+                <h3 className="category-title">{cat.title}</h3>
+                <p className="category-desc">{cat.description}</p>
               </div>
 
-              <div className="skills-list">
-                {category.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="skill-row">
-                    <div className="skill-row-top">
-                      <span className="skill-icon-svg">{getSkillIcon(skill.iconType)}</span>
-                      <span className="skill-name">{skill.name}</span>
+              <div className="skill-items-list">
+                {cat.skills.map((skill, sIdx) => (
+                  <div key={sIdx} className="skill-item-row">
+                    <div className="skill-item-header">
+                      <span className="skill-icon-wrap">
+                        <SkillSvgIcon iconType={skill.iconType} />
+                      </span>
+                      <strong className="skill-name">{skill.name}</strong>
                     </div>
-                    <div className="skill-row-sub">{skill.level}</div>
+                    <div className="skill-desc-text">
+                      {skill.level}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -171,18 +156,21 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Workflow Strip */}
-        <div className="workflow-strip">
-          <div className="workflow-title">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{color: 'var(--accent-sage)'}}>
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-            </svg>
-            <strong>Alur Kerja Pengujian:</strong> Dari Analisis hingga Verifikasi
+        {/* Workflow Methodology Bar */}
+        <div className="workflow-card glass-card">
+          <div className="workflow-title-row">
+            <div className="wf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h4>Siklus Alur Pengujian &amp; Penjaminan Mutu (SQA)</h4>
           </div>
+          
           <div className="workflow-steps">
             <div className="step-item">
               <span className="step-badge">1</span>
-              <span>Kebutuhan Klien</span>
+              <span>Analisis Kebutuhan</span>
             </div>
             <div className="step-arrow">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -192,7 +180,7 @@ export default function Skills() {
             </div>
             <div className="step-item">
               <span className="step-badge">2</span>
-              <span>Postman Collections</span>
+              <span>Eksekusi Postman / UI</span>
             </div>
             <div className="step-arrow">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -221,35 +209,54 @@ export default function Skills() {
       <style jsx>{`
         .skills-section {
           position: relative;
-          background-color: var(--bg-primary);
+          background-color: #8a6e54;
           width: 100%;
           overflow: hidden;
+        }
+
+        .section-pill-dark {
+          background: rgba(255, 255, 255, 0.16) !important;
+          border: 1px solid rgba(255, 255, 255, 0.28) !important;
+          color: #ffffff !important;
+        }
+
+        .section-title-dark {
+          color: #ffffff !important;
+        }
+
+        .gradient-text-soft {
+          background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: inline-block;
+        }
+
+        .section-description-dark {
+          color: #f3ede4 !important;
         }
 
         .skills-grid {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 1.15rem;
+          gap: 1.25rem;
           margin-bottom: 2rem;
           width: 100%;
         }
 
         .skill-card {
-          padding: 1.35rem 1.25rem;
+          padding: 1.5rem 1.35rem;
           display: flex;
           flex-direction: column;
           background: #ffffff;
-          border: 1px solid var(--border-subtle);
-          border-radius: var(--radius-md);
-          box-shadow: var(--shadow-sm);
-          cursor: pointer;
-          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          border-radius: var(--radius-lg);
+          box-shadow: 0 8px 28px rgba(35, 24, 14, 0.16);
+          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .skill-card:hover {
           transform: translateY(-5px);
-          box-shadow: var(--shadow-hover);
-          border-color: var(--border-hover);
+          box-shadow: 0 16px 38px rgba(35, 24, 14, 0.24);
         }
 
         .skill-card-header {
@@ -261,14 +268,14 @@ export default function Skills() {
         .category-num {
           font-family: var(--font-mono);
           font-size: 0.76rem;
-          color: var(--accent-taupe);
+          color: var(--accent-taupe-dark);
           font-weight: 700;
           margin-bottom: 0.2rem;
           display: block;
         }
 
         .category-title {
-          font-size: 1.08rem;
+          font-size: 1.15rem;
           margin-bottom: 0.3rem;
           color: var(--text-primary);
         }
@@ -279,85 +286,100 @@ export default function Skills() {
           line-height: 1.45;
         }
 
-        .skills-list {
+        .skill-items-list {
           display: flex;
           flex-direction: column;
-          gap: 0.55rem;
+          gap: 0.75rem;
+          flex-grow: 1;
         }
 
-        .skill-row {
+        .skill-item-row {
           display: flex;
           flex-direction: column;
-          padding: 0.55rem 0.7rem;
-          background: #ffffff;
-          border: 1px solid var(--border-subtle);
-          border-radius: var(--radius-sm);
-          transition: all var(--transition-fast);
           gap: 0.2rem;
+          padding: 0.65rem 0.8rem;
+          border-radius: var(--radius-sm);
+          background: var(--bg-secondary);
+          border: 1px solid var(--border-subtle);
+          transition: background 0.2s ease, border-color 0.2s ease;
         }
 
-        .skill-row:hover {
-          background: var(--accent-taupe-soft);
-          border-color: rgba(138, 110, 84, 0.4);
-          transform: translateX(2px);
+        .skill-item-row:hover {
+          background: #fdfbf8;
+          border-color: var(--accent-taupe);
         }
 
-        .skill-row-top {
+        .skill-item-header {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.45rem;
         }
 
-        .skill-icon-svg {
+        .skill-icon-wrap {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: var(--accent-taupe);
+          width: 24px;
+          height: 24px;
+          border-radius: 6px;
+          background: var(--accent-taupe-soft);
+          color: var(--accent-taupe-dark);
           flex-shrink: 0;
         }
 
         .skill-name {
-          font-size: 0.82rem;
-          font-weight: 600;
+          font-size: 0.85rem;
           color: var(--text-primary);
         }
 
-        .skill-row-sub {
-          font-size: 0.72rem;
+        .skill-desc-text {
+          font-size: 0.74rem;
           color: var(--text-secondary);
-          padding-left: 1.45rem;
           line-height: 1.35;
+          padding-left: 1.85rem;
         }
 
-        .workflow-strip {
+        /* Methodology Bar */
+        .workflow-card {
+          padding: 1.35rem 1.65rem;
           background: #ffffff;
-          border: 1px solid var(--border-subtle);
+          border: 1px solid rgba(255, 255, 255, 0.9);
           border-radius: var(--radius-lg);
-          padding: 1.15rem 1.5rem;
+          box-shadow: 0 8px 28px rgba(35, 24, 14, 0.16);
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 1rem;
           flex-wrap: wrap;
-          box-shadow: var(--shadow-sm);
+          gap: 1.25rem;
           transition: transform 0.28s ease, box-shadow 0.28s ease;
         }
 
-        .workflow-strip:hover {
-          transform: translateY(-2px);
-          box-shadow: var(--shadow-md);
+        .workflow-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
         }
 
-        .workflow-title {
+        .workflow-title-row {
           display: flex;
           align-items: center;
-          gap: 0.45rem;
-          font-size: 0.86rem;
-          color: var(--text-primary);
+          gap: 0.65rem;
         }
 
-        .workflow-title strong {
+        .wf-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          border-radius: 8px;
+          background: var(--accent-taupe-soft);
+          color: var(--accent-taupe-dark);
+        }
+
+        .workflow-title-row h4 {
+          font-size: 0.92rem;
           color: var(--text-primary);
+          margin: 0;
         }
 
         .workflow-steps {
@@ -370,46 +392,37 @@ export default function Skills() {
         .step-item {
           display: flex;
           align-items: center;
-          gap: 0.35rem;
+          gap: 0.4rem;
           font-size: 0.78rem;
+          font-weight: 500;
           color: var(--text-secondary);
         }
 
         .step-badge {
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          background: var(--gradient-brand);
-          color: #ffffff;
-          font-weight: 700;
-          font-size: 0.68rem;
-          display: flex;
+          display: inline-flex;
           align-items: center;
           justify-content: center;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: var(--accent-taupe);
+          color: #ffffff;
+          font-size: 0.7rem;
+          font-weight: 700;
         }
 
         .step-arrow {
-          color: var(--text-muted);
-          display: flex;
-          align-items: center;
+          color: var(--accent-taupe);
         }
 
         @media (max-width: 960px) {
           .skills-grid {
             grid-template-columns: 1fr;
-            gap: 1rem;
           }
-          .workflow-strip {
+
+          .workflow-card {
             flex-direction: column;
             align-items: flex-start;
-          }
-          .workflow-steps {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.5rem;
-          }
-          .step-arrow {
-            display: none;
           }
         }
       `}</style>

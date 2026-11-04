@@ -15,11 +15,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Tentang', href: '#about' },
-    { label: 'Pendekatan', href: '#philosophy' },
+    { label: 'Tentang', href: '#about-me' },
+    { label: 'Pendidikan', href: '#education' },
+    { label: 'Pengalaman', href: '#experience' },
     { label: 'Proyek', href: '#projects' },
     { label: 'Keahlian', href: '#skills' },
-    { label: 'Pengalaman', href: '#experience' },
     { label: 'Kontak', href: '#contact' },
   ];
 

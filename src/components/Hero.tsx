@@ -41,7 +41,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Concise Introduction */}
+        {/* Right Column: Clean Editorial Name & Role */}
         <div className="hero-content">
           <div className="hero-eyebrow">
             <span className="eyebrow-line"></span>
@@ -53,41 +53,13 @@ export default function Hero() {
             <span className="title-secondary">FATHIMATUZ ZAHRA</span>
           </h1>
 
-          <div className="role-tag-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span>Software Quality Assurance & Frontend Developer</span>
+          {/* Prominent Role Subtitle */}
+          <div className="hero-role-headline" id="hero-role-headline">
+            <span className="role-accent-bar"></span>
+            <h2 className="role-text">Software Quality Assurance &amp; Frontend Developer</h2>
           </div>
 
-          {/* Concise punchy description */}
-          <p className="hero-description">
-            Fresh graduate in Informatics Engineering (GPA 3.94/4.00) with hands-on experience in 
-            <strong> Postman API testing</strong>, <strong>Next.js & React frontend development</strong>, 
-            and software system verification.
-          </p>
-
-          {/* Quick Stats Grid */}
-          <div className="metrics-pills-row">
-            <div className="metric-pill">
-              <div className="metric-pill-val">3,94</div>
-              <div className="metric-pill-sub">IPK / 4,00</div>
-            </div>
-            <div className="metric-pill">
-              <div className="metric-pill-val">6 Bulan</div>
-              <div className="metric-pill-sub">Magang IT</div>
-            </div>
-            <div className="metric-pill">
-              <div className="metric-pill-val">Postman</div>
-              <div className="metric-pill-sub">API Testing</div>
-            </div>
-            <div className="metric-pill">
-              <div className="metric-pill-val">4 Proyek</div>
-              <div className="metric-pill-sub">Studi Kasus</div>
-            </div>
-          </div>
-
-          {/* CTAs */}
+          {/* Clean Action Buttons */}
           <div className="hero-cta-group">
             <a href="#about-me" className="btn btn-primary" id="hero-cta-about">
               <span>Tentang Saya</span>
@@ -129,21 +101,21 @@ export default function Hero() {
 
       <style jsx>{`
         .hero-section {
-          padding-top: 7rem;
-          padding-bottom: 3.5rem;
           position: relative;
-          width: 100%;
+          padding-top: calc(var(--nav-height) + 3.5rem);
+          padding-bottom: 4rem;
+          background-color: var(--bg-primary);
           overflow: hidden;
         }
 
         .hero-container {
           display: grid;
-          grid-template-columns: 340px 1fr;
-          gap: 3rem;
+          grid-template-columns: 0.88fr 1.12fr;
+          gap: 3.5rem;
           align-items: center;
-          width: 100%;
         }
 
+        /* Arch Frame Photo Container */
         .hero-image-wrapper {
           display: flex;
           flex-direction: column;
@@ -153,19 +125,22 @@ export default function Hero() {
         .arch-photo-container {
           position: relative;
           width: 100%;
-          max-width: 310px;
-          height: 410px;
-          border-radius: 155px 155px 20px 20px;
+          max-width: 370px;
+          aspect-ratio: 3 / 4;
+          border-top-left-radius: 185px;
+          border-top-right-radius: 185px;
+          border-bottom-left-radius: 24px;
+          border-bottom-right-radius: 24px;
           overflow: hidden;
-          background: #efe7dc;
-          border: 1px solid var(--border-subtle);
-          box-shadow: var(--shadow-md);
-          transition: transform 0.35s ease, box-shadow 0.35s ease;
+          background: linear-gradient(180deg, #ecdcc9 0%, #dfcbbe 100%);
+          box-shadow: 0 16px 40px rgba(45, 32, 20, 0.12);
+          border: 1px solid rgba(140, 115, 93, 0.2);
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .arch-photo-container:hover {
           transform: translateY(-4px);
-          box-shadow: var(--shadow-hover);
+          box-shadow: 0 22px 50px rgba(45, 32, 20, 0.18);
         }
 
         .arch-photo {
@@ -173,11 +148,6 @@ export default function Hero() {
           height: 100%;
           object-fit: cover;
           display: block;
-          transition: transform 0.4s ease;
-        }
-
-        .arch-photo-container:hover .arch-photo {
-          transform: scale(1.025);
         }
 
         .arch-badge-floating {
@@ -185,40 +155,40 @@ export default function Hero() {
           bottom: 1rem;
           left: 50%;
           transform: translateX(-50%);
-          display: inline-flex;
-          align-items: center;
-          gap: 0.45rem;
-          padding: 0.35rem 0.95rem;
-          background: rgba(255, 255, 255, 0.95);
+          background: rgba(255, 255, 255, 0.94);
           backdrop-filter: blur(8px);
-          border: 1px solid var(--border-subtle);
+          border: 1px solid rgba(140, 115, 93, 0.25);
+          padding: 0.45rem 0.9rem;
           border-radius: var(--radius-full);
-          font-size: 0.74rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.76rem;
           font-weight: 600;
           color: var(--text-primary);
-          box-shadow: 0 4px 15px rgba(70, 55, 40, 0.08);
           white-space: nowrap;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         }
 
         .badge-indicator {
-          width: 7px;
-          height: 7px;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
           background: var(--accent-sage);
-          box-shadow: 0 0 5px rgba(84, 110, 99, 0.5);
+          box-shadow: 0 0 0 3px rgba(79, 107, 95, 0.25);
         }
 
         .photo-caption {
+          margin-top: 0.85rem;
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-top: 0.85rem;
+          gap: 0.15rem;
           text-align: center;
-          line-height: 1.35;
         }
 
         .photo-caption strong {
-          font-size: 0.9rem;
+          font-size: 0.95rem;
           color: var(--text-primary);
         }
 
@@ -227,143 +197,124 @@ export default function Hero() {
           color: var(--text-muted);
         }
 
+        /* Hero Content Column */
         .hero-content {
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
-          text-align: left;
         }
 
         .hero-eyebrow {
           display: inline-flex;
           align-items: center;
-          gap: 0.6rem;
-          font-size: 0.75rem;
-          font-family: var(--font-mono);
-          letter-spacing: 0.06em;
-          color: var(--accent-taupe-dark);
+          gap: 0.65rem;
+          font-size: 0.74rem;
           font-weight: 600;
-          margin-bottom: 0.85rem;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
+          color: var(--accent-taupe-dark);
+          margin-bottom: 0.85rem;
         }
 
         .eyebrow-line {
-          width: 20px;
+          width: 28px;
           height: 2px;
           background: var(--accent-taupe);
+          border-radius: 2px;
         }
 
         .hero-title {
-          font-size: clamp(2.2rem, 3.8vw, 3.2rem);
-          font-weight: 800;
+          font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+          font-weight: 700;
+          line-height: 1.05;
           letter-spacing: -0.03em;
-          line-height: 1.1;
-          margin-bottom: 0.85rem;
           color: var(--text-primary);
+          margin-bottom: 0.75rem;
         }
 
         .title-secondary {
-          background: linear-gradient(135deg, #1e1b18 0%, #6e553f 60%, #8a6e54 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: 700;
+          font-weight: 500;
+          color: var(--accent-taupe-dark);
           letter-spacing: -0.02em;
         }
 
-        .role-tag-pill {
+        .hero-role-headline {
+          display: flex;
+          align-items: center;
+          gap: 0.85rem;
+          margin: 0.75rem 0 2rem;
+          padding: 0.65rem 1rem;
+          background: rgba(138, 110, 84, 0.08);
+          border: 1px solid rgba(138, 110, 84, 0.18);
+          border-radius: var(--radius-md);
+          width: fit-content;
+        }
+
+        .role-accent-bar {
+          width: 4px;
+          height: 24px;
+          background: var(--accent-taupe);
+          border-radius: var(--radius-full);
+          flex-shrink: 0;
+        }
+
+        .role-text {
+          font-size: clamp(1.05rem, 2vw, 1.35rem);
+          font-weight: 600;
+          color: var(--text-primary);
+          letter-spacing: -0.01em;
+          margin: 0;
+          line-height: 1.3;
+        }
+
+        /* CTAs */
+        .hero-cta-group {
+          display: flex;
+          align-items: center;
+          gap: 0.85rem;
+          flex-wrap: wrap;
+        }
+
+        .btn-outline {
+          background: transparent;
+          color: var(--text-secondary);
+          border: 1px solid var(--border-medium);
+          padding: 0.65rem 1.15rem;
+          border-radius: var(--radius-full);
+          font-size: 0.85rem;
+          font-weight: 500;
+          cursor: pointer;
           display: inline-flex;
           align-items: center;
           gap: 0.45rem;
-          padding: 0.3rem 0.85rem;
-          background: var(--accent-sage-soft);
-          border: 1px solid rgba(84, 110, 99, 0.25);
-          border-radius: var(--radius-full);
-          color: var(--accent-sage-dark);
-          font-size: 0.8rem;
-          font-weight: 600;
-          margin-bottom: 1.25rem;
+          transition: all 0.22s ease;
         }
 
-        .hero-description {
-          font-size: 1rem;
-          color: var(--text-secondary);
-          line-height: 1.65;
-          margin-bottom: 1.75rem;
-          max-width: 650px;
-        }
-
-        .hero-description strong {
+        .btn-outline:hover {
+          background: var(--bg-secondary);
+          border-color: var(--accent-taupe);
           color: var(--text-primary);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 14px rgba(45, 32, 20, 0.08);
         }
 
-        .metrics-pills-row {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 0.75rem;
-          width: 100%;
-          max-width: 580px;
-          margin-bottom: 2rem;
-        }
-
-        .metric-pill {
-          background: #ffffff;
-          border: 1px solid var(--border-subtle);
-          border-radius: var(--radius-sm);
-          padding: 0.75rem 0.5rem;
-          text-align: center;
-          box-shadow: var(--shadow-sm);
-          cursor: pointer;
-          transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-        }
-
-        .metric-pill:hover {
-          border-color: var(--border-hover);
-          transform: translateY(-3px);
-          box-shadow: var(--shadow-md);
-        }
-
-        .metric-pill-val {
-          font-family: var(--font-heading);
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: var(--accent-taupe);
-          line-height: 1.2;
-          margin-bottom: 0.1rem;
-        }
-
-        .metric-pill-sub {
-          font-size: 0.7rem;
-          font-weight: 600;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 0.03em;
-        }
-
-        .hero-cta-group {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          gap: 0.75rem;
-        }
-
-        @media (max-width: 960px) {
+        @media (max-width: 900px) {
           .hero-container {
             grid-template-columns: 1fr;
             text-align: center;
-            gap: 2rem;
+            gap: 2.5rem;
+          }
+
+          .hero-image-wrapper {
+            margin: 0 auto;
           }
 
           .hero-content {
             align-items: center;
-            text-align: center;
           }
 
-          .hero-eyebrow {
+          .hero-role-headline {
             justify-content: center;
-          }
-
-          .metrics-pills-row {
-            grid-template-columns: repeat(2, 1fr);
+            text-align: center;
           }
 
           .hero-cta-group {

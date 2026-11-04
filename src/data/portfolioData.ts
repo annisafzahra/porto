@@ -21,6 +21,8 @@ export interface Project {
   featured: boolean;
 }
 
+export type ProjectItem = Project;
+
 export interface SkillItem {
   name: string;
   level: string;
@@ -59,6 +61,7 @@ export const PERSONAL_INFO = {
     highlight: "Fokus pada rekayasa web, perancangan antarmuka, basis data relasional, dan analisis sistem. Tugas akhir: Sistem Pendukung Keputusan K-Means Clustering."
   },
   secondaryEducation: {
+    degree: "Sekolah Menengah Kejuruan (SMK)",
     institution: "SMK Negeri 1 Indramayu",
     major: "Akomodasi Perhotelan",
     period: "2019 - 2022",

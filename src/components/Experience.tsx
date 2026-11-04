@@ -1,111 +1,68 @@
 'use client';
 
 import React from 'react';
-import { EXPERIENCES, PERSONAL_INFO } from '@/data/portfolioData';
+import { EXPERIENCES } from '@/data/portfolioData';
 
 export default function Experience() {
   return (
     <section className="section-spacing experience-section reveal-on-scroll" id="experience">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">Riwayat & Jejak Kerja</div>
+          <div className="section-pill section-pill-dark">Riwayat Profesional</div>
           <h2 className="section-title section-title-dark">
-            Pengalaman & <span className="gradient-text-soft">Pendidikan</span>
+            Pengalaman <span className="gradient-text-soft">Kerja &amp; Magang</span>
           </h2>
           <p className="section-description section-description-dark">
-            Pengalaman magang pengembangan frontend dan pengujian API, 
-            serta fondasi kedisiplinan kerja dari latar belakang perhotelan.
+            Pengalaman praktis dalam pengujian API menggunakan Postman, pengembangan antarmuka web, serta ketelitian operasional.
           </p>
         </div>
 
-        <div className="experience-layout">
-          {/* Timeline Column */}
-          <div className="timeline-col">
-            <h3 className="col-headline col-headline-dark">Pengalaman Kerja & Magang</h3>
-            
-            <div className="timeline-items">
-              {EXPERIENCES.map((exp, idx) => (
-                <div key={idx} className="timeline-card glass-card">
-                  <div className="card-meta">
-                    <span className="badge-period">{exp.period}</span>
-                    <span className="badge-type">{exp.type}</span>
-                    <span className="badge-loc">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                      </svg>
-                      {exp.location}
-                    </span>
-                  </div>
-
-                  <h4 className="card-role">{exp.role}</h4>
-                  <div className="card-org">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
-                    <strong>{exp.organization}</strong>
-                  </div>
-
-                  <p className="card-desc">{exp.description}</p>
-
-                  <ul className="card-achievements">
-                    {exp.achievements.map((ach, aIdx) => (
-                      <li key={aIdx}>
-                        <span className="ach-bullet">
-                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                          </svg>
-                        </span>
-                        <span>{ach}</span>
-                      </li>
-                    ))}
-                  </ul>
+        <div className="experience-grid">
+          {EXPERIENCES.map((exp, idx) => (
+            <div key={idx} className="experience-card glass-card">
+              <div className="card-top-row">
+                <div className="exp-org-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span>{exp.organization}</span>
                 </div>
-              ))}
-            </div>
-          </div>
+                <div className="exp-meta-pills">
+                  <span className="badge-period">{exp.period}</span>
+                  <span className="badge-type">{exp.type}</span>
+                </div>
+              </div>
 
-          {/* Education Column */}
-          <div className="education-col">
-            <h3 className="col-headline col-headline-dark">Pendidikan</h3>
+              <h3 className="card-role">{exp.role}</h3>
 
-            <div className="education-card glass-card">
-              <div className="edu-icon-badge">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              <div className="card-loc">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-              </div>
-              <div className="edu-degree">{PERSONAL_INFO.education.degree}</div>
-              <h4 className="edu-major">{PERSONAL_INFO.education.major}</h4>
-              <div className="edu-inst">{PERSONAL_INFO.education.institution}</div>
-              
-              <div className="edu-status-row">
-                <span className="status-pill">IPK {PERSONAL_INFO.education.gpa}</span>
-                <span className="edu-year">{PERSONAL_INFO.education.period}</span>
+                <span>{exp.location}</span>
               </div>
 
-              <div className="edu-divider"></div>
+              <p className="card-desc">{exp.description}</p>
 
-              <div className="edu-details">
-                <h5>Fokus Akademik:</h5>
-                <p>{PERSONAL_INFO.education.highlight}</p>
-              </div>
+              <div className="card-divider"></div>
 
-              {/* Secondary Education */}
-              <div className="secondary-edu-box">
-                <div className="sec-edu-title">{PERSONAL_INFO.secondaryEducation.institution}</div>
-                <div className="sec-edu-sub">{PERSONAL_INFO.secondaryEducation.major} ({PERSONAL_INFO.secondaryEducation.period})</div>
-                <p className="sec-edu-desc">{PERSONAL_INFO.secondaryEducation.highlight}</p>
-              </div>
-
-              <div className="ready-badge">
-                <span className="ready-dot"></span>
-                <span>Terbuka untuk Peluang Kerja Software QA</span>
-              </div>
+              <div className="achievements-heading">Tanggung Jawab &amp; Kontribusi:</div>
+              <ul className="card-achievements">
+                {exp.achievements.map((ach, aIdx) => (
+                  <li key={aIdx}>
+                    <span className="ach-bullet">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                    <span>{ach}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -127,10 +84,6 @@ export default function Experience() {
           color: #ffffff !important;
         }
 
-        .col-headline-dark {
-          color: #ffffff !important;
-        }
-
         .gradient-text-soft {
           background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
           -webkit-background-clip: text;
@@ -142,265 +95,147 @@ export default function Experience() {
           color: #f3ede4 !important;
         }
 
-        .experience-layout {
+        .experience-grid {
           display: grid;
-          grid-template-columns: 1.55fr 1fr;
-          gap: 1.5rem;
-          align-items: flex-start;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1.75rem;
           width: 100%;
         }
 
-        .col-headline {
-          font-size: 1.15rem;
-          margin-bottom: 1.25rem;
-        }
-
-        .timeline-items {
+        .experience-card {
+          padding: 2.25rem 2rem;
+          background: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          border-radius: var(--radius-lg);
+          box-shadow: 0 8px 28px rgba(35, 24, 14, 0.16);
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
-        }
-
-        .timeline-card {
-          padding: 1.5rem;
-          background: #ffffff;
-          border-left: 3px solid var(--accent-taupe);
-          border-radius: var(--radius-md);
-          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
           transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .timeline-card:hover {
+        .experience-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
+          box-shadow: 0 16px 40px rgba(35, 24, 14, 0.24);
         }
 
-        .card-meta {
+        .card-top-row {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          margin-bottom: 0.6rem;
+          justify-content: space-between;
+          margin-bottom: 0.95rem;
           flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+
+        .exp-org-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          font-size: 0.86rem;
+          font-weight: 600;
+          color: var(--accent-taupe-dark);
+          background: var(--accent-taupe-soft);
+          padding: 0.25rem 0.75rem;
+          border-radius: var(--radius-full);
+        }
+
+        .exp-meta-pills {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
         }
 
         .badge-period {
-          font-size: 0.72rem;
+          font-size: 0.75rem;
           font-family: var(--font-mono);
-          color: var(--accent-taupe-dark);
-          background: var(--accent-taupe-soft);
-          border: 1px solid rgba(140, 115, 93, 0.25);
-          padding: 0.15rem 0.55rem;
+          color: var(--text-muted);
+          background: var(--bg-secondary);
+          padding: 0.18rem 0.55rem;
           border-radius: var(--radius-full);
-          font-weight: 600;
         }
 
         .badge-type {
-          font-size: 0.72rem;
-          color: var(--text-muted);
-          background: var(--bg-secondary);
-          padding: 0.15rem 0.55rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: var(--accent-taupe-dark);
+          background: var(--accent-taupe-soft);
+          padding: 0.18rem 0.55rem;
           border-radius: var(--radius-full);
         }
 
-        .badge-loc {
+        .card-role {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: var(--text-primary);
+          letter-spacing: -0.01em;
+          margin-bottom: 0.35rem;
+        }
+
+        .card-loc {
           display: inline-flex;
           align-items: center;
-          gap: 0.25rem;
-          font-size: 0.72rem;
+          gap: 0.3rem;
+          font-size: 0.78rem;
           color: var(--text-muted);
-        }
-
-        .card-role {
-          font-size: 1.15rem;
-          margin-bottom: 0.25rem;
-          color: var(--text-primary);
-        }
-
-        .card-org {
-          display: flex;
-          align-items: center;
-          gap: 0.35rem;
-          font-size: 0.88rem;
-          color: var(--accent-taupe-dark);
-          margin-bottom: 0.75rem;
+          margin-bottom: 0.95rem;
         }
 
         .card-desc {
-          font-size: 0.86rem;
+          font-size: 0.88rem;
+          line-height: 1.6;
           color: var(--text-secondary);
-          line-height: 1.55;
-          margin-bottom: 0.85rem;
+          margin-bottom: 1.15rem;
+        }
+
+        .card-divider {
+          width: 100%;
+          height: 1px;
+          background: var(--border-subtle);
+          margin-bottom: 1rem;
+        }
+
+        .achievements-heading {
+          font-size: 0.82rem;
+          font-weight: 600;
+          color: var(--text-primary);
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          margin-bottom: 0.75rem;
         }
 
         .card-achievements {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 0.45rem;
+          gap: 0.6rem;
+          flex-grow: 1;
         }
 
         .card-achievements li {
           display: flex;
           align-items: flex-start;
-          gap: 0.5rem;
+          gap: 0.55rem;
           font-size: 0.84rem;
           color: var(--text-secondary);
           line-height: 1.5;
         }
 
         .ach-bullet {
-          color: var(--accent-sage);
-          margin-top: 0.2rem;
-          flex-shrink: 0;
-        }
-
-        .education-card {
-          padding: 1.5rem;
-          background: #ffffff;
-          border-radius: var(--radius-md);
-          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
-          position: sticky;
-          top: 5.5rem;
-          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .education-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
-        }
-
-        .edu-icon-badge {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
           background: var(--accent-taupe-soft);
           color: var(--accent-taupe-dark);
-          margin-bottom: 0.75rem;
+          flex-shrink: 0;
+          margin-top: 1px;
         }
 
-        .edu-degree {
-          font-size: 0.75rem;
-          font-family: var(--font-mono);
-          color: var(--accent-taupe-dark);
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          margin-bottom: 0.2rem;
-          font-weight: 700;
-        }
-
-        .edu-major {
-          font-size: 1.2rem;
-          margin-bottom: 0.2rem;
-          color: var(--text-primary);
-        }
-
-        .edu-inst {
-          font-size: 0.86rem;
-          color: var(--text-secondary);
-          margin-bottom: 0.75rem;
-          font-weight: 500;
-        }
-
-        .edu-status-row {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          margin-bottom: 1rem;
-          flex-wrap: wrap;
-        }
-
-        .status-pill {
-          font-size: 0.72rem;
-          font-weight: 700;
-          color: var(--accent-sage-dark);
-          background: var(--accent-sage-soft);
-          border: 1px solid rgba(84, 110, 99, 0.3);
-          padding: 0.15rem 0.6rem;
-          border-radius: var(--radius-full);
-        }
-
-        .edu-year {
-          font-size: 0.75rem;
-          color: var(--text-muted);
-        }
-
-        .edu-divider {
-          height: 1px;
-          background: var(--border-subtle);
-          margin-bottom: 1rem;
-        }
-
-        .edu-details h5 {
-          font-size: 0.88rem;
-          color: var(--text-primary);
-          margin-bottom: 0.35rem;
-        }
-
-        .edu-details p {
-          font-size: 0.84rem;
-          color: var(--text-secondary);
-          line-height: 1.5;
-          margin-bottom: 1rem;
-        }
-
-        .secondary-edu-box {
-          background: #fdfbf8;
-          border: 1px solid var(--border-subtle);
-          border-radius: var(--radius-sm);
-          padding: 0.75rem 0.85rem;
-          margin-bottom: 1rem;
-        }
-
-        .sec-edu-title {
-          font-size: 0.85rem;
-          font-weight: 700;
-          color: var(--text-primary);
-          margin-bottom: 0.15rem;
-        }
-
-        .sec-edu-sub {
-          font-size: 0.74rem;
-          color: var(--accent-taupe-dark);
-          margin-bottom: 0.35rem;
-          font-family: var(--font-mono);
-        }
-
-        .sec-edu-desc {
-          font-size: 0.8rem;
-          color: var(--text-secondary);
-          line-height: 1.45;
-        }
-
-        .ready-badge {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          background: var(--accent-sage-soft);
-          border: 1px solid rgba(84, 110, 99, 0.3);
-          border-radius: var(--radius-sm);
-          padding: 0.55rem 0.8rem;
-          font-size: 0.78rem;
-          font-weight: 600;
-          color: var(--accent-sage-dark);
-        }
-
-        .ready-dot {
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: var(--accent-sage);
-          box-shadow: 0 0 6px rgba(84, 110, 99, 0.4);
-        }
-
-        @media (max-width: 900px) {
-          .experience-layout {
+        @media (max-width: 860px) {
+          .experience-grid {
             grid-template-columns: 1fr;
-          }
-          .education-card {
-            position: static;
           }
         }
       `}</style>
