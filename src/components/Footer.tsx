@@ -18,7 +18,7 @@ export default function Footer() {
             <span className="brand-badge">AFZ</span>
             <div className="brand-meta">
               <strong>{PERSONAL_INFO.name}</strong>
-              <span>{PERSONAL_INFO.title} • {PERSONAL_INFO.education.degree}</span>
+              <span>{PERSONAL_INFO.title} • Polindra (IPK {PERSONAL_INFO.education.gpa})</span>
             </div>
           </div>
 
@@ -41,7 +41,7 @@ export default function Footer() {
           </p>
           <div className="deploy-pill">
             <span className="deploy-dot"></span>
-            <span>Zero-Config Static Architecture • Next.js & Vercel Ready</span>
+            <span>Vercel Optimized • Next.js Static Architecture</span>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default function Footer() {
       <style jsx>{`
         .footer-wrapper {
           border-top: 1px solid var(--border-subtle);
-          background: rgba(4, 7, 12, 0.95);
+          background: #f4eee4;
           padding: 3rem 0 2rem;
           margin-top: 4rem;
         }
@@ -82,9 +82,9 @@ export default function Footer() {
           height: 36px;
           border-radius: 8px;
           background: var(--gradient-brand);
-          color: #07090e;
+          color: #ffffff;
           font-family: var(--font-heading);
-          font-weight: 800;
+          font-weight: 700;
           font-size: 0.9rem;
         }
 
@@ -115,12 +115,12 @@ export default function Footer() {
         }
 
         .back-to-top:hover {
-          color: var(--accent-cyan);
+          color: var(--accent-taupe);
         }
 
         .footer-divider {
           height: 1px;
-          background: rgba(255, 255, 255, 0.05);
+          background: var(--border-subtle);
         }
 
         .footer-bottom {
@@ -143,17 +143,18 @@ export default function Footer() {
           font-size: 0.75rem;
           font-family: var(--font-mono);
           color: var(--text-secondary);
-          background: rgba(255, 255, 255, 0.03);
+          background: #ffffff;
           border: 1px solid var(--border-subtle);
           padding: 0.25rem 0.75rem;
           border-radius: var(--radius-full);
+          box-shadow: 0 1px 3px rgba(70, 55, 40, 0.03);
         }
 
         .deploy-dot {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: #10b981;
+          background: var(--accent-sage);
         }
       `}</style>
     </footer>

@@ -9,7 +9,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filterOptions = [
-    { label: 'Semua Proyek (4)', value: 'All' },
+    { label: 'Semua Studi Kasus (4)', value: 'All' },
     { label: 'Next.js & Web (2)', value: 'Next.js & Web' },
     { label: 'Mobile App (1)', value: 'Mobile App' },
     { label: 'UI/UX & Research (1)', value: 'UI/UX & Research' },
@@ -20,16 +20,16 @@ export default function Projects() {
     : PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <section className="section-spacing projects-section" id="projects">
+    <section className="section-spacing projects-section reveal-on-scroll" id="projects">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Studi Kasus Nyata</div>
+          <div className="section-pill">Studi Kasus & Verifikasi Riil</div>
           <h2 className="section-title">
-            Karya & Bukti <span className="gradient-text">Eksekusi Nyata</span>
+            Karya & Bukti <span className="gradient-text">Pengujian Sistem</span>
           </h2>
           <p className="section-description">
-            Berikut adalah 4 sistem dan aplikasi yang telah saya selesaikan untuk instansi pemerintahan, 
-            mitra sekolah, dan perusahaan komersial. Setiap proyek berakar pada riset kebutuhan pengguna dan dibangun dengan kode siap pakai.
+            4 sistem dan aplikasi nyata yang telah saya selesaikan untuk mitra sekolah, instansi pemerintahan, dan perusahaan. 
+            Setiap proyek dilengkapi aspek pengujian API, validasi batasan sistem, dan verifikasi antarmuka.
           </p>
         </div>
 
@@ -64,15 +64,22 @@ export default function Projects() {
                 }
               }}
             >
-              {/* Card Header */}
+              {/* Project Image Mockup Frame */}
+              <div className="card-mockup-frame">
+                <img 
+                  src={project.image || '/projects/spk-kmeans.svg'} 
+                  alt={project.title}
+                  className="mockup-img"
+                  loading="lazy"
+                />
+                <div className="mockup-overlay-badge">
+                  <span>{project.category}</span>
+                </div>
+              </div>
+
+              {/* Card Meta & Badges */}
               <div className="card-top">
                 <div className="card-badges">
-                  <span 
-                    className="card-category-pill"
-                    style={{ borderColor: `${project.accentColor}50`, color: project.accentColor }}
-                  >
-                    {project.category}
-                  </span>
                   <span className="card-badge-pill">{project.badge}</span>
                 </div>
                 <div className="partner-chip">
@@ -88,30 +95,15 @@ export default function Projects() {
               <h3 className="project-title">{project.title}</h3>
               <p className="project-tagline">{project.tagline}</p>
 
-              {/* Visual Architecture Preview Banner */}
-              <div className="card-visual-preview" style={{ background: `linear-gradient(135deg, ${project.accentColor}10, rgba(16, 24, 40, 0.9))` }}>
-                <div className="preview-indicator">
-                  <span className="dot dot-red"></span>
-                  <span className="dot dot-yellow"></span>
-                  <span className="dot dot-green"></span>
-                  <span className="preview-label">{project.category} • Case Study</span>
+              {/* QA Verification Highlight Box */}
+              <div className="qa-highlight-strip">
+                <div className="qa-strip-header">
+                  <span className="qa-icon">✓</span>
+                  <strong>Fokus Pengujian QA:</strong>
                 </div>
-                <div className="preview-body">
-                  <div className="preview-row">
-                    <span className="preview-role-tag">Role</span>
-                    <span className="preview-role-val">UI/UX + Frontend</span>
-                  </div>
-                  <div className="preview-row">
-                    <span className="preview-role-tag">Core Value</span>
-                    <span className="preview-role-val">{project.metrics[0]}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Problem Brief */}
-              <div className="problem-brief">
-                <strong>Tantangan: </strong>
-                <span>{project.problem.substring(0, 115)}...</span>
+                <p className="qa-strip-desc">
+                  {project.qaVerification[0]}
+                </p>
               </div>
 
               {/* Tech Stack Chips */}
@@ -126,7 +118,7 @@ export default function Projects() {
 
               {/* Action Trigger */}
               <div className="card-action">
-                <span className="action-text">Pelajari Seluruh Studi Kasus</span>
+                <span className="action-text">Buka Laporan Studi Kasus Lengkap</span>
                 <span className="action-arrow">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -159,7 +151,7 @@ export default function Projects() {
         }
 
         .filter-btn {
-          background: rgba(16, 24, 40, 0.6);
+          background: #ffffff;
           border: 1px solid var(--border-subtle);
           color: var(--text-secondary);
           padding: 0.6rem 1.25rem;
@@ -168,19 +160,20 @@ export default function Projects() {
           font-weight: 600;
           cursor: pointer;
           transition: all var(--transition-fast);
+          box-shadow: 0 1px 3px rgba(70, 55, 40, 0.03);
         }
 
         .filter-btn:hover {
           color: var(--text-primary);
-          border-color: rgba(0, 242, 254, 0.3);
-          background: rgba(22, 33, 56, 0.8);
+          border-color: var(--border-hover);
+          background: #ffffff;
         }
 
         .filter-btn.active {
           background: var(--gradient-brand);
-          color: #07090e;
+          color: #ffffff;
           border-color: transparent;
-          box-shadow: 0 4px 18px rgba(0, 242, 254, 0.3);
+          box-shadow: 0 4px 14px rgba(140, 115, 93, 0.28);
         }
 
         .projects-grid {
@@ -190,20 +183,61 @@ export default function Projects() {
         }
 
         .project-card {
-          padding: 2.2rem;
+          padding: 1.5rem;
           display: flex;
           flex-direction: column;
           cursor: pointer;
           position: relative;
           overflow: hidden;
           text-align: left;
+          background: #ffffff;
+        }
+
+        .card-mockup-frame {
+          position: relative;
+          width: 100%;
+          height: 240px;
+          border-radius: 14px;
+          overflow: hidden;
+          background: #f7f3ec;
+          border: 1px solid var(--border-subtle);
+          margin-bottom: 1.4rem;
+        }
+
+        .mockup-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .mockup-img {
+          transform: scale(1.03);
+        }
+
+        .mockup-overlay-badge {
+          position: absolute;
+          top: 0.85rem;
+          left: 0.85rem;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(8px);
+          border: 1px solid var(--border-subtle);
+          padding: 0.25rem 0.75rem;
+          border-radius: var(--radius-full);
+          font-size: 0.72rem;
+          font-weight: 700;
+          color: var(--accent-taupe-dark);
+          text-transform: uppercase;
+          font-family: var(--font-mono);
+          letter-spacing: 0.04em;
         }
 
         .card-top {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 1.2rem;
+          margin-bottom: 1rem;
           gap: 0.5rem;
         }
 
@@ -213,21 +247,10 @@ export default function Projects() {
           flex-wrap: wrap;
         }
 
-        .card-category-pill {
-          font-size: 0.72rem;
-          font-weight: 700;
-          background: rgba(0, 0, 0, 0.4);
-          border: 1px solid;
-          padding: 0.2rem 0.65rem;
-          border-radius: var(--radius-full);
-          text-transform: uppercase;
-          font-family: var(--font-mono);
-        }
-
         .card-badge-pill {
           font-size: 0.72rem;
           font-weight: 600;
-          background: rgba(255, 255, 255, 0.06);
+          background: var(--bg-secondary);
           color: var(--text-secondary);
           padding: 0.2rem 0.65rem;
           border-radius: var(--radius-full);
@@ -243,98 +266,61 @@ export default function Projects() {
 
         .project-title {
           font-size: 1.35rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.4rem;
           line-height: 1.3;
           transition: color var(--transition-fast);
+          color: var(--text-primary);
         }
 
         .project-card:hover .project-title {
-          color: var(--accent-cyan);
+          color: var(--accent-taupe);
         }
 
         .project-tagline {
-          font-size: 0.92rem;
+          font-size: 0.9rem;
           color: var(--text-secondary);
-          margin-bottom: 1.4rem;
+          margin-bottom: 1.25rem;
           line-height: 1.5;
         }
 
-        .card-visual-preview {
-          border: 1px solid var(--border-subtle);
+        .qa-highlight-strip {
+          background: var(--accent-sage-soft);
+          border: 1px solid rgba(84, 110, 99, 0.25);
           border-radius: var(--radius-md);
-          padding: 1rem 1.2rem;
-          margin-bottom: 1.3rem;
+          padding: 0.85rem 1rem;
+          margin-bottom: 1.25rem;
         }
 
-        .preview-indicator {
+        .qa-strip-header {
           display: flex;
           align-items: center;
           gap: 0.4rem;
-          margin-bottom: 0.75rem;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-          padding-bottom: 0.5rem;
+          font-size: 0.82rem;
+          color: var(--accent-sage-dark);
+          margin-bottom: 0.25rem;
         }
 
-        .dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
+        .qa-icon {
+          font-weight: 900;
         }
 
-        .dot-red { background: #ef4444; }
-        .dot-yellow { background: #f59e0b; }
-        .dot-green { background: #10b981; }
-
-        .preview-label {
-          font-size: 0.72rem;
-          font-family: var(--font-mono);
-          color: var(--text-muted);
-          margin-left: auto;
-        }
-
-        .preview-body {
-          display: flex;
-          flex-direction: column;
-          gap: 0.35rem;
-        }
-
-        .preview-row {
-          display: flex;
-          justify-content: space-between;
-          font-size: 0.8rem;
-        }
-
-        .preview-role-tag {
-          color: var(--text-muted);
-        }
-
-        .preview-role-val {
-          color: var(--text-primary);
-          font-weight: 500;
-        }
-
-        .problem-brief {
-          font-size: 0.88rem;
+        .qa-strip-desc {
+          font-size: 0.82rem;
           color: var(--text-secondary);
-          line-height: 1.55;
-          margin-bottom: 1.4rem;
-        }
-
-        .problem-brief strong {
-          color: var(--text-primary);
+          line-height: 1.45;
         }
 
         .card-tech-chips {
           display: flex;
           flex-wrap: wrap;
           gap: 0.45rem;
-          margin-bottom: 1.6rem;
+          margin-bottom: 1.4rem;
         }
 
         .tech-chip {
           font-size: 0.78rem;
           font-family: var(--font-mono);
-          background: rgba(255, 255, 255, 0.05);
+          background: var(--bg-secondary);
           border: 1px solid var(--border-subtle);
           padding: 0.25rem 0.65rem;
           border-radius: var(--radius-sm);
@@ -343,7 +329,8 @@ export default function Projects() {
 
         .tech-chip-more {
           font-size: 0.78rem;
-          color: var(--accent-cyan);
+          color: var(--accent-taupe-dark);
+          font-weight: 600;
           padding: 0.25rem 0.4rem;
         }
 
@@ -352,14 +339,14 @@ export default function Projects() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding-top: 1.1rem;
+          padding-top: 1rem;
           border-top: 1px solid var(--border-subtle);
         }
 
         .action-text {
-          font-size: 0.88rem;
+          font-size: 0.85rem;
           font-weight: 600;
-          color: var(--accent-cyan);
+          color: var(--accent-taupe-dark);
         }
 
         .action-arrow {
@@ -369,15 +356,15 @@ export default function Projects() {
           width: 32px;
           height: 32px;
           border-radius: 50%;
-          background: rgba(0, 242, 254, 0.1);
-          color: var(--accent-cyan);
+          background: var(--accent-taupe-soft);
+          color: var(--accent-taupe-dark);
           transition: transform var(--transition-fast);
         }
 
         .project-card:hover .action-arrow {
           transform: translateX(4px);
           background: var(--gradient-brand);
-          color: #07090e;
+          color: #ffffff;
         }
 
         @media (max-width: 900px) {
@@ -385,7 +372,7 @@ export default function Projects() {
             grid-template-columns: 1fr;
           }
           .project-card {
-            padding: 1.75rem;
+            padding: 1.25rem;
           }
         }
       `}</style>

@@ -5,16 +5,16 @@ import { SKILL_CATEGORIES } from '@/data/portfolioData';
 
 export default function Skills() {
   return (
-    <section className="section-spacing skills-section" id="skills">
+    <section className="section-spacing skills-section reveal-on-scroll" id="skills">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Keahlian & Toolkit</div>
+          <div className="section-pill">Keahlian & Toolkit Pengujian</div>
           <h2 className="section-title">
-            Kompetensi <span className="gradient-text">Tanpa Metrik Semu</span>
+            Kompetensi & <span className="gradient-text">Alat Kerja Nyata</span>
           </h2>
           <p className="section-description">
-            Saya tidak mencantumkan persentase palsu seperti &quot;React 85%&quot;. Keahlian di bawah ini diukur dari 
-            kemampuan saya mengeksekusi proyek nyata, memecahkan masalah pengguna, dan bekerja sama dalam tim profesional.
+            Keahlian di bawah ini diukur dari eksekusi nyata pada pengujian API menggunakan Postman, 
+            identifikasi bug, perancangan antarmuka Figma, dan pengembangan kode web produksi.
           </p>
         </div>
 
@@ -42,30 +42,30 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Real-World Workflow Callout */}
+        {/* Real-World QA Workflow Callout Strip */}
         <div className="workflow-strip">
           <div className="workflow-title">
-            <strong>Standar Workflow:</strong> Dari Ide ke Produksi
+            <strong>Standar Workflow SQA:</strong> Dari Kebutuhan ke Rilis Stabil
           </div>
           <div className="workflow-steps">
             <div className="step-item">
               <span className="step-badge">1</span>
-              <span>Observasi & User Empathy</span>
+              <span>Analisis Kebutuhan Klien</span>
             </div>
             <div className="step-arrow">→</div>
             <div className="step-item">
               <span className="step-badge">2</span>
-              <span>Figma System & Prototyping</span>
+              <span>Postman Test Collections</span>
             </div>
             <div className="step-arrow">→</div>
             <div className="step-item">
               <span className="step-badge">3</span>
-              <span>Next.js / Expo Coding</span>
+              <span>Identifikasi & Bug Logging</span>
             </div>
             <div className="step-arrow">→</div>
             <div className="step-item">
               <span className="step-badge">4</span>
-              <span>Vercel Deploy & User Testing</span>
+              <span>Verifikasi Tindak Lanjut</span>
             </div>
           </div>
         </div>
@@ -87,6 +87,7 @@ export default function Skills() {
           padding: 2.2rem 1.8rem;
           display: flex;
           flex-direction: column;
+          background: #ffffff;
         }
 
         .skill-card-header {
@@ -98,14 +99,16 @@ export default function Skills() {
         .category-num {
           font-family: var(--font-mono);
           font-size: 0.85rem;
-          color: var(--accent-cyan);
+          color: var(--accent-taupe);
+          font-weight: 700;
           margin-bottom: 0.4rem;
           display: block;
         }
 
         .category-title {
-          font-size: 1.35rem;
+          font-size: 1.3rem;
           margin-bottom: 0.5rem;
+          color: var(--text-primary);
         }
 
         .category-desc {
@@ -125,15 +128,16 @@ export default function Skills() {
           align-items: center;
           justify-content: space-between;
           padding: 0.65rem 0.85rem;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.05);
+          background: #ffffff;
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-sm);
           transition: all var(--transition-fast);
+          gap: 0.6rem;
         }
 
         .skill-row:hover {
-          background: rgba(0, 242, 254, 0.06);
-          border-color: rgba(0, 242, 254, 0.25);
+          background: var(--accent-taupe-soft);
+          border-color: rgba(140, 115, 93, 0.3);
           transform: translateX(3px);
         }
 
@@ -149,23 +153,24 @@ export default function Skills() {
 
         .skill-name {
           font-size: 0.88rem;
-          font-weight: 500;
+          font-weight: 600;
           color: var(--text-primary);
         }
 
         .skill-level-badge {
           font-size: 0.72rem;
           font-family: var(--font-mono);
-          color: var(--accent-cyan);
-          background: rgba(0, 242, 254, 0.08);
-          border: 1px solid rgba(0, 242, 254, 0.2);
+          color: var(--accent-taupe-dark);
+          background: var(--accent-taupe-soft);
+          border: 1px solid rgba(140, 115, 93, 0.25);
           padding: 0.2rem 0.55rem;
           border-radius: var(--radius-full);
-          text-transform: uppercase;
+          font-weight: 500;
+          text-align: right;
         }
 
         .workflow-strip {
-          background: rgba(13, 18, 29, 0.8);
+          background: #ffffff;
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-lg);
           padding: 1.75rem 2rem;
@@ -174,6 +179,7 @@ export default function Skills() {
           justify-content: space-between;
           gap: 1.5rem;
           flex-wrap: wrap;
+          box-shadow: var(--shadow-sm);
         }
 
         .workflow-title {
@@ -182,7 +188,7 @@ export default function Skills() {
         }
 
         .workflow-title strong {
-          color: var(--accent-cyan);
+          color: var(--accent-taupe-dark);
         }
 
         .workflow-steps {
@@ -205,7 +211,7 @@ export default function Skills() {
           height: 22px;
           border-radius: 50%;
           background: var(--gradient-brand);
-          color: #07090e;
+          color: #ffffff;
           font-weight: 700;
           font-size: 0.75rem;
           display: flex;
@@ -232,6 +238,13 @@ export default function Skills() {
           }
           .step-arrow {
             display: none;
+          }
+          .skill-row {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .skill-level-badge {
+            text-align: left;
           }
         }
       `}</style>

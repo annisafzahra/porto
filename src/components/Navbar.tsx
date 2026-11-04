@@ -17,9 +17,9 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Tentang', href: '#about' },
-    { label: 'Pendekatan Desain & Kode', href: '#philosophy' },
-    { label: 'Proyek Unggulan', href: '#projects' },
-    { label: 'Keahlian Teknis', href: '#skills' },
+    { label: 'Keunggulan QA', href: '#philosophy' },
+    { label: 'Studi Kasus', href: '#projects' },
+    { label: 'Keahlian', href: '#skills' },
     { label: 'Pengalaman', href: '#experience' },
     { label: 'Kontak', href: '#contact' },
   ];
@@ -31,7 +31,7 @@ export default function Navbar() {
           <span className="brand-badge">AFZ</span>
           <span className="brand-text">
             <strong>Annisa</strong>
-            <span className="brand-sub">.DesignEngineer</span>
+            <span className="brand-sub">.SoftwareQA</span>
           </span>
         </a>
 
@@ -62,21 +62,20 @@ export default function Navbar() {
             </svg>
           </a>
 
-          {/* Mobile Menu Toggle */}
           <button
             type="button"
             className="mobile-toggle"
-            aria-label="Toggle navigation menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
             id="mobile-menu-toggle-btn"
           >
             {mobileMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -125,11 +124,11 @@ export default function Navbar() {
 
         .navbar-wrapper.scrolled {
           padding: 0.75rem 0;
-          background: rgba(7, 9, 14, 0.85);
+          background: rgba(249, 246, 240, 0.94);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
           border-bottom: 1px solid var(--border-subtle);
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 4px 20px rgba(70, 55, 40, 0.05);
         }
 
         .nav-container {
@@ -152,11 +151,11 @@ export default function Navbar() {
           height: 38px;
           border-radius: 10px;
           background: var(--gradient-brand);
-          color: #07090e;
+          color: #ffffff;
           font-family: var(--font-heading);
-          font-weight: 800;
+          font-weight: 700;
           font-size: 0.95rem;
-          box-shadow: 0 0 15px rgba(0, 242, 254, 0.35);
+          box-shadow: 0 3px 12px rgba(140, 115, 93, 0.25);
         }
 
         .brand-text {
@@ -173,20 +172,22 @@ export default function Navbar() {
 
         .brand-sub {
           font-size: 0.75rem;
-          color: var(--accent-cyan);
+          color: var(--accent-taupe-dark);
           font-family: var(--font-mono);
           letter-spacing: -0.02em;
+          font-weight: 600;
         }
 
         .desktop-nav {
           display: flex;
           align-items: center;
           gap: 1.75rem;
-          background: rgba(16, 24, 40, 0.55);
+          background: rgba(255, 255, 255, 0.9);
           padding: 0.45rem 1.4rem;
           border-radius: var(--radius-full);
           border: 1px solid var(--border-subtle);
           backdrop-filter: blur(10px);
+          box-shadow: 0 2px 10px rgba(70, 55, 40, 0.03);
         }
 
         .nav-item {
@@ -197,7 +198,7 @@ export default function Navbar() {
         }
 
         .nav-item:hover {
-          color: var(--accent-cyan);
+          color: var(--accent-taupe);
         }
 
         .nav-actions {
@@ -213,7 +214,7 @@ export default function Navbar() {
 
         .mobile-toggle {
           display: none;
-          background: transparent;
+          background: #ffffff;
           border: 1px solid var(--border-subtle);
           color: var(--text-primary);
           padding: 0.5rem;
@@ -238,10 +239,11 @@ export default function Navbar() {
 
           .mobile-drawer {
             display: block;
-            background: rgba(7, 9, 14, 0.98);
+            background: rgba(249, 246, 240, 0.98);
             border-bottom: 1px solid var(--border-subtle);
             padding: 1.5rem;
             animation: slideDown 0.25s ease-out;
+            box-shadow: 0 10px 25px rgba(70, 55, 40, 0.06);
           }
 
           .mobile-nav-links {
@@ -255,7 +257,7 @@ export default function Navbar() {
             font-weight: 500;
             color: var(--text-primary);
             padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-subtle);
           }
         }
 

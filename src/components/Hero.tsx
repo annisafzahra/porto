@@ -1,170 +1,282 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
 
 export default function Hero() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(PERSONAL_INFO.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section className="hero-section" id="about">
+    <section className="hero-section reveal-on-scroll" id="about">
       <div className="container hero-container">
-        {/* Availability Badge */}
-        <div className="status-badge-wrapper">
-          <span className="status-indicator"></span>
-          <span className="status-text">{PERSONAL_INFO.availability}</span>
-        </div>
-
-        {/* Hero Title */}
-        <h1 className="hero-title" id="main-hero-title">
-          Mendesain dengan Empati User,<br />
-          Membangun dengan Kode <span className="gradient-highlight">Next.js & React</span>.
-        </h1>
-
-        {/* Hero Description */}
-        <p className="hero-description">
-          Halo, saya <strong>{PERSONAL_INFO.name}</strong> ({PERSONAL_INFO.education.degree}). 
-          Saya adalah <strong>Design Engineer & Frontend Developer</strong> yang menghilangkan hambatan antara 
-          rancangan desain di <em>Figma</em> dan implementasi kode nyata di browser serta aplikasi mobile. 
-          Bukan sekadar menggambar tampilan, tapi mewujudkan sistem antarmuka yang cepat, teruji, dan menyelesaikan masalah nyata.
-        </p>
-
-        {/* Hero CTAs */}
-        <div className="hero-cta-group">
-          <a href="#projects" className="btn btn-primary" id="hero-cta-projects">
-            <span>Lihat 4 Studi Kasus Riil</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </a>
-
-          <a href="#contact" className="btn btn-secondary" id="hero-cta-contact">
-            <span>Diskusi Kebutuhan Tim</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-          </a>
-
-          <a 
-            href="#contact" 
-            className="btn btn-outline"
-            id="hero-cta-resume"
-          >
-            <span>Preview Profil & Kualifikasi</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-
-        {/* Credibility & Impact Stats */}
-        <div className="stats-grid">
-          <div className="stat-card">
-            <div className="stat-number">4+</div>
-            <div className="stat-label">Studi Kasus Produksi & Kemitraan Riil</div>
-            <div className="stat-sub">Bukan sekadar clone tutorial kosong</div>
+        
+        {/* Left Column: Editorial Arch Photo Frame */}
+        <div className="hero-image-wrapper">
+          <div className="arch-photo-container">
+            {/* The image uses /profile.jpg, falling back to /profile.svg */}
+            <img 
+              src="/profile.jpg" 
+              alt={PERSONAL_INFO.name} 
+              className="arch-photo"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (!target.src.endsWith('/profile.svg')) {
+                  target.src = '/profile.svg';
+                }
+              }}
+            />
+            <div className="arch-badge-floating">
+              <span className="badge-indicator"></span>
+              <span>Open to Work • SQA</span>
+            </div>
           </div>
-
-          <div className="stat-card">
-            <div className="stat-number">100%</div>
-            <div className="stat-label">Figma to Interactive Code</div>
-            <div className="stat-sub">Presisi komponen & responsive layout</div>
-          </div>
-
-          <div className="stat-card">
-            <div className="stat-number">D3 TI</div>
-            <div className="stat-label">Lulusan Rekayasa Terapan</div>
-            <div className="stat-sub">Fokus eksekusi praktis & siap adaptasi</div>
-          </div>
-
-          <div className="stat-card">
-            <div className="stat-number">Next.js</div>
-            <div className="stat-label">& React Native Eco-System</div>
-            <div className="stat-sub">Web modern & aplikasi mobile terpadu</div>
+          <div className="photo-caption">
+            <strong>{PERSONAL_INFO.name}</strong>
+            <span>{PERSONAL_INFO.education.institution} (IPK {PERSONAL_INFO.education.gpa})</span>
           </div>
         </div>
+
+        {/* Right Column: Editorial Hero Content */}
+        <div className="hero-content">
+          <div className="hero-eyebrow">
+            <span className="eyebrow-line"></span>
+            <span>POLINDRA D3 TI • SOFTWARE TESTING & QUALITY ASSURANCE</span>
+          </div>
+
+          <h1 className="hero-title" id="main-hero-title">
+            ANNISA<br />
+            <span className="title-secondary">FATHIMATUZ ZAHRA</span>
+          </h1>
+
+          <div className="role-tag-pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Software Quality Assurance & System Validation</span>
+          </div>
+
+          <p className="hero-description">
+            Lulusan D3 Teknik Informatika Politeknik Negeri Indramayu dengan <strong>IPK 3,94/4,00</strong>. 
+            Memiliki pengalaman magang 6 bulan di <em>CV. Indokoding Sukses Makmur</em> dalam 
+            <strong> pengujian API menggunakan Postman</strong>, pemeriksaan respons server, identifikasi temuan bug, 
+            serta pengembangan antarmuka <em>Next.js</em>. Didukung latar belakang Perhotelan yang memperkuat ketelitian detail, 
+            manajemen waktu, dan orientasi kepuasan pengguna.
+          </p>
+
+          {/* Quick Stats Grid (Clarice Day Style Pill Metrics) */}
+          <div className="metrics-pills-row">
+            <div className="metric-pill">
+              <div className="metric-pill-val">3,94</div>
+              <div className="metric-pill-sub">IPK / 4,00</div>
+            </div>
+            <div className="metric-pill">
+              <div className="metric-pill-val">6 Bln</div>
+              <div className="metric-pill-sub">Magang IT</div>
+            </div>
+            <div className="metric-pill">
+              <div className="metric-pill-val">Postman</div>
+              <div className="metric-pill-sub">API Testing</div>
+            </div>
+            <div className="metric-pill">
+              <div className="metric-pill-val">4 Proyek</div>
+              <div className="metric-pill-sub">Studi Kasus</div>
+            </div>
+          </div>
+
+          {/* CTAs */}
+          <div className="hero-cta-group">
+            <a href="#projects" className="btn btn-primary" id="hero-cta-projects">
+              <span>Eksplorasi Studi Kasus & QA</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </a>
+
+            <a 
+              href={PERSONAL_INFO.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-secondary" 
+              id="hero-cta-linkedin"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>Profil LinkedIn</span>
+            </a>
+
+            <button 
+              type="button" 
+              onClick={handleCopyEmail} 
+              className="btn btn-outline"
+              id="hero-copy-email-btn"
+            >
+              <span>{copied ? '✓ Email Tersalin!' : 'Salin Email'}</span>
+            </button>
+          </div>
+        </div>
+
       </div>
 
       <style jsx>{`
         .hero-section {
           padding-top: 8.5rem;
-          padding-bottom: 5rem;
+          padding-bottom: 4.5rem;
           position: relative;
-          overflow: hidden;
         }
 
         .hero-container {
+          display: grid;
+          grid-template-columns: 380px 1fr;
+          gap: 3.5rem;
+          align-items: center;
+        }
+
+        .hero-image-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
-          text-align: center;
-          position: relative;
-          z-index: 2;
         }
 
-        .status-badge-wrapper {
+        .arch-photo-container {
+          position: relative;
+          width: 100%;
+          max-width: 360px;
+          height: 460px;
+          border-radius: 180px 180px 24px 24px;
+          overflow: hidden;
+          background: #efe7dc;
+          border: 1px solid var(--border-subtle);
+          box-shadow: var(--shadow-md);
+        }
+
+        .arch-photo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.5s ease;
+        }
+
+        .arch-photo-container:hover .arch-photo {
+          transform: scale(1.02);
+        }
+
+        .arch-badge-floating {
+          position: absolute;
+          bottom: 1.25rem;
+          left: 50%;
+          transform: translateX(-50%);
           display: inline-flex;
           align-items: center;
-          gap: 0.6rem;
+          gap: 0.5rem;
           padding: 0.45rem 1.1rem;
-          background: rgba(16, 185, 129, 0.08);
-          border: 1px solid rgba(16, 185, 129, 0.25);
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(8px);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-full);
-          margin-bottom: 2rem;
-          box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+          font-size: 0.78rem;
+          font-weight: 600;
+          color: var(--text-primary);
+          box-shadow: 0 4px 15px rgba(70, 55, 40, 0.1);
+          white-space: nowrap;
         }
 
-        .status-indicator {
+        .badge-indicator {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #10b981;
-          box-shadow: 0 0 10px #10b981;
-          animation: pulseGreen 2s infinite;
+          background: var(--accent-sage);
+          box-shadow: 0 0 6px rgba(84, 110, 99, 0.6);
         }
 
-        @keyframes pulseGreen {
-          0%, 100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.4;
-            transform: scale(1.3);
-          }
+        .photo-caption {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 1rem;
+          text-align: center;
+          line-height: 1.35;
         }
 
-        .status-text {
-          font-size: 0.85rem;
+        .photo-caption strong {
+          font-size: 0.95rem;
+          color: var(--text-primary);
+        }
+
+        .photo-caption span {
+          font-size: 0.8rem;
+          color: var(--text-muted);
+        }
+
+        .hero-content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        }
+
+        .hero-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.65rem;
+          font-size: 0.78rem;
+          font-family: var(--font-mono);
+          letter-spacing: 0.08em;
+          color: var(--accent-taupe-dark);
           font-weight: 600;
-          color: #34d399;
-          letter-spacing: 0.02em;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+        }
+
+        .eyebrow-line {
+          width: 24px;
+          height: 2px;
+          background: var(--accent-taupe);
         }
 
         .hero-title {
-          font-size: clamp(2.3rem, 5vw, 3.8rem);
+          font-size: clamp(2.4rem, 4.2vw, 3.6rem);
           font-weight: 800;
-          letter-spacing: -0.03em;
-          max-width: 950px;
-          margin-bottom: 1.5rem;
-          line-height: 1.18;
+          letter-spacing: -0.035em;
+          line-height: 1.08;
+          margin-bottom: 1rem;
+          color: var(--text-primary);
         }
 
-        .gradient-highlight {
-          background: var(--gradient-brand);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          display: inline-block;
+        .title-secondary {
+          color: var(--accent-taupe);
+          font-weight: 600;
+          letter-spacing: -0.02em;
+        }
+
+        .role-tag-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.35rem 0.9rem;
+          background: var(--accent-sage-soft);
+          border: 1px solid rgba(84, 110, 99, 0.25);
+          border-radius: var(--radius-full);
+          color: var(--accent-sage-dark);
+          font-size: 0.82rem;
+          font-weight: 600;
+          margin-bottom: 1.5rem;
         }
 
         .hero-description {
-          font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-          max-width: 780px;
+          font-size: 1.05rem;
           color: var(--text-secondary);
           line-height: 1.75;
-          margin-bottom: 2.5rem;
+          margin-bottom: 2rem;
+          max-width: 680px;
         }
 
         .hero-description strong {
@@ -172,80 +284,81 @@ export default function Hero() {
         }
 
         .hero-description em {
-          color: var(--accent-cyan);
+          color: var(--accent-taupe-dark);
           font-style: normal;
+          font-weight: 600;
+        }
+
+        .metrics-pills-row {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0.85rem;
+          width: 100%;
+          max-width: 620px;
+          margin-bottom: 2.25rem;
+        }
+
+        .metric-pill {
+          background: #ffffff;
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--radius-md);
+          padding: 0.85rem 0.6rem;
+          text-align: center;
+          box-shadow: var(--shadow-sm);
+          transition: all var(--transition-fast);
+        }
+
+        .metric-pill:hover {
+          border-color: var(--border-hover);
+          transform: translateY(-2px);
+        }
+
+        .metric-pill-val {
+          font-family: var(--font-heading);
+          font-size: 1.35rem;
+          font-weight: 700;
+          color: var(--accent-taupe);
+          line-height: 1.2;
+          margin-bottom: 0.15rem;
+        }
+
+        .metric-pill-sub {
+          font-size: 0.72rem;
+          font-weight: 600;
+          color: var(--text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
         }
 
         .hero-cta-group {
           display: flex;
           flex-wrap: wrap;
           align-items: center;
-          justify-content: center;
-          gap: 1rem;
-          margin-bottom: 4.5rem;
+          gap: 0.85rem;
         }
 
-        .stats-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1.5rem;
-          width: 100%;
-          margin-top: 1rem;
-        }
+        @media (max-width: 960px) {
+          .hero-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2.5rem;
+          }
 
-        .stat-card {
-          background: var(--bg-card);
-          border: 1px solid var(--border-subtle);
-          border-radius: var(--radius-md);
-          padding: 1.6rem 1.2rem;
-          text-align: center;
-          backdrop-filter: blur(10px);
-          transition: all var(--transition-smooth);
-        }
+          .hero-content {
+            align-items: center;
+            text-align: center;
+          }
 
-        .stat-card:hover {
-          border-color: var(--border-hover);
-          transform: translateY(-4px);
-          background: var(--bg-card-hover);
-        }
+          .hero-eyebrow {
+            justify-content: center;
+          }
 
-        .stat-number {
-          font-family: var(--font-heading);
-          font-size: 2.2rem;
-          font-weight: 800;
-          color: var(--accent-cyan);
-          margin-bottom: 0.35rem;
-          letter-spacing: -0.02em;
-        }
-
-        .stat-label {
-          font-size: 0.92rem;
-          font-weight: 600;
-          color: var(--text-primary);
-          margin-bottom: 0.25rem;
-        }
-
-        .stat-sub {
-          font-size: 0.78rem;
-          color: var(--text-muted);
-        }
-
-        @media (max-width: 900px) {
-          .stats-grid {
+          .metrics-pills-row {
             grid-template-columns: repeat(2, 1fr);
           }
-        }
 
-        @media (max-width: 500px) {
-          .stats-grid {
-            grid-template-columns: 1fr;
-          }
           .hero-cta-group {
-            flex-direction: column;
-            width: 100%;
-          }
-          .hero-cta-group .btn {
-            width: 100%;
+            justify-content: center;
           }
         }
       `}</style>

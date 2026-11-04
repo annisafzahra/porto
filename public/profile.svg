@@ -1,0 +1,45 @@
+<svg width="600" height="750" viewBox="0 0 600 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4eee4" />
+      <stop offset="100%" stop-color="#e7dcce" />
+    </linearGradient>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dfd3c3" />
+      <stop offset="100%" stop-color="#c8b6a6" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#554433" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background Arch Shape -->
+  <rect width="600" height="750" fill="url(#bgGrad)" />
+
+  <!-- Subtle Editorial Grain / Texture Frame -->
+  <rect x="24" y="24" width="552" height="702" rx="276" fill="none" stroke="#d5c7b5" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6" />
+
+  <!-- Inner Arch Visual Container -->
+  <path d="M 80 280 A 220 220 0 0 1 520 280 L 520 710 L 80 710 Z" fill="#fcfaf7" filter="url(#softShadow)" />
+
+  <!-- Minimalist Portrait Silhouette -->
+  <circle cx="300" cy="290" r="95" fill="url(#avatarGrad)" />
+  <path d="M 180 540 C 180 430, 225 390, 300 390 C 375 390, 420 430, 420 540 Z" fill="url(#avatarGrad)" />
+
+  <!-- Decorative Botanical / Editorial Line Element -->
+  <path d="M 220 640 Q 300 580 380 640" stroke="#8c735d" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4" />
+
+  <!-- Floating Badge: Quality Assurance & Polindra -->
+  <g transform="translate(130, 600)" filter="url(#softShadow)">
+    <rect width="340" height="64" rx="32" fill="#ffffff" stroke="#dfd7ca" stroke-width="1" />
+    <circle cx="36" cy="32" r="16" fill="#546e63" />
+    <path d="M 30 32 L 35 37 L 43 27" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="64" y="28" font-family="'Poppins', sans-serif" font-size="13" font-weight="700" fill="#191919">Annisa Fathimatuz Zahra</text>
+    <text x="64" y="47" font-family="'Poppins', sans-serif" font-size="11" font-weight="500" fill="#8c735d">IPK 3,94 • Polindra • SQA Focused</text>
+  </g>
+
+  <!-- Top Monogram Brand -->
+  <text x="300" y="105" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="28" font-weight="800" letter-spacing="4" fill="#8c735d">AFZ</text>
+  <text x="300" y="130" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="11" font-weight="600" letter-spacing="3" fill="#a49382">EDITORIAL PORTFOLIO</text>
+</svg>
+
