@@ -27,10 +27,9 @@ export default function Navbar() {
     <header className={`navbar-wrapper ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <a href="#" className="brand-logo" id="nav-brand-logo">
-          <span className="brand-badge">AFZ</span>
+          <span className="brand-badge">AZ</span>
           <span className="brand-text">
-            <strong>Annisa</strong>
-            <span className="brand-sub">.SoftwareQA</span>
+            <strong>Annisa Zahra</strong>
           </span>
         </a>
 
@@ -117,13 +116,13 @@ export default function Navbar() {
           left: 0;
           right: 0;
           z-index: 1000;
-          padding: 1.1rem 0;
+          padding: 1rem 0;
           transition: all 0.25s ease;
         }
 
         .navbar-wrapper.scrolled {
-          padding: 0.65rem 0;
-          background: rgba(249, 246, 240, 0.94);
+          padding: 0.6rem 0;
+          background: rgba(251, 249, 245, 0.94);
           backdrop-filter: blur(14px);
           -webkit-backdrop-filter: blur(14px);
           border-bottom: 1px solid var(--border-subtle);
@@ -140,6 +139,7 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           gap: 0.65rem;
+          cursor: pointer;
         }
 
         .brand-badge {
@@ -154,35 +154,32 @@ export default function Navbar() {
           font-family: var(--font-heading);
           font-weight: 700;
           font-size: 0.88rem;
-          box-shadow: 0 2px 8px rgba(140, 115, 93, 0.22);
+          box-shadow: 0 2px 8px rgba(138, 110, 84, 0.24);
+          transition: transform 0.2s ease;
+        }
+
+        .brand-logo:hover .brand-badge {
+          transform: scale(1.05);
         }
 
         .brand-text {
           display: flex;
-          flex-direction: column;
-          line-height: 1.1;
+          align-items: center;
         }
 
         .brand-text strong {
           font-family: var(--font-heading);
-          font-size: 0.98rem;
+          font-size: 1.05rem;
           color: var(--text-primary);
-        }
-
-        .brand-sub {
-          font-size: 0.7rem;
-          color: var(--accent-taupe-dark);
-          font-family: var(--font-mono);
-          letter-spacing: -0.02em;
-          font-weight: 600;
+          letter-spacing: -0.01em;
         }
 
         .desktop-nav {
           display: flex;
           align-items: center;
-          gap: 1.4rem;
+          gap: 1.35rem;
           background: rgba(255, 255, 255, 0.92);
-          padding: 0.4rem 1.25rem;
+          padding: 0.38rem 1.25rem;
           border-radius: var(--radius-full);
           border: 1px solid var(--border-subtle);
           backdrop-filter: blur(8px);
@@ -193,11 +190,12 @@ export default function Navbar() {
           font-size: 0.84rem;
           font-weight: 500;
           color: var(--text-secondary);
-          transition: all var(--transition-fast);
+          transition: color var(--transition-fast), transform var(--transition-fast);
         }
 
         .nav-item:hover {
           color: var(--accent-taupe);
+          transform: translateY(-1px);
         }
 
         .nav-actions {
@@ -238,7 +236,7 @@ export default function Navbar() {
 
           .mobile-drawer {
             display: block;
-            background: rgba(249, 246, 240, 0.98);
+            background: rgba(251, 249, 245, 0.98);
             border-bottom: 1px solid var(--border-subtle);
             padding: 1.25rem;
             animation: slideDown 0.2s ease-out;

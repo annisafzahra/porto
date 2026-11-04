@@ -36,7 +36,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="photo-caption">
-            <strong>{PERSONAL_INFO.name}</strong>
+            <strong>Annisa Zahra</strong>
             <span>{PERSONAL_INFO.education.institution} (IPK {PERSONAL_INFO.education.gpa})</span>
           </div>
         </div>
@@ -130,16 +130,19 @@ export default function Hero() {
 
       <style jsx>{`
         .hero-section {
-          padding-top: 7.5rem;
+          padding-top: 7rem;
           padding-bottom: 3.5rem;
           position: relative;
+          width: 100%;
+          overflow: hidden;
         }
 
         .hero-container {
           display: grid;
-          grid-template-columns: 350px 1fr;
+          grid-template-columns: 340px 1fr;
           gap: 3rem;
           align-items: center;
+          width: 100%;
         }
 
         .hero-image-wrapper {
@@ -151,13 +154,19 @@ export default function Hero() {
         .arch-photo-container {
           position: relative;
           width: 100%;
-          max-width: 320px;
-          height: 420px;
-          border-radius: 160px 160px 20px 20px;
+          max-width: 310px;
+          height: 410px;
+          border-radius: 155px 155px 20px 20px;
           overflow: hidden;
           background: #efe7dc;
           border: 1px solid var(--border-subtle);
           box-shadow: var(--shadow-md);
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .arch-photo-container:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-hover);
         }
 
         .arch-photo {
@@ -169,7 +178,7 @@ export default function Hero() {
         }
 
         .arch-photo-container:hover .arch-photo {
-          transform: scale(1.02);
+          transform: scale(1.025);
         }
 
         .arch-badge-floating {
@@ -255,8 +264,10 @@ export default function Hero() {
         }
 
         .title-secondary {
-          color: var(--accent-taupe);
-          font-weight: 600;
+          background: linear-gradient(135deg, #1e1b18 0%, #6e553f 60%, #8a6e54 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 700;
           letter-spacing: -0.02em;
         }
 
@@ -308,12 +319,14 @@ export default function Hero() {
           padding: 0.75rem 0.5rem;
           text-align: center;
           box-shadow: var(--shadow-sm);
-          transition: all var(--transition-fast);
+          cursor: pointer;
+          transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
         }
 
         .metric-pill:hover {
           border-color: var(--border-hover);
-          transform: translateY(-2px);
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-md);
         }
 
         .metric-pill-val {

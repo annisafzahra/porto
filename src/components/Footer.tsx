@@ -15,10 +15,10 @@ export default function Footer() {
       <div className="container footer-container">
         <div className="footer-top">
           <div className="footer-brand">
-            <span className="brand-badge">AFZ</span>
+            <span className="brand-badge">AZ</span>
             <div className="brand-meta">
-              <strong>{PERSONAL_INFO.name}</strong>
-              <span>{PERSONAL_INFO.title} • Polindra (IPK {PERSONAL_INFO.education.gpa})</span>
+              <strong>Annisa Zahra</strong>
+              <span>{PERSONAL_INFO.title}</span>
             </div>
           </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p className="copyright-text">
-            © {currentYear} {PERSONAL_INFO.name}. Seluruh hak cipta dilindungi.
+            © {currentYear} Annisa Zahra. Seluruh hak cipta dilindungi.
           </p>
           <div className="deploy-pill">
             <span className="deploy-dot"></span>
@@ -51,13 +51,13 @@ export default function Footer() {
           border-top: 1px solid rgba(255, 255, 255, 0.1);
           background: #2a221a;
           color: #f2ebe1;
-          padding: 2.5rem 0 1.75rem;
+          padding: 2.25rem 0 1.6rem;
         }
 
         .footer-container {
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
+          gap: 1.4rem;
         }
 
         .footer-top {
@@ -97,7 +97,7 @@ export default function Footer() {
 
         .brand-meta strong {
           color: #ffffff;
-          font-size: 0.92rem;
+          font-size: 0.95rem;
         }
 
         .brand-meta span {
@@ -112,11 +112,12 @@ export default function Footer() {
           font-size: 0.82rem;
           font-weight: 600;
           color: #dcd3c8;
-          transition: color var(--transition-fast);
+          transition: color var(--transition-fast), transform var(--transition-fast);
         }
 
         .back-to-top:hover {
           color: #ffffff;
+          transform: translateY(-2px);
         }
 
         .footer-divider {

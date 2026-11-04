@@ -139,6 +139,8 @@ export default function Projects() {
       <style jsx>{`
         .projects-section {
           position: relative;
+          width: 100%;
+          overflow: hidden;
         }
 
         .filter-bar {
@@ -164,6 +166,7 @@ export default function Projects() {
         .filter-btn:hover {
           color: var(--text-primary);
           border-color: var(--border-hover);
+          transform: translateY(-1px);
         }
 
         .filter-btn.active {
@@ -175,8 +178,9 @@ export default function Projects() {
 
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 1.25rem;
+          width: 100%;
         }
 
         .project-card {
@@ -190,6 +194,13 @@ export default function Projects() {
           background: #ffffff;
           border-radius: var(--radius-md);
           user-select: none;
+          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 14px 34px rgba(45, 32, 20, 0.12);
+          border-color: var(--border-hover);
         }
 
         .project-card:focus-visible {
@@ -217,7 +228,7 @@ export default function Projects() {
         }
 
         .project-card:hover .mockup-img {
-          transform: scale(1.025);
+          transform: scale(1.03);
         }
 
         .mockup-overlay-badge {
@@ -352,7 +363,7 @@ export default function Projects() {
           border-radius: 50%;
           background: var(--accent-taupe-soft);
           color: var(--accent-taupe-dark);
-          transition: all var(--transition-fast);
+          transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
         }
 
         .project-card:hover .action-arrow {

@@ -15,12 +15,20 @@ export default function ScrollRevealProvider({ children }: { children: React.Rea
 
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
-      rootMargin: '0px 0px -60px 0px',
-      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05,
     });
 
     const elements = document.querySelectorAll('.reveal-on-scroll');
-    elements.forEach((el) => observer.observe(el));
+    elements.forEach((el) => {
+      // If element is already in initial viewport, reveal immediately
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('is-visible');
+      } else {
+        observer.observe(el);
+      }
+    });
 
     return () => {
       observer.disconnect();
@@ -29,4 +37,3 @@ export default function ScrollRevealProvider({ children }: { children: React.Rea
 
   return <>{children}</>;
 }
-

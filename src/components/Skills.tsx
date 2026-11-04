@@ -26,21 +26,13 @@ function getSkillIcon(type: string) {
           <polyline points="14 2 14 8 20 8"></polyline>
           <line x1="16" y1="13" x2="8" y2="13"></line>
           <line x1="16" y1="17" x2="8" y2="17"></line>
-          <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
       );
     case 'inspect':
       return (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="4" y1="21" x2="4" y2="14"></line>
-          <line x1="4" y1="10" x2="4" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12" y2="3"></line>
-          <line x1="20" y1="21" x2="20" y2="16"></line>
-          <line x1="20" y1="12" x2="20" y2="3"></line>
-          <line x1="1" y1="14" x2="7" y2="14"></line>
-          <line x1="9" y1="8" x2="15" y2="8"></line>
-          <line x1="17" y1="16" x2="23" y2="16"></line>
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
       );
     case 'devices':
@@ -146,7 +138,7 @@ export default function Skills() {
         <div className="section-header">
           <div className="section-pill section-pill-dark">Keahlian & Toolkit</div>
           <h2 className="section-title section-title-dark">
-            Kompetensi <span className="gradient-text-light">Teknis</span>
+            Kompetensi <span className="gradient-text-soft">Teknis</span>
           </h2>
           <p className="section-description section-description-dark">
             Alat dan kemampuan yang dipraktikkan dalam pengujian API Postman, inspeksi sistem web, 
@@ -154,6 +146,7 @@ export default function Skills() {
           </p>
         </div>
 
+        {/* 3 Compact Cards Grid */}
         <div className="skills-grid">
           {SKILL_CATEGORIES.map((category, idx) => (
             <div key={idx} className="skill-card glass-card">
@@ -166,11 +159,11 @@ export default function Skills() {
               <div className="skills-list">
                 {category.skills.map((skill, sIdx) => (
                   <div key={sIdx} className="skill-row">
-                    <div className="skill-info">
+                    <div className="skill-row-top">
                       <span className="skill-icon-svg">{getSkillIcon(skill.iconType)}</span>
                       <span className="skill-name">{skill.name}</span>
                     </div>
-                    <span className="skill-level-badge">{skill.level}</span>
+                    <div className="skill-row-sub">{skill.level}</div>
                   </div>
                 ))}
               </div>
@@ -199,7 +192,7 @@ export default function Skills() {
             </div>
             <div className="step-item">
               <span className="step-badge">2</span>
-              <span>Postman Test Collections</span>
+              <span>Postman Collections</span>
             </div>
             <div className="step-arrow">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -229,11 +222,12 @@ export default function Skills() {
         .skills-section {
           position: relative;
           background-color: #8a6e54;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          width: 100%;
+          overflow: hidden;
         }
 
         .section-pill-dark {
-          background: rgba(255, 255, 255, 0.15) !important;
+          background: rgba(255, 255, 255, 0.16) !important;
           border: 1px solid rgba(255, 255, 255, 0.28) !important;
           color: #ffffff !important;
         }
@@ -242,10 +236,11 @@ export default function Skills() {
           color: #ffffff !important;
         }
 
-        .gradient-text-light {
-          background: linear-gradient(135deg, #ffffff 0%, #f6ebe0 100%);
+        .gradient-text-soft {
+          background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          display: inline-block;
         }
 
         .section-description-dark {
@@ -254,76 +249,84 @@ export default function Skills() {
 
         .skills-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1.25rem;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1.15rem;
           margin-bottom: 2rem;
+          width: 100%;
         }
 
         .skill-card {
-          padding: 1.5rem 1.4rem;
+          padding: 1.35rem 1.25rem;
           display: flex;
           flex-direction: column;
           background: #ffffff;
           border: 1px solid rgba(255, 255, 255, 0.8);
-          box-shadow: 0 4px 20px rgba(45, 32, 20, 0.15);
+          border-radius: var(--radius-md);
+          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
+          cursor: pointer;
+          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+        }
+
+        .skill-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
+          border-color: rgba(255, 255, 255, 0.95);
         }
 
         .skill-card-header {
-          margin-bottom: 1.25rem;
+          margin-bottom: 1.1rem;
           border-bottom: 1px solid var(--border-subtle);
-          padding-bottom: 0.85rem;
+          padding-bottom: 0.75rem;
         }
 
         .category-num {
           font-family: var(--font-mono);
-          font-size: 0.8rem;
+          font-size: 0.76rem;
           color: var(--accent-taupe);
           font-weight: 700;
-          margin-bottom: 0.25rem;
+          margin-bottom: 0.2rem;
           display: block;
         }
 
         .category-title {
-          font-size: 1.15rem;
-          margin-bottom: 0.35rem;
+          font-size: 1.08rem;
+          margin-bottom: 0.3rem;
           color: var(--text-primary);
         }
 
         .category-desc {
-          font-size: 0.84rem;
+          font-size: 0.8rem;
           color: var(--text-secondary);
-          line-height: 1.5;
+          line-height: 1.45;
         }
 
         .skills-list {
           display: flex;
           flex-direction: column;
-          gap: 0.65rem;
+          gap: 0.55rem;
         }
 
         .skill-row {
           display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0.55rem 0.75rem;
+          flex-direction: column;
+          padding: 0.55rem 0.7rem;
           background: #ffffff;
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-sm);
           transition: all var(--transition-fast);
-          gap: 0.5rem;
+          gap: 0.2rem;
         }
 
         .skill-row:hover {
           background: var(--accent-taupe-soft);
-          border-color: rgba(140, 115, 93, 0.3);
+          border-color: rgba(138, 110, 84, 0.4);
           transform: translateX(2px);
         }
 
-        .skill-info {
+        .skill-row-top {
           display: flex;
           align-items: center;
-          gap: 0.55rem;
-          min-width: 0;
+          gap: 0.5rem;
         }
 
         .skill-icon-svg {
@@ -335,49 +338,42 @@ export default function Skills() {
         }
 
         .skill-name {
-          font-size: 0.85rem;
+          font-size: 0.82rem;
           font-weight: 600;
           color: var(--text-primary);
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
         }
 
-        .skill-level-badge {
-          font-size: 0.7rem;
-          font-family: var(--font-mono);
+        .skill-row-sub {
+          font-size: 0.72rem;
           color: var(--text-secondary);
-          background: var(--bg-secondary);
-          border: 1px solid var(--border-subtle);
-          padding: 0.15rem 0.5rem;
-          border-radius: var(--radius-full);
-          font-weight: 500;
-          text-align: right;
-          flex-shrink: 0;
-          max-width: 50%;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          padding-left: 1.45rem;
+          line-height: 1.35;
         }
 
         .workflow-strip {
           background: #ffffff;
           border: 1px solid rgba(255, 255, 255, 0.8);
           border-radius: var(--radius-lg);
-          padding: 1.25rem 1.6rem;
+          padding: 1.15rem 1.5rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 1.25rem;
+          gap: 1rem;
           flex-wrap: wrap;
-          box-shadow: 0 4px 20px rgba(45, 32, 20, 0.15);
+          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
+          transition: transform 0.28s ease, box-shadow 0.28s ease;
+        }
+
+        .workflow-strip:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 28px rgba(35, 24, 14, 0.18);
         }
 
         .workflow-title {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          font-size: 0.9rem;
+          gap: 0.45rem;
+          font-size: 0.86rem;
           color: var(--text-primary);
         }
 
@@ -388,26 +384,26 @@ export default function Skills() {
         .workflow-steps {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
+          gap: 0.65rem;
           flex-wrap: wrap;
         }
 
         .step-item {
           display: flex;
           align-items: center;
-          gap: 0.4rem;
-          font-size: 0.82rem;
+          gap: 0.35rem;
+          font-size: 0.78rem;
           color: var(--text-secondary);
         }
 
         .step-badge {
-          width: 20px;
-          height: 20px;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           background: var(--gradient-brand);
           color: #ffffff;
           font-weight: 700;
-          font-size: 0.72rem;
+          font-size: 0.68rem;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -419,9 +415,10 @@ export default function Skills() {
           align-items: center;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .skills-grid {
             grid-template-columns: 1fr;
+            gap: 1rem;
           }
           .workflow-strip {
             flex-direction: column;
@@ -434,15 +431,6 @@ export default function Skills() {
           }
           .step-arrow {
             display: none;
-          }
-          .skill-row {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.35rem;
-          }
-          .skill-level-badge {
-            max-width: 100%;
-            text-align: left;
           }
         }
       `}</style>

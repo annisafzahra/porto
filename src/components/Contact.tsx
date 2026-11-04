@@ -33,7 +33,7 @@ export default function Contact() {
         <div className="section-header">
           <div className="section-pill section-pill-dark">Saluran Komunikasi</div>
           <h2 className="section-title section-title-dark">
-            Mari <span className="gradient-text-light">Terhubung</span>
+            Mari <span className="gradient-text-soft">Terhubung</span>
           </h2>
           <p className="section-description section-description-dark">
             Terbuka untuk diskusi penempatan kerja Software Quality Assurance (QA), pengujian sistem, 
@@ -171,11 +171,12 @@ export default function Contact() {
         .contact-section {
           position: relative;
           background-color: #8a6e54;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          width: 100%;
+          overflow: hidden;
         }
 
         .section-pill-dark {
-          background: rgba(255, 255, 255, 0.15) !important;
+          background: rgba(255, 255, 255, 0.16) !important;
           border: 1px solid rgba(255, 255, 255, 0.28) !important;
           color: #ffffff !important;
         }
@@ -184,10 +185,11 @@ export default function Contact() {
           color: #ffffff !important;
         }
 
-        .gradient-text-light {
-          background: linear-gradient(135deg, #ffffff 0%, #f6ebe0 100%);
+        .gradient-text-soft {
+          background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          display: inline-block;
         }
 
         .section-description-dark {
@@ -195,50 +197,58 @@ export default function Contact() {
         }
 
         .contact-wrapper {
-          padding: 2.5rem;
+          padding: 2.25rem;
           background: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.8);
+          border: 1px solid rgba(255, 255, 255, 0.85);
           border-radius: var(--radius-lg);
           box-shadow: 0 10px 30px rgba(45, 32, 20, 0.18);
           position: relative;
           overflow: hidden;
+          transition: transform 0.28s ease, box-shadow 0.28s ease;
+        }
+
+        .contact-wrapper:hover {
+          box-shadow: 0 16px 40px rgba(45, 32, 20, 0.22);
         }
 
         .contact-grid {
           display: grid;
           grid-template-columns: 1.25fr 1fr;
-          gap: 2.5rem;
+          gap: 2.25rem;
           align-items: flex-start;
+          width: 100%;
         }
 
         .contact-info-heading {
-          font-size: 1.2rem;
-          margin-bottom: 0.35rem;
+          font-size: 1.15rem;
+          margin-bottom: 0.3rem;
           color: var(--text-primary);
         }
 
         .contact-desc {
-          font-size: 0.88rem;
+          font-size: 0.86rem;
           color: var(--text-secondary);
-          line-height: 1.55;
-          margin-bottom: 1.25rem;
+          line-height: 1.5;
+          margin-bottom: 1.1rem;
         }
 
         .contact-channel-card {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          padding: 0.75rem 0.95rem;
+          padding: 0.7rem 0.9rem;
           background: var(--bg-secondary);
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-sm);
-          margin-bottom: 0.65rem;
-          transition: all var(--transition-fast);
+          margin-bottom: 0.6rem;
+          transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
         }
 
         .contact-channel-card:hover {
-          border-color: var(--border-hover);
+          border-color: var(--accent-taupe);
           background: #fdfbf8;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 14px rgba(45, 32, 20, 0.08);
         }
 
         .channel-icon {
@@ -302,17 +312,19 @@ export default function Contact() {
         .channel-action-btn:hover {
           background: var(--accent-taupe-soft);
           border-color: var(--accent-taupe);
+          transform: translateY(-1px);
         }
 
         .contact-form-box {
           background: var(--bg-secondary);
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-md);
-          padding: 1.5rem;
+          padding: 1.4rem;
+          transition: border-color 0.2s ease;
         }
 
         .form-box-title {
-          font-size: 1.1rem;
+          font-size: 1.05rem;
           margin-bottom: 0.25rem;
           color: var(--text-primary);
         }
@@ -320,24 +332,24 @@ export default function Contact() {
         .form-box-desc {
           font-size: 0.8rem;
           color: var(--text-secondary);
-          margin-bottom: 1.1rem;
-          line-height: 1.45;
+          margin-bottom: 1rem;
+          line-height: 1.4;
         }
 
         .direct-form {
           display: flex;
           flex-direction: column;
-          gap: 0.85rem;
+          gap: 0.8rem;
         }
 
         .form-group {
           display: flex;
           flex-direction: column;
-          gap: 0.3rem;
+          gap: 0.28rem;
         }
 
         .form-group label {
-          font-size: 0.8rem;
+          font-size: 0.78rem;
           font-weight: 600;
           color: var(--text-primary);
         }
@@ -347,9 +359,9 @@ export default function Contact() {
           background: #ffffff;
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-sm);
-          padding: 0.6rem 0.8rem;
+          padding: 0.55rem 0.75rem;
           font-family: var(--font-main);
-          font-size: 0.85rem;
+          font-size: 0.84rem;
           color: var(--text-primary);
           transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
           outline: none;
@@ -362,11 +374,11 @@ export default function Contact() {
 
         @media (max-width: 900px) {
           .contact-wrapper {
-            padding: 1.5rem;
+            padding: 1.4rem;
           }
           .contact-grid {
             grid-template-columns: 1fr;
-            gap: 1.75rem;
+            gap: 1.5rem;
           }
         }
       `}</style>

@@ -112,6 +112,8 @@ export default function Experience() {
       <style jsx>{`
         .experience-section {
           position: relative;
+          width: 100%;
+          overflow: hidden;
         }
 
         .experience-layout {
@@ -119,6 +121,7 @@ export default function Experience() {
           grid-template-columns: 1.55fr 1fr;
           gap: 1.5rem;
           align-items: flex-start;
+          width: 100%;
         }
 
         .col-headline {
@@ -138,6 +141,12 @@ export default function Experience() {
           background: #ffffff;
           border-left: 3px solid var(--accent-taupe);
           border-radius: var(--radius-md);
+          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .timeline-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 30px rgba(45, 32, 20, 0.1);
         }
 
         .card-meta {
@@ -225,6 +234,12 @@ export default function Experience() {
           border-radius: var(--radius-md);
           position: sticky;
           top: 5.5rem;
+          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .education-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 30px rgba(45, 32, 20, 0.1);
         }
 
         .edu-icon-badge {
