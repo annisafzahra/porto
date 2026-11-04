@@ -8,20 +8,20 @@ export default function Experience() {
     <section className="section-spacing experience-section reveal-on-scroll" id="experience">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Riwayat & Dedikasi Nyata</div>
+          <div className="section-pill">Riwayat & Jejak Kerja</div>
           <h2 className="section-title">
-            Pengalaman & <span className="gradient-text">Jejak Karya</span>
+            Pengalaman & <span className="gradient-text">Pendidikan</span>
           </h2>
           <p className="section-description">
-            Kombinasi pengalaman magang teknologi informasi, pengujian API sistem klien, 
-            dan latar belakang kedisiplinan pelayanan profesional.
+            Pengalaman magang pengembangan frontend dan pengujian API, 
+            serta fondasi kedisiplinan kerja dari latar belakang perhotelan.
           </p>
         </div>
 
         <div className="experience-layout">
           {/* Timeline Column */}
           <div className="timeline-col">
-            <h3 className="col-headline">Pengalaman Kerja & Magang Industri</h3>
+            <h3 className="col-headline">Pengalaman Kerja & Magang</h3>
             
             <div className="timeline-items">
               {EXPERIENCES.map((exp, idx) => (
@@ -29,12 +29,18 @@ export default function Experience() {
                   <div className="card-meta">
                     <span className="badge-period">{exp.period}</span>
                     <span className="badge-type">{exp.type}</span>
-                    <span className="badge-loc">📍 {exp.location}</span>
+                    <span className="badge-loc">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                      {exp.location}
+                    </span>
                   </div>
 
                   <h4 className="card-role">{exp.role}</h4>
                   <div className="card-org">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                       <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                     </svg>
@@ -46,7 +52,11 @@ export default function Experience() {
                   <ul className="card-achievements">
                     {exp.achievements.map((ach, aIdx) => (
                       <li key={aIdx}>
-                        <span className="ach-bullet">✦</span>
+                        <span className="ach-bullet">
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                        </span>
                         <span>{ach}</span>
                       </li>
                     ))}
@@ -56,40 +66,43 @@ export default function Experience() {
             </div>
           </div>
 
-          {/* Education & Credential Card */}
+          {/* Education Column */}
           <div className="education-col">
-            <h3 className="col-headline">Pendidikan & Sertifikasi</h3>
+            <h3 className="col-headline">Pendidikan</h3>
 
-            {/* Polindra Card */}
             <div className="education-card glass-card">
-              <div className="edu-icon-badge">🎓</div>
+              <div className="edu-icon-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
               <div className="edu-degree">{PERSONAL_INFO.education.degree}</div>
               <h4 className="edu-major">{PERSONAL_INFO.education.major}</h4>
               <div className="edu-inst">{PERSONAL_INFO.education.institution}</div>
               
               <div className="edu-status-row">
-                <span className="status-pill">IPK: {PERSONAL_INFO.education.gpa}</span>
+                <span className="status-pill">IPK {PERSONAL_INFO.education.gpa}</span>
                 <span className="edu-year">{PERSONAL_INFO.education.period}</span>
               </div>
 
               <div className="edu-divider"></div>
 
               <div className="edu-details">
-                <h5>Kompetensi Inti:</h5>
+                <h5>Fokus Akademik:</h5>
                 <p>{PERSONAL_INFO.education.highlight}</p>
               </div>
 
-              {/* Secondary Education Box (Hospitality) */}
+              {/* Secondary Education */}
               <div className="secondary-edu-box">
-                <div className="sec-edu-title">SMK Negeri 1 Indramayu</div>
-                <div className="sec-edu-sub">Hospitality & Recreation Marketing (2019 - 2022)</div>
+                <div className="sec-edu-title">{PERSONAL_INFO.secondaryEducation.institution}</div>
+                <div className="sec-edu-sub">{PERSONAL_INFO.secondaryEducation.major} ({PERSONAL_INFO.secondaryEducation.period})</div>
                 <p className="sec-edu-desc">{PERSONAL_INFO.secondaryEducation.highlight}</p>
               </div>
 
-              {/* Ready Badge */}
               <div className="ready-badge">
                 <span className="ready-dot"></span>
-                <span>Siap Berkontribusi di Bidang Software QA</span>
+                <span>Terbuka untuk Peluang Kerja Software QA</span>
               </div>
             </div>
           </div>
@@ -104,207 +117,219 @@ export default function Experience() {
         .experience-layout {
           display: grid;
           grid-template-columns: 1.55fr 1fr;
-          gap: 2.5rem;
+          gap: 1.5rem;
           align-items: flex-start;
         }
 
         .col-headline {
-          font-size: 1.35rem;
-          margin-bottom: 1.75rem;
+          font-size: 1.15rem;
+          margin-bottom: 1.25rem;
           color: var(--text-primary);
         }
 
         .timeline-items {
           display: flex;
           flex-direction: column;
-          gap: 1.75rem;
+          gap: 1.25rem;
         }
 
         .timeline-card {
-          padding: 2.2rem;
+          padding: 1.5rem;
           background: #ffffff;
-          border-left: 4px solid var(--accent-taupe);
+          border-left: 3px solid var(--accent-taupe);
+          border-radius: var(--radius-md);
         }
 
         .card-meta {
           display: flex;
           align-items: center;
-          gap: 0.65rem;
-          margin-bottom: 0.75rem;
+          gap: 0.5rem;
+          margin-bottom: 0.6rem;
           flex-wrap: wrap;
         }
 
         .badge-period {
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           font-family: var(--font-mono);
           color: var(--accent-taupe-dark);
           background: var(--accent-taupe-soft);
           border: 1px solid rgba(140, 115, 93, 0.25);
-          padding: 0.2rem 0.65rem;
+          padding: 0.15rem 0.55rem;
           border-radius: var(--radius-full);
           font-weight: 600;
         }
 
         .badge-type {
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           color: var(--text-muted);
           background: var(--bg-secondary);
-          padding: 0.2rem 0.65rem;
+          padding: 0.15rem 0.55rem;
           border-radius: var(--radius-full);
         }
 
         .badge-loc {
-          font-size: 0.75rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 0.72rem;
           color: var(--text-muted);
         }
 
         .card-role {
-          font-size: 1.3rem;
-          margin-bottom: 0.35rem;
+          font-size: 1.15rem;
+          margin-bottom: 0.25rem;
           color: var(--text-primary);
         }
 
         .card-org {
           display: flex;
           align-items: center;
-          gap: 0.4rem;
-          font-size: 0.95rem;
+          gap: 0.35rem;
+          font-size: 0.88rem;
           color: var(--accent-taupe-dark);
-          margin-bottom: 1rem;
+          margin-bottom: 0.75rem;
         }
 
         .card-desc {
-          font-size: 0.92rem;
+          font-size: 0.86rem;
           color: var(--text-secondary);
-          line-height: 1.65;
-          margin-bottom: 1.25rem;
+          line-height: 1.55;
+          margin-bottom: 0.85rem;
         }
 
         .card-achievements {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 0.65rem;
+          gap: 0.45rem;
         }
 
         .card-achievements li {
           display: flex;
           align-items: flex-start;
-          gap: 0.65rem;
-          font-size: 0.88rem;
+          gap: 0.5rem;
+          font-size: 0.84rem;
           color: var(--text-secondary);
-          line-height: 1.55;
+          line-height: 1.5;
         }
 
         .ach-bullet {
-          color: var(--accent-taupe);
-          font-size: 0.75rem;
+          color: var(--accent-sage);
           margin-top: 0.2rem;
+          flex-shrink: 0;
         }
 
         .education-card {
-          padding: 2.2rem;
+          padding: 1.5rem;
           background: #ffffff;
+          border-radius: var(--radius-md);
           position: sticky;
-          top: 6rem;
+          top: 5.5rem;
         }
 
         .edu-icon-badge {
-          font-size: 2.2rem;
-          margin-bottom: 0.85rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+          background: var(--accent-taupe-soft);
+          color: var(--accent-taupe-dark);
+          margin-bottom: 0.75rem;
         }
 
         .edu-degree {
-          font-size: 0.82rem;
+          font-size: 0.75rem;
           font-family: var(--font-mono);
           color: var(--accent-taupe-dark);
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          margin-bottom: 0.25rem;
+          margin-bottom: 0.2rem;
           font-weight: 700;
         }
 
         .edu-major {
-          font-size: 1.4rem;
-          margin-bottom: 0.25rem;
+          font-size: 1.2rem;
+          margin-bottom: 0.2rem;
           color: var(--text-primary);
         }
 
         .edu-inst {
-          font-size: 0.92rem;
+          font-size: 0.86rem;
           color: var(--text-secondary);
-          margin-bottom: 1rem;
+          margin-bottom: 0.75rem;
           font-weight: 500;
         }
 
         .edu-status-row {
           display: flex;
           align-items: center;
-          gap: 0.6rem;
-          margin-bottom: 1.4rem;
+          gap: 0.5rem;
+          margin-bottom: 1rem;
           flex-wrap: wrap;
         }
 
         .status-pill {
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           font-weight: 700;
           color: var(--accent-sage-dark);
           background: var(--accent-sage-soft);
           border: 1px solid rgba(84, 110, 99, 0.3);
-          padding: 0.25rem 0.75rem;
+          padding: 0.15rem 0.6rem;
           border-radius: var(--radius-full);
         }
 
         .edu-year {
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           color: var(--text-muted);
         }
 
         .edu-divider {
           height: 1px;
           background: var(--border-subtle);
-          margin-bottom: 1.4rem;
+          margin-bottom: 1rem;
         }
 
         .edu-details h5 {
-          font-size: 0.95rem;
+          font-size: 0.88rem;
           color: var(--text-primary);
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.35rem;
         }
 
         .edu-details p {
-          font-size: 0.88rem;
+          font-size: 0.84rem;
           color: var(--text-secondary);
-          line-height: 1.6;
-          margin-bottom: 1.4rem;
+          line-height: 1.5;
+          margin-bottom: 1rem;
         }
 
         .secondary-edu-box {
           background: #fdfbf8;
           border: 1px solid var(--border-subtle);
-          border-radius: var(--radius-md);
-          padding: 1rem;
-          margin-bottom: 1.5rem;
+          border-radius: var(--radius-sm);
+          padding: 0.75rem 0.85rem;
+          margin-bottom: 1rem;
         }
 
         .sec-edu-title {
-          font-size: 0.92rem;
+          font-size: 0.85rem;
           font-weight: 700;
           color: var(--text-primary);
-          margin-bottom: 0.2rem;
+          margin-bottom: 0.15rem;
         }
 
         .sec-edu-sub {
-          font-size: 0.78rem;
+          font-size: 0.74rem;
           color: var(--accent-taupe-dark);
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.35rem;
           font-family: var(--font-mono);
         }
 
         .sec-edu-desc {
-          font-size: 0.82rem;
+          font-size: 0.8rem;
           color: var(--text-secondary);
-          line-height: 1.5;
+          line-height: 1.45;
         }
 
         .ready-badge {
@@ -313,19 +338,19 @@ export default function Experience() {
           gap: 0.5rem;
           background: var(--accent-sage-soft);
           border: 1px solid rgba(84, 110, 99, 0.3);
-          border-radius: var(--radius-md);
-          padding: 0.75rem 1rem;
-          font-size: 0.85rem;
+          border-radius: var(--radius-sm);
+          padding: 0.55rem 0.8rem;
+          font-size: 0.78rem;
           font-weight: 600;
           color: var(--accent-sage-dark);
         }
 
         .ready-dot {
-          width: 8px;
-          height: 8px;
+          width: 7px;
+          height: 7px;
           border-radius: 50%;
           background: var(--accent-sage);
-          box-shadow: 0 0 8px rgba(84, 110, 99, 0.5);
+          box-shadow: 0 0 6px rgba(84, 110, 99, 0.4);
         }
 
         @media (max-width: 900px) {

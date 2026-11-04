@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="footer-actions">
             <a href="#" className="back-to-top" id="back-to-top-btn">
               <span>Kembali ke Atas</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" y1="19" x2="12" y2="5"></line>
                 <polyline points="5 12 12 5 19 12"></polyline>
               </svg>
@@ -41,7 +41,7 @@ export default function Footer() {
           </p>
           <div className="deploy-pill">
             <span className="deploy-dot"></span>
-            <span>Vercel Optimized • Next.js Static Architecture</span>
+            <span>Next.js & TypeScript • Vercel Ready</span>
           </div>
         </div>
       </div>
@@ -49,15 +49,15 @@ export default function Footer() {
       <style jsx>{`
         .footer-wrapper {
           border-top: 1px solid var(--border-subtle);
-          background: #f4eee4;
-          padding: 3rem 0 2rem;
-          margin-top: 4rem;
+          background: #f4ece0;
+          padding: 2.5rem 0 1.75rem;
+          margin-top: 3.5rem;
         }
 
         .footer-container {
           display: flex;
           flex-direction: column;
-          gap: 1.75rem;
+          gap: 1.5rem;
         }
 
         .footer-top {
@@ -65,27 +65,27 @@ export default function Footer() {
           align-items: center;
           justify-content: space-between;
           flex-wrap: wrap;
-          gap: 1.25rem;
+          gap: 1rem;
         }
 
         .footer-brand {
           display: flex;
           align-items: center;
-          gap: 0.85rem;
+          gap: 0.75rem;
         }
 
         .brand-badge {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 36px;
-          height: 36px;
+          width: 34px;
+          height: 34px;
           border-radius: 8px;
           background: var(--gradient-brand);
           color: #ffffff;
           font-family: var(--font-heading);
           font-weight: 700;
-          font-size: 0.9rem;
+          font-size: 0.88rem;
         }
 
         .brand-meta {
@@ -96,19 +96,19 @@ export default function Footer() {
 
         .brand-meta strong {
           color: var(--text-primary);
-          font-size: 0.95rem;
+          font-size: 0.92rem;
         }
 
         .brand-meta span {
-          font-size: 0.8rem;
+          font-size: 0.78rem;
           color: var(--text-muted);
         }
 
         .back-to-top {
           display: inline-flex;
           align-items: center;
-          gap: 0.5rem;
-          font-size: 0.85rem;
+          gap: 0.45rem;
+          font-size: 0.82rem;
           font-weight: 600;
           color: var(--text-secondary);
           transition: color var(--transition-fast);
@@ -128,26 +128,26 @@ export default function Footer() {
           align-items: center;
           justify-content: space-between;
           flex-wrap: wrap;
-          gap: 1rem;
+          gap: 0.85rem;
         }
 
         .copyright-text {
-          font-size: 0.82rem;
+          font-size: 0.8rem;
           color: var(--text-muted);
         }
 
         .deploy-pill {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          font-size: 0.75rem;
+          gap: 0.45rem;
+          font-size: 0.72rem;
           font-family: var(--font-mono);
           color: var(--text-secondary);
           background: #ffffff;
           border: 1px solid var(--border-subtle);
-          padding: 0.25rem 0.75rem;
+          padding: 0.2rem 0.65rem;
           border-radius: var(--radius-full);
-          box-shadow: 0 1px 3px rgba(70, 55, 40, 0.03);
+          box-shadow: 0 1px 3px rgba(60, 48, 35, 0.02);
         }
 
         .deploy-dot {

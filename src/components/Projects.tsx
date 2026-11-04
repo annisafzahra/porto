@@ -9,7 +9,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filterOptions = [
-    { label: 'Semua Studi Kasus (4)', value: 'All' },
+    { label: 'Semua Proyek (4)', value: 'All' },
     { label: 'Next.js & Web (2)', value: 'Next.js & Web' },
     { label: 'Mobile App (1)', value: 'Mobile App' },
     { label: 'UI/UX & Research (1)', value: 'UI/UX & Research' },
@@ -23,13 +23,13 @@ export default function Projects() {
     <section className="section-spacing projects-section reveal-on-scroll" id="projects">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Studi Kasus & Verifikasi Riil</div>
+          <div className="section-pill">Studi Kasus Proyek</div>
           <h2 className="section-title">
-            Karya & Bukti <span className="gradient-text">Pengujian Sistem</span>
+            Proyek & <span className="gradient-text">Verifikasi Sistem</span>
           </h2>
           <p className="section-description">
-            4 sistem dan aplikasi nyata yang telah saya selesaikan untuk mitra sekolah, instansi pemerintahan, dan perusahaan. 
-            Setiap proyek dilengkapi aspek pengujian API, validasi batasan sistem, dan verifikasi antarmuka.
+            Portofolio proyek nyata dengan implementasi frontend, integrasi API, 
+            serta cakupan pengujian fungsionalitas dan validasi sistem.
           </p>
         </div>
 
@@ -60,11 +60,12 @@ export default function Projects() {
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
                   setSelectedProject(project);
                 }
               }}
             >
-              {/* Project Image Mockup Frame */}
+              {/* Image Frame */}
               <div className="card-mockup-frame">
                 <img 
                   src={project.image || '/projects/spk-kmeans.svg'} 
@@ -77,13 +78,11 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Card Meta & Badges */}
+              {/* Meta */}
               <div className="card-top">
-                <div className="card-badges">
-                  <span className="card-badge-pill">{project.badge}</span>
-                </div>
+                <span className="card-badge-pill">{project.badge}</span>
                 <div className="partner-chip">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
                   </svg>
@@ -95,15 +94,15 @@ export default function Projects() {
               <h3 className="project-title">{project.title}</h3>
               <p className="project-tagline">{project.tagline}</p>
 
-              {/* QA Verification Highlight Box */}
+              {/* QA Strip */}
               <div className="qa-highlight-strip">
                 <div className="qa-strip-header">
-                  <span className="qa-icon">✓</span>
-                  <strong>Fokus Pengujian QA:</strong>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <strong>Fokus Pengujian:</strong>
                 </div>
-                <p className="qa-strip-desc">
-                  {project.qaVerification[0]}
-                </p>
+                <p className="qa-strip-desc">{project.qaVerification[0]}</p>
               </div>
 
               {/* Tech Stack Chips */}
@@ -112,15 +111,15 @@ export default function Projects() {
                   <span key={tech} className="tech-chip">{tech}</span>
                 ))}
                 {project.techStack.length > 4 && (
-                  <span className="tech-chip-more">+{project.techStack.length - 4} lainnya</span>
+                  <span className="tech-chip-more">+{project.techStack.length - 4}</span>
                 )}
               </div>
 
-              {/* Action Trigger */}
+              {/* Card Action Trigger */}
               <div className="card-action">
-                <span className="action-text">Buka Laporan Studi Kasus Lengkap</span>
+                <span className="action-text">Detail & Hasil Pengujian</span>
                 <span className="action-arrow">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -131,7 +130,7 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Deep-dive modal */}
+      {/* Modal Detail View */}
       <ProjectModal 
         project={selectedProject} 
         onClose={() => setSelectedProject(null)} 
@@ -146,44 +145,42 @@ export default function Projects() {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 0.6rem;
-          margin-bottom: 3rem;
+          gap: 0.5rem;
+          margin-bottom: 2.25rem;
         }
 
         .filter-btn {
           background: #ffffff;
           border: 1px solid var(--border-subtle);
           color: var(--text-secondary);
-          padding: 0.6rem 1.25rem;
+          padding: 0.45rem 1rem;
           border-radius: var(--radius-full);
-          font-size: 0.88rem;
+          font-size: 0.82rem;
           font-weight: 600;
           cursor: pointer;
           transition: all var(--transition-fast);
-          box-shadow: 0 1px 3px rgba(70, 55, 40, 0.03);
         }
 
         .filter-btn:hover {
           color: var(--text-primary);
           border-color: var(--border-hover);
-          background: #ffffff;
         }
 
         .filter-btn.active {
           background: var(--gradient-brand);
           color: #ffffff;
           border-color: transparent;
-          box-shadow: 0 4px 14px rgba(140, 115, 93, 0.28);
+          box-shadow: 0 2px 10px rgba(140, 115, 93, 0.25);
         }
 
         .projects-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
+          gap: 1.25rem;
         }
 
         .project-card {
-          padding: 1.5rem;
+          padding: 1.2rem;
           display: flex;
           flex-direction: column;
           cursor: pointer;
@@ -191,17 +188,24 @@ export default function Projects() {
           overflow: hidden;
           text-align: left;
           background: #ffffff;
+          border-radius: var(--radius-md);
+          user-select: none;
+        }
+
+        .project-card:focus-visible {
+          outline: 2px solid var(--accent-taupe);
+          outline-offset: 2px;
         }
 
         .card-mockup-frame {
           position: relative;
           width: 100%;
-          height: 240px;
-          border-radius: 14px;
+          height: 175px;
+          border-radius: 10px;
           overflow: hidden;
           background: #f7f3ec;
           border: 1px solid var(--border-subtle);
-          margin-bottom: 1.4rem;
+          margin-bottom: 0.9rem;
         }
 
         .mockup-img {
@@ -209,23 +213,23 @@ export default function Projects() {
           height: 100%;
           object-fit: cover;
           display: block;
-          transition: transform 0.4s ease;
+          transition: transform 0.35s ease;
         }
 
         .project-card:hover .mockup-img {
-          transform: scale(1.03);
+          transform: scale(1.025);
         }
 
         .mockup-overlay-badge {
           position: absolute;
-          top: 0.85rem;
-          left: 0.85rem;
+          top: 0.6rem;
+          left: 0.6rem;
           background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(8px);
           border: 1px solid var(--border-subtle);
-          padding: 0.25rem 0.75rem;
+          padding: 0.2rem 0.6rem;
           border-radius: var(--radius-full);
-          font-size: 0.72rem;
+          font-size: 0.68rem;
           font-weight: 700;
           color: var(--accent-taupe-dark);
           text-transform: uppercase;
@@ -237,37 +241,31 @@ export default function Projects() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 1rem;
+          margin-bottom: 0.65rem;
           gap: 0.5rem;
-        }
-
-        .card-badges {
-          display: flex;
-          gap: 0.5rem;
-          flex-wrap: wrap;
         }
 
         .card-badge-pill {
-          font-size: 0.72rem;
+          font-size: 0.7rem;
           font-weight: 600;
           background: var(--bg-secondary);
           color: var(--text-secondary);
-          padding: 0.2rem 0.65rem;
+          padding: 0.15rem 0.55rem;
           border-radius: var(--radius-full);
         }
 
         .partner-chip {
           display: flex;
           align-items: center;
-          gap: 0.35rem;
-          font-size: 0.75rem;
+          gap: 0.3rem;
+          font-size: 0.72rem;
           color: var(--text-muted);
         }
 
         .project-title {
-          font-size: 1.35rem;
-          margin-bottom: 0.4rem;
-          line-height: 1.3;
+          font-size: 1.15rem;
+          margin-bottom: 0.25rem;
+          line-height: 1.35;
           transition: color var(--transition-fast);
           color: var(--text-primary);
         }
@@ -277,61 +275,57 @@ export default function Projects() {
         }
 
         .project-tagline {
-          font-size: 0.9rem;
+          font-size: 0.84rem;
           color: var(--text-secondary);
-          margin-bottom: 1.25rem;
-          line-height: 1.5;
+          margin-bottom: 0.9rem;
+          line-height: 1.45;
         }
 
         .qa-highlight-strip {
           background: var(--accent-sage-soft);
-          border: 1px solid rgba(84, 110, 99, 0.25);
-          border-radius: var(--radius-md);
-          padding: 0.85rem 1rem;
-          margin-bottom: 1.25rem;
+          border: 1px solid rgba(84, 110, 99, 0.2);
+          border-radius: var(--radius-sm);
+          padding: 0.6rem 0.8rem;
+          margin-bottom: 0.9rem;
         }
 
         .qa-strip-header {
           display: flex;
           align-items: center;
-          gap: 0.4rem;
-          font-size: 0.82rem;
+          gap: 0.35rem;
+          font-size: 0.78rem;
           color: var(--accent-sage-dark);
-          margin-bottom: 0.25rem;
-        }
-
-        .qa-icon {
-          font-weight: 900;
+          margin-bottom: 0.2rem;
         }
 
         .qa-strip-desc {
-          font-size: 0.82rem;
+          font-size: 0.78rem;
           color: var(--text-secondary);
-          line-height: 1.45;
+          line-height: 1.4;
         }
 
         .card-tech-chips {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.45rem;
-          margin-bottom: 1.4rem;
+          gap: 0.35rem;
+          margin-bottom: 0.9rem;
         }
 
         .tech-chip {
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           font-family: var(--font-mono);
           background: var(--bg-secondary);
           border: 1px solid var(--border-subtle);
-          padding: 0.25rem 0.65rem;
+          padding: 0.15rem 0.5rem;
           border-radius: var(--radius-sm);
           color: var(--text-secondary);
         }
 
         .tech-chip-more {
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           color: var(--accent-taupe-dark);
           font-weight: 600;
-          padding: 0.25rem 0.4rem;
+          padding: 0.15rem 0.35rem;
         }
 
         .card-action {
@@ -339,12 +333,12 @@ export default function Projects() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding-top: 1rem;
+          padding-top: 0.75rem;
           border-top: 1px solid var(--border-subtle);
         }
 
         .action-text {
-          font-size: 0.85rem;
+          font-size: 0.82rem;
           font-weight: 600;
           color: var(--accent-taupe-dark);
         }
@@ -353,16 +347,16 @@ export default function Projects() {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 32px;
-          height: 32px;
+          width: 28px;
+          height: 28px;
           border-radius: 50%;
           background: var(--accent-taupe-soft);
           color: var(--accent-taupe-dark);
-          transition: transform var(--transition-fast);
+          transition: all var(--transition-fast);
         }
 
         .project-card:hover .action-arrow {
-          transform: translateX(4px);
+          transform: translateX(3px);
           background: var(--gradient-brand);
           color: #ffffff;
         }
@@ -372,7 +366,7 @@ export default function Projects() {
             grid-template-columns: 1fr;
           }
           .project-card {
-            padding: 1.25rem;
+            padding: 1.1rem;
           }
         }
       `}</style>

@@ -34,7 +34,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         aria-modal="true"
         aria-labelledby="modal-project-title"
       >
-        {/* Modal Header */}
+        {/* Header */}
         <div className="modal-header">
           <div className="modal-badges">
             <span className="badge-category">{project.category}</span>
@@ -47,14 +47,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             aria-label="Tutup jendela modal"
             id="close-modal-btn"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
 
-        {/* Modal Visual Mockup Preview */}
+        {/* Visual Mockup Banner */}
         {project.image && (
           <div className="modal-visual-banner">
             <img 
@@ -65,61 +65,67 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
         )}
 
-        {/* Modal Body */}
+        {/* Body */}
         <div className="modal-body">
           <h2 id="modal-project-title" className="modal-title">
             {project.title}
           </h2>
           <p className="modal-tagline">{project.tagline}</p>
 
-          {/* QA & Testing Verification Checklist Box */}
+          {/* QA Verification Box */}
           <div className="modal-qa-box">
             <h4>
-              <span className="qa-badge-icon">✓</span>
-              Verifikasi & Skenario Pengujian (QA Highlights)
+              <span className="qa-badge-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              Verifikasi & Cakupan Pengujian
             </h4>
             <div className="qa-checklist">
               {project.qaVerification.map((qaItem, idx) => (
                 <div key={idx} className="qa-item">
-                  <span className="qa-check-bullet">✓</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="qa-bullet-svg">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
                   <span>{qaItem}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Impact & Outcome Grid */}
-          <div className="modal-metrics-box">
-            <h4>Hasil Teruji & Metrik Dampak</h4>
-            <div className="metrics-list">
-              {project.metrics.map((metric, i) => (
-                <div key={i} className="metric-item">
-                  <span className="metric-bullet" style={{ background: project.accentColor }}></span>
-                  <span>{metric}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Problem & Solution Double Column */}
+          {/* Problem & Solution Grid */}
           <div className="problem-solution-grid">
             <div className="ps-card ps-problem">
-              <div className="ps-tag">⚠️ Masalah & Kebutuhan Lapangan</div>
+              <div className="ps-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>Masalah & Kebutuhan</span>
+              </div>
               <p>{project.problem}</p>
             </div>
             <div className="ps-card ps-solution">
-              <div className="ps-tag">💡 Solusi & Implementasi Teknis</div>
+              <div className="ps-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 11l3 3L22 4"></path>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                <span>Solusi & Implementasi</span>
+              </div>
               <p>{project.solution}</p>
             </div>
           </div>
 
           {/* Key Features */}
           <div className="modal-section">
-            <h3>Fitur & Kemampuan Sistem</h3>
+            <h3>Fitur Utama</h3>
             <ul className="features-list">
               {project.keyFeatures.map((feat, idx) => (
                 <li key={idx}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={project.accentColor} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-taupe)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                   <span>{feat}</span>
@@ -128,22 +134,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </ul>
           </div>
 
-          {/* UI/UX Design Aspects */}
+          {/* Tech Stack */}
           <div className="modal-section">
-            <h3>Aspek UI/UX & Kegunaan Pengguna</h3>
-            <ul className="design-aspects-list">
-              {project.designAspects.map((aspect, idx) => (
-                <li key={idx}>
-                  <span className="figma-dot"></span>
-                  <span>{aspect}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Tech Stack Pills */}
-          <div className="modal-section">
-            <h3>Teknologi & Alat Pengujian</h3>
+            <h3>Teknologi & Tools</h3>
             <div className="tech-pills-row">
               {project.techStack.map((tech) => (
                 <span key={tech} className="tech-pill">
@@ -168,7 +161,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             className="btn btn-primary"
             onClick={onClose}
           >
-            Diskusikan Peluang QA di Tim Anda
+            Hubungi Saya
           </a>
         </div>
       </div>
@@ -180,61 +173,61 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(28, 25, 22, 0.6);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+          background: rgba(28, 25, 22, 0.55);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
           z-index: 2000;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 1.5rem;
+          padding: 1.25rem;
           animation: fadeIn 0.2s ease-out;
         }
 
         .modal-content {
           width: 100%;
-          max-width: 820px;
-          max-height: 90vh;
+          max-width: 760px;
+          max-height: 88vh;
           overflow-y: auto;
           background: #ffffff;
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-lg);
-          padding: 2.2rem;
-          box-shadow: 0 25px 60px rgba(70, 55, 40, 0.18);
-          animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          padding: 1.75rem;
+          box-shadow: 0 20px 50px rgba(70, 55, 40, 0.16);
+          animation: scaleUp 0.22s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .modal-header {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 1.25rem;
+          margin-bottom: 1rem;
         }
 
         .modal-badges {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.6rem;
+          gap: 0.5rem;
         }
 
         .badge-category {
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           font-weight: 700;
           background: var(--accent-taupe-soft);
           color: var(--accent-taupe-dark);
           border: 1px solid rgba(140, 115, 93, 0.25);
-          padding: 0.25rem 0.75rem;
+          padding: 0.2rem 0.65rem;
           border-radius: var(--radius-full);
           text-transform: uppercase;
         }
 
         .badge-partner {
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           font-weight: 600;
           background: var(--bg-secondary);
           color: var(--text-secondary);
           border: 1px solid var(--border-subtle);
-          padding: 0.25rem 0.75rem;
+          padding: 0.2rem 0.65rem;
           border-radius: var(--radius-full);
         }
 
@@ -242,8 +235,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           background: var(--bg-secondary);
           border: 1px solid var(--border-subtle);
           color: var(--text-secondary);
-          width: 36px;
-          height: 36px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -260,12 +253,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         .modal-visual-banner {
           width: 100%;
-          height: 240px;
-          border-radius: 12px;
+          height: 190px;
+          border-radius: 10px;
           overflow: hidden;
           background: #f7f3ec;
           border: 1px solid var(--border-subtle);
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.25rem;
         }
 
         .modal-banner-img {
@@ -276,33 +269,33 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         }
 
         .modal-title {
-          font-size: clamp(1.4rem, 2.8vw, 1.85rem);
-          margin-bottom: 0.4rem;
+          font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+          margin-bottom: 0.35rem;
         }
 
         .modal-tagline {
-          font-size: 0.98rem;
+          font-size: 0.88rem;
           color: var(--accent-taupe-dark);
           font-weight: 500;
-          margin-bottom: 1.5rem;
-          line-height: 1.55;
+          margin-bottom: 1.25rem;
+          line-height: 1.5;
         }
 
         .modal-qa-box {
           background: var(--accent-sage-soft);
           border: 1px solid rgba(84, 110, 99, 0.25);
           border-radius: var(--radius-md);
-          padding: 1.25rem 1.4rem;
-          margin-bottom: 1.5rem;
+          padding: 1rem 1.15rem;
+          margin-bottom: 1.25rem;
         }
 
         .modal-qa-box h4 {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          font-size: 0.92rem;
+          gap: 0.45rem;
+          font-size: 0.85rem;
           color: var(--accent-sage-dark);
-          margin-bottom: 0.85rem;
+          margin-bottom: 0.65rem;
           text-transform: uppercase;
           letter-spacing: 0.04em;
         }
@@ -311,88 +304,50 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 20px;
-          height: 20px;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           background: var(--accent-sage);
           color: #ffffff;
-          font-size: 0.75rem;
-          font-weight: 900;
         }
 
         .qa-checklist {
           display: flex;
           flex-direction: column;
-          gap: 0.55rem;
+          gap: 0.45rem;
         }
 
         .qa-item {
           display: flex;
           align-items: flex-start;
-          gap: 0.65rem;
-          font-size: 0.88rem;
-          color: var(--text-primary);
-          line-height: 1.5;
-        }
-
-        .qa-check-bullet {
-          color: var(--accent-sage);
-          font-weight: 800;
-        }
-
-        .modal-metrics-box {
-          background: #ffffff;
-          border: 1px solid var(--border-subtle);
-          border-radius: var(--radius-md);
-          padding: 1.25rem 1.4rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .modal-metrics-box h4 {
-          font-size: 0.9rem;
-          color: var(--accent-taupe-dark);
-          margin-bottom: 0.75rem;
-          text-transform: uppercase;
-          letter-spacing: 0.04em;
-        }
-
-        .metrics-list {
-          display: flex;
-          flex-direction: column;
           gap: 0.5rem;
-        }
-
-        .metric-item {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          font-size: 0.9rem;
+          font-size: 0.84rem;
           color: var(--text-primary);
+          line-height: 1.45;
         }
 
-        .metric-bullet {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
+        .qa-bullet-svg {
+          color: var(--accent-sage);
           flex-shrink: 0;
+          margin-top: 0.2rem;
         }
 
         .problem-solution-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 1.25rem;
-          margin-bottom: 1.75rem;
+          gap: 1rem;
+          margin-bottom: 1.25rem;
         }
 
         .ps-card {
-          padding: 1.2rem;
+          padding: 0.95rem;
           border-radius: var(--radius-md);
           border: 1px solid var(--border-subtle);
         }
 
         .ps-problem {
-          background: #fbf8f5;
-          border-color: #ebdcd0;
+          background: #fbf9f6;
+          border-color: #e8ded3;
         }
 
         .ps-solution {
@@ -401,65 +356,59 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         }
 
         .ps-tag {
-          font-size: 0.82rem;
+          display: flex;
+          align-items: center;
+          gap: 0.35rem;
+          font-size: 0.78rem;
           font-weight: 700;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.4rem;
           color: var(--text-primary);
         }
 
         .ps-card p {
-          font-size: 0.9rem;
-          line-height: 1.6;
+          font-size: 0.84rem;
+          line-height: 1.55;
           color: var(--text-secondary);
         }
 
         .modal-section {
-          margin-bottom: 1.75rem;
+          margin-bottom: 1.25rem;
         }
 
         .modal-section h3 {
-          font-size: 1.1rem;
-          margin-bottom: 0.75rem;
+          font-size: 0.95rem;
+          margin-bottom: 0.55rem;
           color: var(--text-primary);
         }
 
-        .features-list, .design-aspects-list {
+        .features-list {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 0.6rem;
+          gap: 0.45rem;
         }
 
-        .features-list li, .design-aspects-list li {
+        .features-list li {
           display: flex;
           align-items: flex-start;
-          gap: 0.75rem;
-          font-size: 0.9rem;
+          gap: 0.6rem;
+          font-size: 0.85rem;
           color: var(--text-secondary);
-          line-height: 1.55;
-        }
-
-        .figma-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: var(--accent-taupe);
-          margin-top: 0.5rem;
-          flex-shrink: 0;
+          line-height: 1.45;
         }
 
         .tech-pills-row {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.5rem;
+          gap: 0.4rem;
         }
 
         .tech-pill {
-          font-size: 0.82rem;
+          font-size: 0.76rem;
           font-family: var(--font-mono);
           background: var(--bg-secondary);
           border: 1px solid var(--border-subtle);
-          padding: 0.35rem 0.8rem;
+          padding: 0.2rem 0.6rem;
           border-radius: var(--radius-sm);
           color: var(--text-primary);
         }
@@ -467,8 +416,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         .modal-footer {
           display: flex;
           justify-content: flex-end;
-          gap: 1rem;
-          padding-top: 1.5rem;
+          gap: 0.75rem;
+          padding-top: 1.25rem;
           border-top: 1px solid var(--border-subtle);
         }
 
@@ -480,7 +429,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         @keyframes scaleUp {
           from {
             opacity: 0;
-            transform: scale(0.96) translateY(10px);
+            transform: scale(0.96) translateY(8px);
           }
           to {
             opacity: 1;
@@ -493,7 +442,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             grid-template-columns: 1fr;
           }
           .modal-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
           }
           .modal-footer {
             flex-direction: column;

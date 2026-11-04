@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { PERSONAL_INFO } from '@/data/portfolioData';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,8 +16,8 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Tentang', href: '#about' },
-    { label: 'Keunggulan QA', href: '#philosophy' },
-    { label: 'Studi Kasus', href: '#projects' },
+    { label: 'Pendekatan', href: '#philosophy' },
+    { label: 'Proyek', href: '#projects' },
     { label: 'Keahlian', href: '#skills' },
     { label: 'Pengalaman', href: '#experience' },
     { label: 'Kontak', href: '#contact' },
@@ -35,7 +34,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <nav className="desktop-nav" aria-label="Main Navigation">
           {navLinks.map((link) => (
             <a
@@ -55,8 +54,8 @@ export default function Navbar() {
             className="btn btn-primary nav-cta-btn"
             id="nav-hire-btn"
           >
-            <span>Hubungi Saya</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <span>Hubungi</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -70,12 +69,12 @@ export default function Navbar() {
             id="mobile-menu-toggle-btn"
           >
             {mobileMenuOpen ? (
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             ) : (
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -102,10 +101,10 @@ export default function Navbar() {
             <a
               href="#contact"
               className="btn btn-primary"
-              style={{ marginTop: '1rem', width: '100%' }}
+              style={{ marginTop: '0.85rem', width: '100%' }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Hubungi Saya
+              Hubungi
             </a>
           </nav>
         </div>
@@ -118,17 +117,17 @@ export default function Navbar() {
           left: 0;
           right: 0;
           z-index: 1000;
-          padding: 1.25rem 0;
-          transition: all 0.3s ease;
+          padding: 1.1rem 0;
+          transition: all 0.25s ease;
         }
 
         .navbar-wrapper.scrolled {
-          padding: 0.75rem 0;
+          padding: 0.65rem 0;
           background: rgba(249, 246, 240, 0.94);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
           border-bottom: 1px solid var(--border-subtle);
-          box-shadow: 0 4px 20px rgba(70, 55, 40, 0.05);
+          box-shadow: 0 4px 18px rgba(70, 55, 40, 0.04);
         }
 
         .nav-container {
@@ -140,22 +139,22 @@ export default function Navbar() {
         .brand-logo {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
+          gap: 0.65rem;
         }
 
         .brand-badge {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 38px;
-          height: 38px;
-          border-radius: 10px;
+          width: 34px;
+          height: 34px;
+          border-radius: 8px;
           background: var(--gradient-brand);
           color: #ffffff;
           font-family: var(--font-heading);
           font-weight: 700;
-          font-size: 0.95rem;
-          box-shadow: 0 3px 12px rgba(140, 115, 93, 0.25);
+          font-size: 0.88rem;
+          box-shadow: 0 2px 8px rgba(140, 115, 93, 0.22);
         }
 
         .brand-text {
@@ -166,12 +165,12 @@ export default function Navbar() {
 
         .brand-text strong {
           font-family: var(--font-heading);
-          font-size: 1.05rem;
+          font-size: 0.98rem;
           color: var(--text-primary);
         }
 
         .brand-sub {
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           color: var(--accent-taupe-dark);
           font-family: var(--font-mono);
           letter-spacing: -0.02em;
@@ -181,17 +180,17 @@ export default function Navbar() {
         .desktop-nav {
           display: flex;
           align-items: center;
-          gap: 1.75rem;
-          background: rgba(255, 255, 255, 0.9);
-          padding: 0.45rem 1.4rem;
+          gap: 1.4rem;
+          background: rgba(255, 255, 255, 0.92);
+          padding: 0.4rem 1.25rem;
           border-radius: var(--radius-full);
           border: 1px solid var(--border-subtle);
-          backdrop-filter: blur(10px);
-          box-shadow: 0 2px 10px rgba(70, 55, 40, 0.03);
+          backdrop-filter: blur(8px);
+          box-shadow: 0 2px 8px rgba(70, 55, 40, 0.02);
         }
 
         .nav-item {
-          font-size: 0.88rem;
+          font-size: 0.84rem;
           font-weight: 500;
           color: var(--text-secondary);
           transition: all var(--transition-fast);
@@ -204,12 +203,12 @@ export default function Navbar() {
         .nav-actions {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
+          gap: 0.65rem;
         }
 
         .nav-cta-btn {
-          padding: 0.55rem 1.25rem;
-          font-size: 0.88rem;
+          padding: 0.45rem 1.05rem;
+          font-size: 0.82rem;
         }
 
         .mobile-toggle {
@@ -217,8 +216,8 @@ export default function Navbar() {
           background: #ffffff;
           border: 1px solid var(--border-subtle);
           color: var(--text-primary);
-          padding: 0.5rem;
-          border-radius: 8px;
+          padding: 0.45rem;
+          border-radius: 7px;
           cursor: pointer;
         }
 
@@ -241,22 +240,22 @@ export default function Navbar() {
             display: block;
             background: rgba(249, 246, 240, 0.98);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 1.5rem;
-            animation: slideDown 0.25s ease-out;
+            padding: 1.25rem;
+            animation: slideDown 0.2s ease-out;
             box-shadow: 0 10px 25px rgba(70, 55, 40, 0.06);
           }
 
           .mobile-nav-links {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.75rem;
           }
 
           .mobile-nav-item {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             font-weight: 500;
             color: var(--text-primary);
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             border-bottom: 1px solid var(--border-subtle);
           }
         }
@@ -264,7 +263,7 @@ export default function Navbar() {
         @keyframes slideDown {
           from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(-8px);
           }
           to {
             opacity: 1;

@@ -1,48 +1,44 @@
 'use client';
 
 import React from 'react';
-import { PERSONAL_INFO } from '@/data/portfolioData';
 
 export default function ValuePillar() {
   const pillars = [
     {
-      tag: "Akademik & Presisi",
-      title: "Fondasi Rekayasa Sistem (IPK 3,94)",
+      tag: "Akademik IT",
+      title: "Fondasi Informatika (IPK 3,94)",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
           <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
         </svg>
       ),
-      description: "Lulusan D3 Teknik Informatika Politeknik Negeri Indramayu dengan IPK 3,94/4,00. Terlatih dalam pengembangan aplikasi web, perancangan antarmuka (UI/UX), pengelolaan basis data PostgreSQL, serta analisis sistem informasi yang diterapkan pada Tugas Akhir SPK K-Means Clustering.",
+      description: "Lulusan D3 Teknik Informatika Polindra dengan pemahaman pada struktur aplikasi web, manipulasi basis data, dan logika pemrograman yang terarah.",
       accent: "#8c735d"
     },
     {
       tag: "Pengujian Praktis",
-      title: "Postman API Testing & Bug Logging",
+      title: "Pengujian API & Pelaporan Bug",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="8" x2="12" y2="12"></line>
-          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 11l3 3L22 4"></path>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
         </svg>
       ),
-      description: "Pengalaman magang 6 bulan di CV. Indokoding Sukses Makmur. Aktif melakukan pengujian API via Postman (mengirim request, running collections, cek payload & respons), serta mengidentifikasi dan mendokumentasikan temuan bug/inkonsistensi pada website klien.",
+      description: "Pengalaman magang 6 bulan melakukan pengujian endpoint menggunakan Postman, validasi respons status code, serta dokumentasi temuan issue sistem klien.",
       accent: "#546e63"
     },
     {
-      tag: "Ketelitian Layanan",
-      title: "Hospitality Discipline & Detail-Oriented",
+      tag: "Ketelitian Kerja",
+      title: "Ketelitian & Empati Pengguna",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-          <circle cx="9" cy="7" r="4"></circle>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
       ),
-      description: "Pendidikan Perhotelan dan pengalaman Front Desk Receptionist membekali standar ketelitian tinggi, administrasi data terstruktur, komunikasi efektif, dan empati pengguna yang kuat dalam memastikan kualitas perangkat lunak.",
-      accent: "#b59d84"
+      description: "Latar belakang operasional perhotelan melatih kedisiplinan administrasi data, kepatuhan alur kerja, dan kebiasaan melihat sistem dari sudut pandang pemakai.",
+      accent: "#7a6252"
     }
   ];
 
@@ -50,13 +46,13 @@ export default function ValuePillar() {
     <section className="section-spacing value-section reveal-on-scroll" id="philosophy">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Profil & Nilai Tambah</div>
+          <div className="section-pill">Pendekatan Kerja</div>
           <h2 className="section-title">
-            Mengapa Memilih <span className="gradient-text">Annisa</span>?
+            Fokus & <span className="gradient-text">Karakteristik</span>
           </h2>
           <p className="section-description">
-            Kombinasi unik antara pemahaman kode frontend modern, ketelitian pengujian API menggunakan Postman, 
-            dan disiplin pelayanan berorientasi pada kepuasan pengguna akhir.
+            Menghubungkan pemahaman logika kode frontend, kebiasaan pengujian fungsionalitas sistem, 
+            dan ketelitian kerja yang terstruktur.
           </p>
         </div>
 
@@ -67,7 +63,7 @@ export default function ValuePillar() {
               <div className="pillar-header">
                 <div 
                   className="pillar-icon"
-                  style={{ color: pillar.accent, background: `${pillar.accent}15` }}
+                  style={{ color: pillar.accent, background: `${pillar.accent}12` }}
                 >
                   {pillar.icon}
                 </div>
@@ -79,30 +75,47 @@ export default function ValuePillar() {
           ))}
         </div>
 
-        {/* The "Why Frontend-Aware QA" Callout Box */}
+        {/* Tech + QA Alignment Box */}
         <div className="comparison-box">
           <div className="comparison-col">
-            <div className="comp-badge comp-code">💻 Pemahaman Jeroan Frontend</div>
-            <h4>Analisis Kode & DevTools</h4>
+            <div className="comp-badge comp-code">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span>Pemahaman Frontend</span>
+            </div>
+            <h4>Analisis Komponen & Console</h4>
             <ul>
-              <li>Memahami struktur komponen Next.js, React, dan DOM hierarchy</li>
-              <li>Inspeksi Network Tab, console error logs, dan parsing JSON response</li>
-              <li>Mengetahui persis di layer mana bug terjadi (klien vs server)</li>
+              <li>Memahami alur komponen Next.js/React, form state, dan event handler</li>
+              <li>Inspeksi Network tab, error logs console, dan struktur data respons JSON</li>
+              <li>Membantu mempercepat diagnosa apakah kendala berada di layer UI atau API</li>
             </ul>
           </div>
 
           <div className="comp-bridge">
-            <span className="bridge-pill">Keunggulan QA</span>
-            <div className="bridge-icon">⇄</div>
+            <span className="bridge-pill">Sinergi QA</span>
+            <div className="bridge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
           </div>
 
           <div className="comparison-col">
-            <div className="comp-badge comp-qa">🔍 Metodologi Pengujian SQA</div>
-            <h4>Pengujian Fungsional & API</h4>
+            <div className="comp-badge comp-qa">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>Pengujian SQA</span>
+            </div>
+            <h4>Verifikasi Alur & Integritas Data</h4>
             <ul>
-              <li>Postman Collections, status code check (200/400/500) & payload</li>
-              <li>Boundary value testing, form error validation & edge-case flows</li>
-              <li>Dokumentasi temuan bug yang terstruktur dan mudah ditindaklanjuti dev</li>
+              <li>Pengujian Postman: verifikasi status code (200, 400, 500) dan payload balik</li>
+              <li>Pengujian boundary nilai input formulir dan skenario edge-case pengguna</li>
+              <li>Penyusunan catatan temuan bug yang runtut untuk mempermudah reproduksi tim dev</li>
             </ul>
           </div>
         </div>
@@ -116,12 +129,12 @@ export default function ValuePillar() {
         .pillars-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1.5rem;
-          margin-bottom: 3rem;
+          gap: 1.25rem;
+          margin-bottom: 2rem;
         }
 
         .pillar-card {
-          padding: 2.2rem 1.8rem;
+          padding: 1.5rem 1.4rem;
           display: flex;
           flex-direction: column;
           background: #ffffff;
@@ -131,20 +144,20 @@ export default function ValuePillar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 1.4rem;
+          margin-bottom: 1rem;
         }
 
         .pillar-icon {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 48px;
-          height: 48px;
-          border-radius: 12px;
+          width: 38px;
+          height: 38px;
+          border-radius: 9px;
         }
 
         .pillar-tag {
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           font-family: var(--font-mono);
           color: var(--accent-taupe-dark);
           text-transform: uppercase;
@@ -153,27 +166,27 @@ export default function ValuePillar() {
         }
 
         .pillar-title {
-          font-size: 1.25rem;
-          margin-bottom: 0.85rem;
+          font-size: 1.12rem;
+          margin-bottom: 0.5rem;
           line-height: 1.35;
           color: var(--text-primary);
         }
 
         .pillar-desc {
-          font-size: 0.92rem;
+          font-size: 0.88rem;
           color: var(--text-secondary);
-          line-height: 1.68;
+          line-height: 1.6;
         }
 
         .comparison-box {
           background: #ffffff;
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-lg);
-          padding: 2.5rem;
+          padding: 1.8rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 2rem;
+          gap: 1.5rem;
           box-shadow: var(--shadow-sm);
         }
 
@@ -182,12 +195,14 @@ export default function ValuePillar() {
         }
 
         .comp-badge {
-          display: inline-block;
-          font-size: 0.8rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-size: 0.76rem;
           font-weight: 700;
-          padding: 0.3rem 0.85rem;
+          padding: 0.25rem 0.7rem;
           border-radius: var(--radius-full);
-          margin-bottom: 0.85rem;
+          margin-bottom: 0.65rem;
         }
 
         .comp-code {
@@ -203,31 +218,35 @@ export default function ValuePillar() {
         }
 
         .comparison-col h4 {
-          font-size: 1.2rem;
-          margin-bottom: 0.75rem;
+          font-size: 1.05rem;
+          margin-bottom: 0.6rem;
+          color: var(--text-primary);
         }
 
         .comparison-col ul {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 0.55rem;
+          gap: 0.45rem;
         }
 
         .comparison-col li {
-          font-size: 0.92rem;
+          font-size: 0.86rem;
           color: var(--text-secondary);
           position: relative;
-          padding-left: 1.25rem;
+          padding-left: 1.15rem;
           line-height: 1.5;
         }
 
         .comparison-col li::before {
-          content: '✓';
+          content: '';
           position: absolute;
           left: 0;
-          color: var(--accent-taupe);
-          font-weight: bold;
+          top: 0.55rem;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: var(--accent-taupe);
         }
 
         .comp-bridge {
@@ -235,15 +254,16 @@ export default function ValuePillar() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
+          gap: 0.4rem;
+          padding: 0 0.5rem;
         }
 
         .bridge-pill {
-          font-size: 0.72rem;
+          font-size: 0.7rem;
           font-family: var(--font-mono);
           text-transform: uppercase;
           background: var(--bg-secondary);
-          padding: 0.25rem 0.7rem;
+          padding: 0.2rem 0.65rem;
           border-radius: var(--radius-full);
           color: var(--text-secondary);
           font-weight: 600;
@@ -251,9 +271,10 @@ export default function ValuePillar() {
         }
 
         .bridge-icon {
-          font-size: 1.8rem;
           color: var(--accent-taupe);
-          line-height: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         @media (max-width: 900px) {
@@ -264,7 +285,7 @@ export default function ValuePillar() {
           .comparison-box {
             flex-direction: column;
             text-align: left;
-            padding: 1.75rem;
+            padding: 1.4rem;
           }
 
           .comp-bridge {
