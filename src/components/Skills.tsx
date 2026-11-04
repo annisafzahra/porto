@@ -136,11 +136,11 @@ export default function Skills() {
     <section className="section-spacing skills-section reveal-on-scroll" id="skills">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">Keahlian & Toolkit</div>
-          <h2 className="section-title section-title-dark">
-            Kompetensi <span className="gradient-text-soft">Teknis</span>
+          <div className="section-pill">Keahlian & Toolkit</div>
+          <h2 className="section-title">
+            Kompetensi <span className="gradient-text">Teknis</span>
           </h2>
-          <p className="section-description section-description-dark">
+          <p className="section-description">
             Alat dan kemampuan yang dipraktikkan dalam pengujian API Postman, inspeksi sistem web, 
             serta perancangan antarmuka pengguna.
           </p>
@@ -221,30 +221,9 @@ export default function Skills() {
       <style jsx>{`
         .skills-section {
           position: relative;
-          background-color: #8a6e54;
+          background-color: var(--bg-primary);
           width: 100%;
           overflow: hidden;
-        }
-
-        .section-pill-dark {
-          background: rgba(255, 255, 255, 0.16) !important;
-          border: 1px solid rgba(255, 255, 255, 0.28) !important;
-          color: #ffffff !important;
-        }
-
-        .section-title-dark {
-          color: #ffffff !important;
-        }
-
-        .gradient-text-soft {
-          background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          display: inline-block;
-        }
-
-        .section-description-dark {
-          color: #f3ede4 !important;
         }
 
         .skills-grid {
@@ -260,17 +239,17 @@ export default function Skills() {
           display: flex;
           flex-direction: column;
           background: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.8);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-md);
-          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
+          box-shadow: var(--shadow-sm);
           cursor: pointer;
           transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
         }
 
         .skill-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
-          border-color: rgba(255, 255, 255, 0.95);
+          box-shadow: var(--shadow-hover);
+          border-color: var(--border-hover);
         }
 
         .skill-card-header {
@@ -352,7 +331,7 @@ export default function Skills() {
 
         .workflow-strip {
           background: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.8);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-lg);
           padding: 1.15rem 1.5rem;
           display: flex;
@@ -360,13 +339,13 @@ export default function Skills() {
           justify-content: space-between;
           gap: 1rem;
           flex-wrap: wrap;
-          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
+          box-shadow: var(--shadow-sm);
           transition: transform 0.28s ease, box-shadow 0.28s ease;
         }
 
         .workflow-strip:hover {
           transform: translateY(-2px);
-          box-shadow: 0 10px 28px rgba(35, 24, 14, 0.18);
+          box-shadow: var(--shadow-md);
         }
 
         .workflow-title {

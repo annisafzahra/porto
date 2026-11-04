@@ -8,11 +8,11 @@ export default function Experience() {
     <section className="section-spacing experience-section reveal-on-scroll" id="experience">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Riwayat & Jejak Kerja</div>
-          <h2 className="section-title">
-            Pengalaman & <span className="gradient-text">Pendidikan</span>
+          <div className="section-pill section-pill-dark">Riwayat & Jejak Kerja</div>
+          <h2 className="section-title section-title-dark">
+            Pengalaman & <span className="gradient-text-soft">Pendidikan</span>
           </h2>
-          <p className="section-description">
+          <p className="section-description section-description-dark">
             Pengalaman magang pengembangan frontend dan pengujian API, 
             serta fondasi kedisiplinan kerja dari latar belakang perhotelan.
           </p>
@@ -21,7 +21,7 @@ export default function Experience() {
         <div className="experience-layout">
           {/* Timeline Column */}
           <div className="timeline-col">
-            <h3 className="col-headline">Pengalaman Kerja & Magang</h3>
+            <h3 className="col-headline col-headline-dark">Pengalaman Kerja & Magang</h3>
             
             <div className="timeline-items">
               {EXPERIENCES.map((exp, idx) => (
@@ -68,7 +68,7 @@ export default function Experience() {
 
           {/* Education Column */}
           <div className="education-col">
-            <h3 className="col-headline">Pendidikan</h3>
+            <h3 className="col-headline col-headline-dark">Pendidikan</h3>
 
             <div className="education-card glass-card">
               <div className="edu-icon-badge">
@@ -112,8 +112,34 @@ export default function Experience() {
       <style jsx>{`
         .experience-section {
           position: relative;
+          background-color: #8a6e54;
           width: 100%;
           overflow: hidden;
+        }
+
+        .section-pill-dark {
+          background: rgba(255, 255, 255, 0.16) !important;
+          border: 1px solid rgba(255, 255, 255, 0.28) !important;
+          color: #ffffff !important;
+        }
+
+        .section-title-dark {
+          color: #ffffff !important;
+        }
+
+        .col-headline-dark {
+          color: #ffffff !important;
+        }
+
+        .gradient-text-soft {
+          background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: inline-block;
+        }
+
+        .section-description-dark {
+          color: #f3ede4 !important;
         }
 
         .experience-layout {
@@ -127,7 +153,6 @@ export default function Experience() {
         .col-headline {
           font-size: 1.15rem;
           margin-bottom: 1.25rem;
-          color: var(--text-primary);
         }
 
         .timeline-items {
@@ -141,12 +166,13 @@ export default function Experience() {
           background: #ffffff;
           border-left: 3px solid var(--accent-taupe);
           border-radius: var(--radius-md);
+          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
           transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .timeline-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 30px rgba(45, 32, 20, 0.1);
+          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
         }
 
         .card-meta {
@@ -232,6 +258,7 @@ export default function Experience() {
           padding: 1.5rem;
           background: #ffffff;
           border-radius: var(--radius-md);
+          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
           position: sticky;
           top: 5.5rem;
           transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
@@ -239,7 +266,7 @@ export default function Experience() {
 
         .education-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 30px rgba(45, 32, 20, 0.1);
+          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
         }
 
         .edu-icon-badge {

@@ -46,11 +46,11 @@ export default function ValuePillar() {
     <section className="section-spacing value-section reveal-on-scroll" id="philosophy">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">Pendekatan Kerja</div>
-          <h2 className="section-title section-title-dark">
-            Fokus & <span className="gradient-text-soft">Karakteristik</span>
+          <div className="section-pill">Pendekatan Kerja</div>
+          <h2 className="section-title">
+            Fokus & <span className="gradient-text">Karakteristik</span>
           </h2>
-          <p className="section-description section-description-dark">
+          <p className="section-description">
             Menghubungkan pemahaman logika kode frontend, kebiasaan pengujian fungsionalitas sistem, 
             dan ketelitian kerja yang terstruktur.
           </p>
@@ -124,30 +124,9 @@ export default function ValuePillar() {
       <style jsx>{`
         .value-section {
           position: relative;
-          background-color: #8a6e54;
+          background-color: var(--bg-primary);
           width: 100%;
           overflow: hidden;
-        }
-
-        .section-pill-dark {
-          background: rgba(255, 255, 255, 0.16) !important;
-          border: 1px solid rgba(255, 255, 255, 0.28) !important;
-          color: #ffffff !important;
-        }
-
-        .section-title-dark {
-          color: #ffffff !important;
-        }
-
-        .gradient-text-soft {
-          background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          display: inline-block;
-        }
-
-        .section-description-dark {
-          color: #f3ede4 !important;
         }
 
         .pillars-grid {
@@ -163,17 +142,17 @@ export default function ValuePillar() {
           display: flex;
           flex-direction: column;
           background: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.8);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-md);
-          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
+          box-shadow: var(--shadow-sm);
           cursor: pointer;
           transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
         }
 
         .pillar-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
-          border-color: rgba(255, 255, 255, 0.95);
+          box-shadow: var(--shadow-hover);
+          border-color: var(--border-hover);
         }
 
         .pillar-header {
@@ -216,20 +195,20 @@ export default function ValuePillar() {
 
         .comparison-box {
           background: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.8);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-lg);
           padding: 1.8rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
           gap: 1.5rem;
-          box-shadow: 0 6px 24px rgba(35, 24, 14, 0.16);
+          box-shadow: var(--shadow-sm);
           transition: transform 0.28s ease, box-shadow 0.28s ease;
         }
 
         .comparison-box:hover {
           transform: translateY(-3px);
-          box-shadow: 0 12px 30px rgba(35, 24, 14, 0.2);
+          box-shadow: var(--shadow-md);
         }
 
         .comparison-col {

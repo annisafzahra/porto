@@ -23,11 +23,11 @@ export default function Projects() {
     <section className="section-spacing projects-section reveal-on-scroll" id="projects">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Studi Kasus Proyek</div>
-          <h2 className="section-title">
-            Proyek & <span className="gradient-text">Verifikasi Sistem</span>
+          <div className="section-pill section-pill-dark">Studi Kasus Proyek</div>
+          <h2 className="section-title section-title-dark">
+            Proyek & <span className="gradient-text-soft">Verifikasi Sistem</span>
           </h2>
-          <p className="section-description">
+          <p className="section-description section-description-dark">
             Portofolio proyek nyata dengan implementasi frontend, integrasi API, 
             serta cakupan pengujian fungsionalitas dan validasi sistem.
           </p>
@@ -139,8 +139,30 @@ export default function Projects() {
       <style jsx>{`
         .projects-section {
           position: relative;
+          background-color: #8a6e54;
           width: 100%;
           overflow: hidden;
+        }
+
+        .section-pill-dark {
+          background: rgba(255, 255, 255, 0.16) !important;
+          border: 1px solid rgba(255, 255, 255, 0.28) !important;
+          color: #ffffff !important;
+        }
+
+        .section-title-dark {
+          color: #ffffff !important;
+        }
+
+        .gradient-text-soft {
+          background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: inline-block;
+        }
+
+        .section-description-dark {
+          color: #f3ede4 !important;
         }
 
         .filter-bar {
@@ -152,9 +174,9 @@ export default function Projects() {
         }
 
         .filter-btn {
-          background: #ffffff;
-          border: 1px solid var(--border-subtle);
-          color: var(--text-secondary);
+          background: rgba(255, 255, 255, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          color: #ffffff;
           padding: 0.45rem 1rem;
           border-radius: var(--radius-full);
           font-size: 0.82rem;
@@ -164,16 +186,16 @@ export default function Projects() {
         }
 
         .filter-btn:hover {
-          color: var(--text-primary);
-          border-color: var(--border-hover);
+          background: rgba(255, 255, 255, 0.25);
+          border-color: rgba(255, 255, 255, 0.4);
           transform: translateY(-1px);
         }
 
         .filter-btn.active {
-          background: var(--gradient-brand);
-          color: #ffffff;
-          border-color: transparent;
-          box-shadow: 0 2px 10px rgba(140, 115, 93, 0.25);
+          background: #ffffff;
+          color: #1e1b18;
+          border-color: #ffffff;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
         }
 
         .projects-grid {
@@ -192,19 +214,21 @@ export default function Projects() {
           overflow: hidden;
           text-align: left;
           background: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.85);
           border-radius: var(--radius-md);
           user-select: none;
+          box-shadow: 0 4px 18px rgba(35, 24, 14, 0.14);
           transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
         }
 
         .project-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 14px 34px rgba(45, 32, 20, 0.12);
-          border-color: var(--border-hover);
+          box-shadow: 0 14px 34px rgba(35, 24, 14, 0.22);
+          border-color: rgba(255, 255, 255, 0.95);
         }
 
         .project-card:focus-visible {
-          outline: 2px solid var(--accent-taupe);
+          outline: 2px solid #ffffff;
           outline-offset: 2px;
         }
 

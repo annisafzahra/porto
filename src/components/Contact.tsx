@@ -31,11 +31,11 @@ export default function Contact() {
     <section className="section-spacing contact-section reveal-on-scroll" id="contact">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">Saluran Komunikasi</div>
-          <h2 className="section-title section-title-dark">
-            Mari <span className="gradient-text-soft">Terhubung</span>
+          <div className="section-pill">Saluran Komunikasi</div>
+          <h2 className="section-title">
+            Mari <span className="gradient-text">Terhubung</span>
           </h2>
-          <p className="section-description section-description-dark">
+          <p className="section-description">
             Terbuka untuk diskusi penempatan kerja Software Quality Assurance (QA), pengujian sistem, 
             maupun peluang kolaborasi teknologi informasi.
           </p>
@@ -170,45 +170,24 @@ export default function Contact() {
       <style jsx>{`
         .contact-section {
           position: relative;
-          background-color: #8a6e54;
+          background-color: var(--bg-primary);
           width: 100%;
           overflow: hidden;
-        }
-
-        .section-pill-dark {
-          background: rgba(255, 255, 255, 0.16) !important;
-          border: 1px solid rgba(255, 255, 255, 0.28) !important;
-          color: #ffffff !important;
-        }
-
-        .section-title-dark {
-          color: #ffffff !important;
-        }
-
-        .gradient-text-soft {
-          background: linear-gradient(135deg, #ffffff 0%, #faedd8 50%, #dfcbb5 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          display: inline-block;
-        }
-
-        .section-description-dark {
-          color: #f3ede4 !important;
         }
 
         .contact-wrapper {
           padding: 2.25rem;
           background: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.85);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-lg);
-          box-shadow: 0 10px 30px rgba(45, 32, 20, 0.18);
+          box-shadow: var(--shadow-sm);
           position: relative;
           overflow: hidden;
           transition: transform 0.28s ease, box-shadow 0.28s ease;
         }
 
         .contact-wrapper:hover {
-          box-shadow: 0 16px 40px rgba(45, 32, 20, 0.22);
+          box-shadow: var(--shadow-md);
         }
 
         .contact-grid {

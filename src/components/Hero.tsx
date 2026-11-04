@@ -41,7 +41,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Content */}
+        {/* Right Column: Concise Introduction */}
         <div className="hero-content">
           <div className="hero-eyebrow">
             <span className="eyebrow-line"></span>
@@ -60,12 +60,11 @@ export default function Hero() {
             <span>Software Quality Assurance & Frontend Developer</span>
           </div>
 
+          {/* Concise punchy description */}
           <p className="hero-description">
-            Lulusan D3 Teknik Informatika Politeknik Negeri Indramayu dengan <strong>IPK 3,94/4,00</strong>. 
-            Memiliki pengalaman magang 6 bulan di <em>CV. Indokoding Sukses Makmur</em> dalam 
-            <strong> pengujian API menggunakan Postman</strong>, verifikasi respons server, pelaporan temuan bug, 
-            serta pengembangan antarmuka web modern. Berbekal latar belakang perhotelan yang membentuk 
-            ketelitian administrasi dan fokus pada kenyamanan pengguna.
+            Fresh graduate in Informatics Engineering (GPA 3.94/4.00) with hands-on experience in 
+            <strong> Postman API testing</strong>, <strong>Next.js & React frontend development</strong>, 
+            and software system verification.
           </p>
 
           {/* Quick Stats Grid */}
@@ -90,8 +89,8 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="hero-cta-group">
-            <a href="#projects" className="btn btn-primary" id="hero-cta-projects">
-              <span>Lihat Proyek & Pengujian</span>
+            <a href="#about-me" className="btn btn-primary" id="hero-cta-about">
+              <span>Tentang Saya</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <polyline points="19 12 12 19 5 12"></polyline>
@@ -286,21 +285,15 @@ export default function Hero() {
         }
 
         .hero-description {
-          font-size: 0.98rem;
+          font-size: 1rem;
           color: var(--text-secondary);
-          line-height: 1.7;
+          line-height: 1.65;
           margin-bottom: 1.75rem;
           max-width: 650px;
         }
 
         .hero-description strong {
           color: var(--text-primary);
-        }
-
-        .hero-description em {
-          color: var(--accent-taupe-dark);
-          font-style: normal;
-          font-weight: 600;
         }
 
         .metrics-pills-row {
