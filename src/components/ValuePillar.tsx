@@ -14,7 +14,7 @@ export default function ValuePillar() {
         </svg>
       ),
       description: "Lulusan D3 Teknik Informatika Polindra dengan pemahaman pada struktur aplikasi web, manipulasi basis data, dan logika pemrograman yang terarah.",
-      accent: "#8c735d"
+      accent: "#8a6e54"
     },
     {
       tag: "Pengujian Praktis",
@@ -26,7 +26,7 @@ export default function ValuePillar() {
         </svg>
       ),
       description: "Pengalaman magang 6 bulan melakukan pengujian endpoint menggunakan Postman, validasi respons status code, serta dokumentasi temuan issue sistem klien.",
-      accent: "#546e63"
+      accent: "#4f6b5f"
     },
     {
       tag: "Ketelitian Kerja",
@@ -38,7 +38,7 @@ export default function ValuePillar() {
         </svg>
       ),
       description: "Latar belakang operasional perhotelan melatih kedisiplinan administrasi data, kepatuhan alur kerja, dan kebiasaan melihat sistem dari sudut pandang pemakai.",
-      accent: "#7a6252"
+      accent: "#705944"
     }
   ];
 
@@ -46,11 +46,11 @@ export default function ValuePillar() {
     <section className="section-spacing value-section reveal-on-scroll" id="philosophy">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Pendekatan Kerja</div>
-          <h2 className="section-title">
-            Fokus & <span className="gradient-text">Karakteristik</span>
+          <div className="section-pill section-pill-dark">Pendekatan Kerja</div>
+          <h2 className="section-title section-title-dark">
+            Fokus & <span className="gradient-text-light">Karakteristik</span>
           </h2>
-          <p className="section-description">
+          <p className="section-description section-description-dark">
             Menghubungkan pemahaman logika kode frontend, kebiasaan pengujian fungsionalitas sistem, 
             dan ketelitian kerja yang terstruktur.
           </p>
@@ -63,7 +63,7 @@ export default function ValuePillar() {
               <div className="pillar-header">
                 <div 
                   className="pillar-icon"
-                  style={{ color: pillar.accent, background: `${pillar.accent}12` }}
+                  style={{ color: pillar.accent, background: `${pillar.accent}14` }}
                 >
                   {pillar.icon}
                 </div>
@@ -124,6 +124,28 @@ export default function ValuePillar() {
       <style jsx>{`
         .value-section {
           position: relative;
+          background-color: #8a6e54;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .section-pill-dark {
+          background: rgba(255, 255, 255, 0.15) !important;
+          border: 1px solid rgba(255, 255, 255, 0.28) !important;
+          color: #ffffff !important;
+        }
+
+        .section-title-dark {
+          color: #ffffff !important;
+        }
+
+        .gradient-text-light {
+          background: linear-gradient(135deg, #ffffff 0%, #f6ebe0 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .section-description-dark {
+          color: #f3ede4 !important;
         }
 
         .pillars-grid {
@@ -138,6 +160,8 @@ export default function ValuePillar() {
           display: flex;
           flex-direction: column;
           background: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.8);
+          box-shadow: 0 4px 20px rgba(45, 32, 20, 0.15);
         }
 
         .pillar-header {
@@ -180,14 +204,14 @@ export default function ValuePillar() {
 
         .comparison-box {
           background: #ffffff;
-          border: 1px solid var(--border-subtle);
+          border: 1px solid rgba(255, 255, 255, 0.8);
           border-radius: var(--radius-lg);
           padding: 1.8rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
           gap: 1.5rem;
-          box-shadow: var(--shadow-sm);
+          box-shadow: 0 6px 24px rgba(45, 32, 20, 0.16);
         }
 
         .comparison-col {

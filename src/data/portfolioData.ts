@@ -67,6 +67,9 @@ export const PERSONAL_INFO = {
   location: "Indramayu, Jawa Barat",
   availability: "Terbuka untuk posisi Software QA / Testing / Frontend (Full-Time / Remote / On-Site)",
   email: "annisafzahra1117@gmail.com",
+  phone: "+62 8xx-xxxx-xxxx",
+  phoneDisplay: "Hubungi via Kontak / WhatsApp",
+  whatsappUrl: "https://wa.me/6280000000000",
   github: "https://github.com",
   linkedin: "https://www.linkedin.com/in/annisa-fathimatuz-zahra-231228445",
   aboutParagraphs: [

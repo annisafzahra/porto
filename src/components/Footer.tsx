@@ -48,10 +48,10 @@ export default function Footer() {
 
       <style jsx>{`
         .footer-wrapper {
-          border-top: 1px solid var(--border-subtle);
-          background: #f4ece0;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          background: #2a221a;
+          color: #f2ebe1;
           padding: 2.5rem 0 1.75rem;
-          margin-top: 3.5rem;
         }
 
         .footer-container {
@@ -86,6 +86,7 @@ export default function Footer() {
           font-family: var(--font-heading);
           font-weight: 700;
           font-size: 0.88rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .brand-meta {
@@ -95,13 +96,13 @@ export default function Footer() {
         }
 
         .brand-meta strong {
-          color: var(--text-primary);
+          color: #ffffff;
           font-size: 0.92rem;
         }
 
         .brand-meta span {
           font-size: 0.78rem;
-          color: var(--text-muted);
+          color: #b8aba0;
         }
 
         .back-to-top {
@@ -110,17 +111,17 @@ export default function Footer() {
           gap: 0.45rem;
           font-size: 0.82rem;
           font-weight: 600;
-          color: var(--text-secondary);
+          color: #dcd3c8;
           transition: color var(--transition-fast);
         }
 
         .back-to-top:hover {
-          color: var(--accent-taupe);
+          color: #ffffff;
         }
 
         .footer-divider {
           height: 1px;
-          background: var(--border-subtle);
+          background: rgba(255, 255, 255, 0.1);
         }
 
         .footer-bottom {
@@ -133,7 +134,7 @@ export default function Footer() {
 
         .copyright-text {
           font-size: 0.8rem;
-          color: var(--text-muted);
+          color: #a4978c;
         }
 
         .deploy-pill {
@@ -142,12 +143,11 @@ export default function Footer() {
           gap: 0.45rem;
           font-size: 0.72rem;
           font-family: var(--font-mono);
-          color: var(--text-secondary);
-          background: #ffffff;
-          border: 1px solid var(--border-subtle);
+          color: #dcd3c8;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.15);
           padding: 0.2rem 0.65rem;
           border-radius: var(--radius-full);
-          box-shadow: 0 1px 3px rgba(60, 48, 35, 0.02);
         }
 
         .deploy-dot {

@@ -3,7 +3,6 @@
 import React from 'react';
 import { SKILL_CATEGORIES } from '@/data/portfolioData';
 
-// Map iconType to clean minimalist SVGs
 function getSkillIcon(type: string) {
   switch (type) {
     case 'api':
@@ -145,11 +144,11 @@ export default function Skills() {
     <section className="section-spacing skills-section reveal-on-scroll" id="skills">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Keahlian & Toolkit</div>
-          <h2 className="section-title">
-            Kompetensi <span className="gradient-text">Teknis</span>
+          <div className="section-pill section-pill-dark">Keahlian & Toolkit</div>
+          <h2 className="section-title section-title-dark">
+            Kompetensi <span className="gradient-text-light">Teknis</span>
           </h2>
-          <p className="section-description">
+          <p className="section-description section-description-dark">
             Alat dan kemampuan yang dipraktikkan dalam pengujian API Postman, inspeksi sistem web, 
             serta perancangan antarmuka pengguna.
           </p>
@@ -229,6 +228,28 @@ export default function Skills() {
       <style jsx>{`
         .skills-section {
           position: relative;
+          background-color: #8a6e54;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .section-pill-dark {
+          background: rgba(255, 255, 255, 0.15) !important;
+          border: 1px solid rgba(255, 255, 255, 0.28) !important;
+          color: #ffffff !important;
+        }
+
+        .section-title-dark {
+          color: #ffffff !important;
+        }
+
+        .gradient-text-light {
+          background: linear-gradient(135deg, #ffffff 0%, #f6ebe0 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .section-description-dark {
+          color: #f3ede4 !important;
         }
 
         .skills-grid {
@@ -243,6 +264,8 @@ export default function Skills() {
           display: flex;
           flex-direction: column;
           background: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.8);
+          box-shadow: 0 4px 20px rgba(45, 32, 20, 0.15);
         }
 
         .skill-card-header {
@@ -339,7 +362,7 @@ export default function Skills() {
 
         .workflow-strip {
           background: #ffffff;
-          border: 1px solid var(--border-subtle);
+          border: 1px solid rgba(255, 255, 255, 0.8);
           border-radius: var(--radius-lg);
           padding: 1.25rem 1.6rem;
           display: flex;
@@ -347,7 +370,7 @@ export default function Skills() {
           justify-content: space-between;
           gap: 1.25rem;
           flex-wrap: wrap;
-          box-shadow: var(--shadow-sm);
+          box-shadow: 0 4px 20px rgba(45, 32, 20, 0.15);
         }
 
         .workflow-title {
