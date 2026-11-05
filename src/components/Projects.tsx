@@ -25,7 +25,7 @@ export default function Projects() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title-pill">
-            {t('Proyek', 'Featured')}{' '}
+            <span>{t('Proyek', 'Featured')}</span>
             <span className="gradient-text">{t('Unggulan', 'Projects')}</span>
           </h2>
 

@@ -77,7 +77,7 @@ export const PERSONAL_INFO = {
     degreeEn: "Associate Degree in Computer Science (A.Md.Kom)",
     major: "Teknik Informatika",
     majorEn: "Informatics Engineering",
-    institution: "Politeknik Negeri Indramayu (Polindra)",
+    institution: "Politeknik Negeri Indramayu",
     period: "2023 - 2026",
     gpa: "3.94 / 4.00",
     status: "Lulusan Berprestasi (IPK 3,94)",
@@ -416,7 +416,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    period: "Februari 2024 - Juli 2024 (6 Bulan)",
+    period: "Juli 2025 - Desember 2025 (6 Bulan)",
     periodEn: "February 2024 - July 2024 (6 Months)",
     role: "Frontend Developer & API Testing Intern",
     roleEn: "Frontend Developer & API Testing Intern",

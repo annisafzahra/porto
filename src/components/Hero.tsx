@@ -100,21 +100,24 @@ export default function Hero() {
       <style jsx>{`
         .hero-section {
           position: relative;
-          min-height: 92vh;
+          min-height: 100vh;
           display: flex;
-          align-items: center;
-          padding-top: 7.5rem;
-          padding-bottom: 5rem;
+          flex-direction: column;
+          justify-content: center;
+          padding-top: calc(var(--nav-height, 76px) + 2.5rem);
+          padding-bottom: 4rem;
           background-color: var(--bg-primary);
           overflow: hidden;
+          box-sizing: border-box;
         }
 
         .hero-container {
           display: grid;
-          grid-template-columns: 0.82fr 1.18fr;
-          gap: 4rem;
+          grid-template-columns: 0.85fr 1.15fr;
+          gap: 3.5rem;
           align-items: center;
           width: 100%;
+          margin: auto auto;
         }
 
         /* Arch Frame Photo Container with Soft Entrance Animation */
@@ -128,12 +131,12 @@ export default function Hero() {
         .arch-photo-container {
           position: relative;
           width: 100%;
-          max-width: 320px;
+          max-width: 295px;
           aspect-ratio: 3 / 4;
-          border-top-left-radius: 160px;
-          border-top-right-radius: 160px;
-          border-bottom-left-radius: 24px;
-          border-bottom-right-radius: 24px;
+          border-top-left-radius: 148px;
+          border-top-right-radius: 148px;
+          border-bottom-left-radius: 22px;
+          border-bottom-right-radius: 22px;
           overflow: hidden;
           background: linear-gradient(180deg, #ecdcc9 0%, #dfcbbe 100%);
           box-shadow: 0 16px 42px rgba(45, 32, 20, 0.13);
@@ -296,7 +299,7 @@ export default function Hero() {
 
         @media (max-width: 900px) {
           .hero-section {
-            padding-top: 6.5rem;
+            padding-top: calc(var(--nav-height, 76px) + 1.75rem);
             padding-bottom: 3.5rem;
             min-height: auto;
           }
@@ -305,6 +308,7 @@ export default function Hero() {
             grid-template-columns: 1fr;
             text-align: center;
             gap: 2.25rem;
+            margin: 0 auto;
           }
 
           .hero-image-wrapper {

@@ -122,7 +122,7 @@ export default function Skills() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title-pill-dark">
-            {t('Keahlian', 'Technical')}{' '}
+            <span>{t('Keahlian', 'Technical')}</span>
             <span className="gradient-text-soft">{t('Teknis', 'Skills')}</span>
           </h2>
         </div>

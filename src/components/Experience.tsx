@@ -12,8 +12,8 @@ export default function Experience() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title-pill-dark">
-            {t('Pengalaman', 'Work &')}{' '}
-            <span className="gradient-text-soft">{t('Kerja & Magang', 'Internship Experience')}</span>
+            <span>{t('Pengalaman', 'Work')}</span>
+            <span className="gradient-text-soft">{t('Kerja', 'Experience')}</span>
           </h2>
         </div>
 

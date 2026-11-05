@@ -12,7 +12,7 @@ export default function AboutMe() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title-pill-dark">
-            {t('Tentang', 'About')}{' '}
+            <span>{t('Tentang', 'About')}</span>
             <span className="gradient-text-soft">{t('Saya', 'Me')}</span>
           </h2>
         </div>

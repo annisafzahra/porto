@@ -12,7 +12,7 @@ export default function Education() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title-pill">
-            {t('Riwayat', 'Education')}{' '}
+            <span>{t('Riwayat', 'Education')}</span>
             <span className="gradient-text">{t('Pendidikan', 'History')}</span>
           </h2>
         </div>

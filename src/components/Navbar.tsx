@@ -162,17 +162,19 @@ export default function Navbar() {
           left: 0;
           right: 0;
           z-index: 1000;
-          padding: 1rem 0;
+          padding: 0.85rem 0;
+          background: rgba(251, 249, 245, 0.92);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          border-bottom: 1px solid rgba(138, 110, 84, 0.1);
           transition: all 0.25s ease;
         }
 
         .navbar-wrapper.scrolled {
-          padding: 0.6rem 0;
-          background: rgba(251, 249, 245, 0.94);
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
+          padding: 0.55rem 0;
+          background: rgba(251, 249, 245, 0.98);
           border-bottom: 1px solid var(--border-subtle);
-          box-shadow: 0 4px 18px rgba(70, 55, 40, 0.04);
+          box-shadow: 0 4px 18px rgba(70, 55, 40, 0.05);
         }
 
         .nav-container {

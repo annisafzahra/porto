@@ -26,7 +26,7 @@ export default function Contact() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title-pill">
-            {t('Hubungi', 'Get in')}{' '}
+            <span>{t('Hubungi', 'Get in')}</span>
             <span className="gradient-text">{t('Saya', 'Touch')}</span>
           </h2>
         </div>
@@ -41,7 +41,7 @@ export default function Contact() {
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </div>
-            <span className="card-label">{t('Email Utama', 'Primary Email')}</span>
+            <span className="card-label">{t('Email', 'Email')}</span>
             <span className="card-val" title={PERSONAL_INFO.email}>
               {PERSONAL_INFO.email}
             </span>
