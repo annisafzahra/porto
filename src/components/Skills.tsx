@@ -121,17 +121,10 @@ export default function Skills() {
     <section className="section-spacing skills-section reveal-on-scroll" id="skills">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">{t('Keahlian & Toolkit', 'Skills & Toolkit')}</div>
-          <h2 className="section-title section-title-dark">
+          <h2 className="section-title-pill-dark">
             {t('Keahlian', 'Technical')}{' '}
             <span className="gradient-text-soft">{t('Teknis', 'Skills')}</span>
           </h2>
-          <p className="section-description section-description-dark">
-            {t(
-              'Kombinasi kapabilitas pengujian fungsionalitas sistem, rekayasa frontend modern, dan alur kerja kolaboratif.',
-              'A blend of functional system testing capabilities, modern frontend engineering, and collaborative workflow discipline.'
-            )}
-          </p>
         </div>
 
         {/* 3 Categories Grid */}

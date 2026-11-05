@@ -25,17 +25,10 @@ export default function Contact() {
     <section className="section-spacing contact-section reveal-on-scroll" id="contact">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">{t('Saluran Komunikasi', 'Communication Channels')}</div>
-          <h2 className="section-title">
+          <h2 className="section-title-pill">
             {t('Hubungi', 'Get in')}{' '}
             <span className="gradient-text">{t('Saya', 'Touch')}</span>
           </h2>
-          <p className="section-description">
-            {t(
-              'Terbuka untuk diskusi kesempatan kerja di bidang Software Quality Assurance, Software Testing, maupun Frontend Development.',
-              'Open for opportunities and discussions in Software Quality Assurance, API Testing, and Frontend Web Engineering.'
-            )}
-          </p>
         </div>
 
         {/* 4 Cards Arranged in 1 Horizontal Line */}

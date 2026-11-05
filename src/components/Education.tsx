@@ -11,17 +11,10 @@ export default function Education() {
     <section className="section-spacing education-section reveal-on-scroll" id="education">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">{t('Latar Belakang Akademik', 'Academic Background')}</div>
-          <h2 className="section-title">
+          <h2 className="section-title-pill">
             {t('Riwayat', 'Education')}{' '}
             <span className="gradient-text">{t('Pendidikan', 'History')}</span>
           </h2>
-          <p className="section-description">
-            {t(
-              'Fondasi keilmuan teknologi informasi, rekayasa perangkat lunak, serta disiplin operasional dan orientasi pengguna.',
-              'Foundational education in information technology, web engineering, operational discipline, and user-centric problem solving.'
-            )}
-          </p>
         </div>
 
         <div className="education-grid">

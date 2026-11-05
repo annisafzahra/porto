@@ -11,17 +11,10 @@ export default function Experience() {
     <section className="section-spacing experience-section reveal-on-scroll" id="experience">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">{t('Riwayat Profesional', 'Professional History')}</div>
-          <h2 className="section-title section-title-dark">
+          <h2 className="section-title-pill-dark">
             {t('Pengalaman', 'Work &')}{' '}
             <span className="gradient-text-soft">{t('Kerja & Magang', 'Internship Experience')}</span>
           </h2>
-          <p className="section-description section-description-dark">
-            {t(
-              'Pengalaman praktis dalam pengujian API menggunakan Postman, pengembangan antarmuka web, serta ketelitian operasional.',
-              'Practical experience in Postman API testing, web interface development, and operational precision.'
-            )}
-          </p>
         </div>
 
         <div className="experience-grid">

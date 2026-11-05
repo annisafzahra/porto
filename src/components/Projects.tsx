@@ -24,17 +24,10 @@ export default function Projects() {
     <section className="section-spacing projects-section reveal-on-scroll" id="projects">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">{t('Studi Kasus & Portofolio', 'Case Studies & Portfolio')}</div>
-          <h2 className="section-title">
+          <h2 className="section-title-pill">
             {t('Proyek', 'Featured')}{' '}
             <span className="gradient-text">{t('Unggulan', 'Projects')}</span>
           </h2>
-          <p className="section-description">
-            {t(
-              'Implementasi antarmuka web modern serta pengujian fungsionalitas dan integritas API secara mendalam.',
-              'Modern web applications featuring structured functional testing, API validation, and clean UI engineering.'
-            )}
-          </p>
 
           {/* Filter Pills */}
           <div className="filter-pill-group">
