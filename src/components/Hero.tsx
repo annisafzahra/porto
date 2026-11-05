@@ -100,8 +100,11 @@ export default function Hero() {
       <style jsx>{`
         .hero-section {
           position: relative;
-          padding-top: calc(var(--nav-height) + 4.5rem);
-          padding-bottom: 4.5rem;
+          min-height: 92vh;
+          display: flex;
+          align-items: center;
+          padding-top: 7.5rem;
+          padding-bottom: 5rem;
           background-color: var(--bg-primary);
           overflow: hidden;
         }
@@ -109,8 +112,9 @@ export default function Hero() {
         .hero-container {
           display: grid;
           grid-template-columns: 0.82fr 1.18fr;
-          gap: 3.5rem;
+          gap: 4rem;
           align-items: center;
+          width: 100%;
         }
 
         /* Arch Frame Photo Container with Soft Entrance Animation */
@@ -118,21 +122,22 @@ export default function Hero() {
           display: flex;
           flex-direction: column;
           align-items: center;
+          justify-content: center;
         }
 
         .arch-photo-container {
           position: relative;
           width: 100%;
-          max-width: 285px;
+          max-width: 320px;
           aspect-ratio: 3 / 4;
-          border-top-left-radius: 142px;
-          border-top-right-radius: 142px;
-          border-bottom-left-radius: 20px;
-          border-bottom-right-radius: 20px;
+          border-top-left-radius: 160px;
+          border-top-right-radius: 160px;
+          border-bottom-left-radius: 24px;
+          border-bottom-right-radius: 24px;
           overflow: hidden;
           background: linear-gradient(180deg, #ecdcc9 0%, #dfcbbe 100%);
-          box-shadow: 0 14px 36px rgba(45, 32, 20, 0.12);
-          border: 1px solid rgba(140, 115, 93, 0.22);
+          box-shadow: 0 16px 42px rgba(45, 32, 20, 0.13);
+          border: 1.5px solid rgba(140, 115, 93, 0.22);
           animation: softPhotoEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -140,7 +145,7 @@ export default function Hero() {
         @keyframes softPhotoEntrance {
           0% {
             opacity: 0;
-            transform: translateY(22px) scale(0.95);
+            transform: translateY(22px) scale(0.96);
           }
           100% {
             opacity: 1;
@@ -150,7 +155,7 @@ export default function Hero() {
 
         .arch-photo-container:hover {
           transform: translateY(-4px);
-          box-shadow: 0 20px 46px rgba(45, 32, 20, 0.18);
+          box-shadow: 0 22px 50px rgba(45, 32, 20, 0.18);
         }
 
         .arch-photo {
@@ -162,18 +167,18 @@ export default function Hero() {
 
         .arch-badge-floating {
           position: absolute;
-          bottom: 0.85rem;
+          bottom: 1rem;
           left: 50%;
           transform: translateX(-50%);
           background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(8px);
           border: 1px solid rgba(140, 115, 93, 0.25);
-          padding: 0.4rem 0.85rem;
+          padding: 0.42rem 0.9rem;
           border-radius: var(--radius-full);
           display: flex;
           align-items: center;
-          gap: 0.45rem;
-          font-size: 0.74rem;
+          gap: 0.48rem;
+          font-size: 0.76rem;
           font-weight: 600;
           color: var(--text-primary);
           white-space: nowrap;
@@ -198,12 +203,12 @@ export default function Hero() {
           display: inline-flex;
           align-items: center;
           gap: 0.65rem;
-          font-size: 0.75rem;
+          font-size: 0.78rem;
           font-weight: 700;
           letter-spacing: 0.1em;
           text-transform: uppercase;
           color: var(--accent-taupe-dark);
-          margin-bottom: 0.85rem;
+          margin-bottom: 0.95rem;
         }
 
         .eyebrow-line {
@@ -214,43 +219,43 @@ export default function Hero() {
         }
 
         .hero-title {
-          font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+          font-size: clamp(2.6rem, 5.2vw, 4rem);
           font-weight: 800;
-          line-height: 1.05;
-          letter-spacing: -0.03em;
+          line-height: 1.06;
+          letter-spacing: -0.035em;
           color: var(--text-primary);
-          margin-bottom: 0.75rem;
+          margin-bottom: 0.85rem;
         }
 
         .title-secondary {
-          font-weight: 700;
+          font-weight: 800;
           color: var(--accent-taupe-dark);
-          letter-spacing: -0.02em;
+          letter-spacing: -0.025em;
         }
 
         .hero-role-headline {
-          display: flex;
+          display: inline-flex;
           align-items: center;
           gap: 0.85rem;
-          margin: 0.75rem 0 2rem;
-          padding: 0.75rem 1.15rem;
+          margin: 0.4rem 0 2.25rem;
+          padding: 0.75rem 1.25rem;
           background: rgba(138, 110, 84, 0.1);
-          border: 1px solid rgba(138, 110, 84, 0.22);
+          border: 1.5px solid rgba(138, 110, 84, 0.25);
           border-radius: var(--radius-md);
           width: fit-content;
-          box-shadow: 0 2px 10px rgba(138, 110, 84, 0.06);
+          box-shadow: 0 4px 14px rgba(138, 110, 84, 0.06);
         }
 
         .role-accent-bar {
           width: 4px;
-          height: 26px;
+          height: 24px;
           background: var(--accent-taupe);
           border-radius: var(--radius-full);
           flex-shrink: 0;
         }
 
         .role-text {
-          font-size: clamp(1.08rem, 2vw, 1.38rem);
+          font-size: clamp(1.08rem, 2vw, 1.35rem);
           font-weight: 700;
           color: var(--text-primary);
           letter-spacing: -0.015em;
@@ -262,7 +267,7 @@ export default function Hero() {
         .hero-cta-group {
           display: flex;
           align-items: center;
-          gap: 0.85rem;
+          gap: 0.95rem;
           flex-wrap: wrap;
         }
 
@@ -290,6 +295,12 @@ export default function Hero() {
         }
 
         @media (max-width: 900px) {
+          .hero-section {
+            padding-top: 6.5rem;
+            padding-bottom: 3.5rem;
+            min-height: auto;
+          }
+
           .hero-container {
             grid-template-columns: 1fr;
             text-align: center;

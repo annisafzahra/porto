@@ -5,6 +5,8 @@
   --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
+  --nav-height: 76px;
+
   /* Color Palette — Natural Warm Pastel matching photo (Soft Linen + Warm Taupe + Muted Sage, Zero Pink) */
   --bg-primary: #fbf9f5;        /* Clean soft porcelain linen */
   --bg-secondary: #f3ece1;      /* Warm ecru beige */
