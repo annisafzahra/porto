@@ -172,7 +172,7 @@ export const PROJECTS: Project[] = [
       "Sub-2-second instant calculation response per submission"
     ],
     accentColor: "#8c735d",
-    image: "/projects/spk-kmeans.svg",
+    image: "/projects/spk-kmeans.jpg",
     featured: true
   },
   {
@@ -237,7 +237,7 @@ export const PROJECTS: Project[] = [
       "100% layout fidelity matching Figma component specifications"
     ],
     accentColor: "#546e63",
-    image: "/projects/payroll-app.svg",
+    image: "/projects/payroll-app.jpg",
     featured: true
   },
   {
@@ -302,7 +302,7 @@ export const PROJECTS: Project[] = [
       "Instant real-time portfolio updates without rebuild or deployment downtime"
     ],
     accentColor: "#7a6252",
-    image: "/projects/corporate-cms.svg",
+    image: "/projects/corporate-cms.jpg",
     featured: true
   },
   {
@@ -367,7 +367,7 @@ export const PROJECTS: Project[] = [
       "Tested and validated for smooth thumb-zone interactions on mobile"
     ],
     accentColor: "#617066",
-    image: "/projects/perpusda-catalog.svg",
+    image: "/projects/perpusda-catalog.jpg",
     featured: true
   }
 ];

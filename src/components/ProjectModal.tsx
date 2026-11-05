@@ -72,6 +72,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               src={project.image} 
               alt={title} 
               className="modal-banner-img"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (target.src.endsWith('.jpg')) {
+                  target.src = target.src.replace('.jpg', '.svg');
+                }
+              }}
             />
           </div>
         )}

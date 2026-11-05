@@ -90,6 +90,12 @@ export default function Projects() {
                     alt={title}
                     className="project-img"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (target.src.endsWith('.jpg')) {
+                        target.src = target.src.replace('.jpg', '.svg');
+                      }
+                    }}
                   />
                   <div className="card-category-tag">{project.category}</div>
                 </div>
