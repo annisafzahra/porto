@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const { t } = useLanguage();
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -23,12 +25,16 @@ export default function Contact() {
     <section className="section-spacing contact-section reveal-on-scroll" id="contact">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Saluran Komunikasi</div>
+          <div className="section-pill">{t('Saluran Komunikasi', 'Communication Channels')}</div>
           <h2 className="section-title">
-            Hubungi <span className="gradient-text">Saya</span>
+            {t('Hubungi', 'Get in')}{' '}
+            <span className="gradient-text">{t('Saya', 'Touch')}</span>
           </h2>
           <p className="section-description">
-            Terbuka untuk diskusi kesempatan kerja di bidang Software Quality Assurance, Software Testing, maupun Frontend Development.
+            {t(
+              'Terbuka untuk diskusi kesempatan kerja di bidang Software Quality Assurance, Software Testing, maupun Frontend Development.',
+              'Open for opportunities and discussions in Software Quality Assurance, API Testing, and Frontend Web Engineering.'
+            )}
           </p>
         </div>
 
@@ -42,7 +48,7 @@ export default function Contact() {
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </div>
-            <span className="card-label">Email Utama</span>
+            <span className="card-label">{t('Email Utama', 'Primary Email')}</span>
             <span className="card-val" title={PERSONAL_INFO.email}>
               {PERSONAL_INFO.email}
             </span>
@@ -52,7 +58,7 @@ export default function Contact() {
                 className="btn btn-primary btn-mini"
                 id="contact-email-link"
               >
-                <span>Kirim</span>
+                <span>{t('Kirim', 'Send')}</span>
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -62,10 +68,10 @@ export default function Contact() {
                 type="button" 
                 onClick={handleCopyEmail} 
                 className="btn-copy-mini"
-                title="Salin Email"
+                title={t('Salin Email', 'Copy Email')}
                 id="contact-copy-email-btn"
               >
-                {copiedEmail ? 'Disalin' : 'Salin'}
+                {copiedEmail ? t('Disalin', 'Copied') : t('Salin', 'Copy')}
               </button>
             </div>
           </div>
@@ -89,7 +95,7 @@ export default function Contact() {
                 className="btn btn-secondary btn-mini"
                 id="contact-linkedin-link"
               >
-                <span>Buka Profil</span>
+                <span>{t('Buka Profil', 'View Profile')}</span>
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -128,10 +134,10 @@ export default function Contact() {
                 type="button" 
                 onClick={handleCopyPhone} 
                 className="btn-copy-mini"
-                title="Salin Nomor"
+                title={t('Salin Nomor', 'Copy Phone')}
                 id="contact-copy-phone-btn"
               >
-                {copiedPhone ? 'Disalin' : 'Salin'}
+                {copiedPhone ? t('Disalin', 'Copied') : t('Salin', 'Copy')}
               </button>
             </div>
           </div>
@@ -144,9 +150,9 @@ export default function Contact() {
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </div>
-            <span className="card-label">Domisili</span>
-            <span className="card-val" title={PERSONAL_INFO.location}>
-              {PERSONAL_INFO.location}
+            <span className="card-label">{t('Domisili', 'Location')}</span>
+            <span className="card-val" title={t(PERSONAL_INFO.location, PERSONAL_INFO.locationEn)}>
+              {t(PERSONAL_INFO.location, PERSONAL_INFO.locationEn)}
             </span>
             <div className="card-actions-compact">
               <span className="status-badge-mini">

@@ -2,67 +2,85 @@
 
 import React from 'react';
 import { EXPERIENCES } from '@/data/portfolioData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Experience() {
+  const { language, t } = useLanguage();
+
   return (
     <section className="section-spacing experience-section reveal-on-scroll" id="experience">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">Riwayat Profesional</div>
+          <div className="section-pill section-pill-dark">{t('Riwayat Profesional', 'Professional History')}</div>
           <h2 className="section-title section-title-dark">
-            Pengalaman <span className="gradient-text-soft">Kerja &amp; Magang</span>
+            {t('Pengalaman', 'Work &')}{' '}
+            <span className="gradient-text-soft">{t('Kerja & Magang', 'Internship Experience')}</span>
           </h2>
           <p className="section-description section-description-dark">
-            Pengalaman praktis dalam pengujian API menggunakan Postman, pengembangan antarmuka web, serta ketelitian operasional.
+            {t(
+              'Pengalaman praktis dalam pengujian API menggunakan Postman, pengembangan antarmuka web, serta ketelitian operasional.',
+              'Practical experience in Postman API testing, web interface development, and operational precision.'
+            )}
           </p>
         </div>
 
         <div className="experience-grid">
-          {EXPERIENCES.map((exp, idx) => (
-            <div key={idx} className="experience-card glass-card">
-              <div className="card-top-row">
-                <div className="exp-org-badge">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          {EXPERIENCES.map((exp, idx) => {
+            const role = language === 'en' && exp.roleEn ? exp.roleEn : exp.role;
+            const period = language === 'en' && exp.periodEn ? exp.periodEn : exp.period;
+            const type = language === 'en' && exp.typeEn ? exp.typeEn : exp.type;
+            const location = language === 'en' && exp.locationEn ? exp.locationEn : exp.location;
+            const description = language === 'en' && exp.descriptionEn ? exp.descriptionEn : exp.description;
+            const achievements = language === 'en' && exp.achievementsEn ? exp.achievementsEn : exp.achievements;
+
+            return (
+              <div key={idx} className="experience-card glass-card">
+                <div className="card-top-row">
+                  <div className="exp-org-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    <span>{exp.organization}</span>
+                  </div>
+                  <div className="exp-meta-pills">
+                    <span className="badge-period">{period}</span>
+                    <span className="badge-type">{type}</span>
+                  </div>
+                </div>
+
+                <h3 className="card-role">{role}</h3>
+
+                <div className="card-loc">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
                   </svg>
-                  <span>{exp.organization}</span>
+                  <span>{location}</span>
                 </div>
-                <div className="exp-meta-pills">
-                  <span className="badge-period">{exp.period}</span>
-                  <span className="badge-type">{exp.type}</span>
+
+                <p className="card-desc">{description}</p>
+
+                <div className="card-divider"></div>
+
+                <div className="achievements-heading">
+                  {t('Tanggung Jawab & Kontribusi:', 'Key Responsibilities & Contributions:')}
                 </div>
+                <ul className="card-achievements">
+                  {achievements.map((ach, aIdx) => (
+                    <li key={aIdx}>
+                      <span className="ach-bullet">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </span>
+                      <span>{ach}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <h3 className="card-role">{exp.role}</h3>
-
-              <div className="card-loc">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>{exp.location}</span>
-              </div>
-
-              <p className="card-desc">{exp.description}</p>
-
-              <div className="card-divider"></div>
-
-              <div className="achievements-heading">Tanggung Jawab &amp; Kontribusi:</div>
-              <ul className="card-achievements">
-                {exp.achievements.map((ach, aIdx) => (
-                  <li key={aIdx}>
-                    <span className="ach-bullet">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                    </span>
-                    <span>{ach}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

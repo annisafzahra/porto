@@ -2,22 +2,28 @@
 
 import React from 'react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function AboutMe() {
+  const { language, t } = useLanguage();
+
   return (
     <section className="section-spacing about-section reveal-on-scroll" id="about-me">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">Tentang Saya</div>
+          <div className="section-pill section-pill-dark">{t('Tentang Saya', 'About Me')}</div>
           <h2 className="section-title section-title-dark">
             About <span className="gradient-text-soft">Me</span>
           </h2>
           <p className="section-description section-description-dark">
-            Pengenalan ringkas mengenai fokus keahlian, minat karir, dan dedikasi pada penjaminan mutu perangkat lunak.
+            {t(
+              'Pengenalan ringkas mengenai fokus keahlian, minat karir, dan dedikasi pada penjaminan mutu perangkat lunak.',
+              'A concise introduction covering core competencies, career focus, and dedication to software quality assurance.'
+            )}
           </p>
         </div>
 
-        {/* Clean, Focused Statement Card (No Redundant Bento Boxes) */}
+        {/* Clean, Focused Statement Card */}
         <div className="about-card-container">
           <div className="about-editorial-card glass-card">
             <div className="quote-badge">
@@ -27,19 +33,39 @@ export default function AboutMe() {
             </div>
 
             <div className="statement-content">
-              <p className="statement-lead">
-                Hi! I&apos;m <strong>Annisa Fathimatuz Zahra</strong>, a fresh graduate of 
-                <strong> D3 Teknik Informatika from Politeknik Negeri Indramayu</strong> (GPA 3.94/4.00) 
-                with a strong interest in <strong>Software Quality Assurance</strong> and <strong>frontend development</strong>. 
-                I am used to working across API testing using <strong>Postman</strong>, web application development with 
-                <strong> Next.js</strong> and <strong>React</strong>, and ensuring software functionality and quality through structured verification.
-              </p>
+              {language === 'en' ? (
+                <>
+                  <p className="statement-lead">
+                    Hi! I&apos;m <strong>Annisa Fathimatuz Zahra</strong>, a fresh graduate of 
+                    <strong> D3 Teknik Informatika from Politeknik Negeri Indramayu</strong> (GPA 3.94/4.00) 
+                    with a strong interest in <strong>Software Quality Assurance</strong> and <strong>frontend development</strong>. 
+                    I am used to working across API testing using <strong>Postman</strong>, web application development with 
+                    <strong> Next.js</strong> and <strong>React</strong>, and ensuring software functionality and quality through structured verification.
+                  </p>
 
-              <div className="statement-divider"></div>
+                  <div className="statement-divider"></div>
 
-              <p className="statement-id">
-                Lulusan D3 Teknik Informatika Politeknik Negeri Indramayu dengan dedikasi tinggi pada penjaminan kualitas sistem (SQA). Berpengalaman dalam verifikasi endpoint API, identifikasi dan pelaporan temuan bug, serta pengembangan antarmuka web modern dengan kode yang bersih dan berorientasi pada kepuasan pengguna.
-              </p>
+                  <p className="statement-id">
+                    Equipped with a solid informatics foundation and rigorous administrative discipline from my vocational background, I bring strong attention to detail, boundary test cases, and a user-centric mindset to modern software development and QA verification cycles.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="statement-lead">
+                    Halo! Saya <strong>Annisa Fathimatuz Zahra</strong>, lulusan 
+                    <strong> D3 Teknik Informatika Politeknik Negeri Indramayu</strong> (IPK 3,94/4,00) 
+                    dengan minat mendalam pada <strong>Software Quality Assurance (QA)</strong> dan <strong>pengembangan frontend</strong>. 
+                    Saya terbiasa melakukan pengujian API menggunakan <strong>Postman</strong>, pengembangan antarmuka web modern dengan 
+                    <strong> Next.js</strong> dan <strong>React</strong>, serta memastikan keandalan fungsionalitas perangkat lunak melalui pengujian yang terstruktur.
+                  </p>
+
+                  <div className="statement-divider"></div>
+
+                  <p className="statement-id">
+                    Latar belakang akademik Teknik Informatika yang diperkuat disiplin kerja operasional perhotelan membentuk kebiasaan kerja yang teliti, terbiasa memeriksa detail alur sistem dan boundary input formulir, serta berorientasi kuat pada kenyamanan pengguna akhir.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="statement-footer">
@@ -52,7 +78,7 @@ export default function AboutMe() {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Cirebon &amp; Indramayu, Jawa Barat</span>
+                <span>{t(PERSONAL_INFO.location, PERSONAL_INFO.locationEn)}</span>
               </div>
             </div>
           </div>

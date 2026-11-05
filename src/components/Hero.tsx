@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
+  const { t } = useLanguage();
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -32,12 +34,12 @@ export default function Hero() {
             />
             <div className="arch-badge-floating">
               <span className="badge-indicator"></span>
-              <span>Open to Work • Software QA</span>
+              <span>{t('Terbuka untuk Kerja • Software QA', 'Open to Work • Software QA')}</span>
             </div>
           </div>
           <div className="photo-caption">
             <strong>Annisa Zahra</strong>
-            <span>{PERSONAL_INFO.education.institution} (IPK {PERSONAL_INFO.education.gpa})</span>
+            <span>{PERSONAL_INFO.education.institution} ({t('IPK', 'GPA')} {PERSONAL_INFO.education.gpa})</span>
           </div>
         </div>
 
@@ -45,7 +47,7 @@ export default function Hero() {
         <div className="hero-content">
           <div className="hero-eyebrow">
             <span className="eyebrow-line"></span>
-            <span>D3 TEKNIK INFORMATIKA • SOFTWARE TESTING & FRONTEND</span>
+            <span>{t('D3 TEKNIK INFORMATIKA • SOFTWARE TESTING & FRONTEND', 'INFORMATICS DIPLOMA • SOFTWARE TESTING & FRONTEND')}</span>
           </div>
 
           <h1 className="hero-title" id="main-hero-title">
@@ -62,7 +64,7 @@ export default function Hero() {
           {/* Clean Action Buttons */}
           <div className="hero-cta-group">
             <a href="#about-me" className="btn btn-primary" id="hero-cta-about">
-              <span>Tentang Saya</span>
+              <span>{t('Tentang Saya', 'About Me')}</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <polyline points="19 12 12 19 5 12"></polyline>
@@ -92,7 +94,7 @@ export default function Hero() {
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg>
-              <span>{copied ? 'Tersalin' : 'Salin Email'}</span>
+              <span>{copied ? t('Tersalin', 'Copied') : t('Salin Email', 'Copy Email')}</span>
             </button>
           </div>
         </div>

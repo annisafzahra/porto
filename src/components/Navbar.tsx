@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,12 +17,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Tentang', href: '#about-me' },
-    { label: 'Pendidikan', href: '#education' },
-    { label: 'Pengalaman', href: '#experience' },
-    { label: 'Proyek', href: '#projects' },
-    { label: 'Keahlian', href: '#skills' },
-    { label: 'Kontak', href: '#contact' },
+    { label: t('Tentang', 'About'), href: '#about-me' },
+    { label: t('Pendidikan', 'Education'), href: '#education' },
+    { label: t('Pengalaman', 'Experience'), href: '#experience' },
+    { label: t('Proyek', 'Projects'), href: '#projects' },
+    { label: t('Keahlian', 'Skills'), href: '#skills' },
+    { label: t('Kontak', 'Contact'), href: '#contact' },
   ];
 
   return (
@@ -48,12 +50,34 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-actions">
+          {/* Language Switcher Pill */}
+          <div className="lang-switcher" id="nav-language-switcher">
+            <button
+              type="button"
+              className={`lang-btn ${language === 'id' ? 'active' : ''}`}
+              onClick={() => setLanguage('id')}
+              aria-label="Ubah ke Bahasa Indonesia"
+              id="lang-btn-id"
+            >
+              ID
+            </button>
+            <button
+              type="button"
+              className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+              onClick={() => setLanguage('en')}
+              aria-label="Switch to English"
+              id="lang-btn-en"
+            >
+              EN
+            </button>
+          </div>
+
           <a
             href="#contact"
             className="btn btn-primary nav-cta-btn"
             id="nav-hire-btn"
           >
-            <span>Hubungi</span>
+            <span>{t('Hubungi', 'Contact')}</span>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
@@ -86,6 +110,28 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="mobile-drawer" id="mobile-nav-drawer">
+          <div className="mobile-drawer-top">
+            <div className="lang-switcher-mobile">
+              <span className="lang-mobile-label">Language:</span>
+              <div className="lang-switcher">
+                <button
+                  type="button"
+                  className={`lang-btn ${language === 'id' ? 'active' : ''}`}
+                  onClick={() => setLanguage('id')}
+                >
+                  ID
+                </button>
+                <button
+                  type="button"
+                  className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+                  onClick={() => setLanguage('en')}
+                >
+                  EN
+                </button>
+              </div>
+            </div>
+          </div>
+
           <nav className="mobile-nav-links">
             {navLinks.map((link) => (
               <a
@@ -103,7 +149,7 @@ export default function Navbar() {
               style={{ marginTop: '0.85rem', width: '100%' }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Hubungi
+              {t('Hubungi Saya', 'Contact Me')}
             </a>
           </nav>
         </div>
@@ -139,88 +185,159 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           gap: 0.65rem;
-          cursor: pointer;
+          text-decoration: none;
         }
 
         .brand-badge {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 34px;
-          height: 34px;
+          width: 32px;
+          height: 32px;
           border-radius: 8px;
-          background: var(--gradient-brand);
+          background: var(--accent-taupe);
           color: #ffffff;
-          font-family: var(--font-heading);
+          font-family: var(--font-mono);
+          font-size: 0.8rem;
           font-weight: 700;
-          font-size: 0.88rem;
-          box-shadow: 0 2px 8px rgba(138, 110, 84, 0.24);
-          transition: transform 0.2s ease;
-        }
-
-        .brand-logo:hover .brand-badge {
-          transform: scale(1.05);
+          letter-spacing: -0.02em;
+          box-shadow: 0 2px 6px rgba(138, 110, 84, 0.3);
         }
 
         .brand-text {
-          display: flex;
-          align-items: center;
-        }
-
-        .brand-text strong {
-          font-family: var(--font-heading);
-          font-size: 1.05rem;
-          color: var(--text-primary);
+          font-size: 0.98rem;
           letter-spacing: -0.01em;
+          color: var(--text-primary);
         }
 
         .desktop-nav {
           display: flex;
           align-items: center;
-          gap: 1.35rem;
-          background: rgba(255, 255, 255, 0.92);
-          padding: 0.38rem 1.25rem;
+          gap: 0.4rem;
+          background: rgba(239, 233, 222, 0.6);
+          padding: 0.3rem 0.5rem;
           border-radius: var(--radius-full);
           border: 1px solid var(--border-subtle);
-          backdrop-filter: blur(8px);
-          box-shadow: 0 2px 8px rgba(70, 55, 40, 0.02);
         }
 
         .nav-item {
-          font-size: 0.84rem;
+          padding: 0.35rem 0.85rem;
+          font-size: 0.82rem;
           font-weight: 500;
           color: var(--text-secondary);
-          transition: color var(--transition-fast), transform var(--transition-fast);
+          text-decoration: none;
+          border-radius: var(--radius-full);
+          transition: all 0.2s ease;
         }
 
         .nav-item:hover {
-          color: var(--accent-taupe);
-          transform: translateY(-1px);
+          color: var(--text-primary);
+          background: rgba(255, 255, 255, 0.7);
         }
 
         .nav-actions {
           display: flex;
           align-items: center;
-          gap: 0.65rem;
+          gap: 0.75rem;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+          display: inline-flex;
+          align-items: center;
+          background: rgba(239, 233, 222, 0.85);
+          border: 1px solid var(--border-medium);
+          padding: 2px;
+          border-radius: var(--radius-full);
+        }
+
+        .lang-btn {
+          font-family: var(--font-mono);
+          font-size: 0.74rem;
+          font-weight: 600;
+          color: var(--text-secondary);
+          background: transparent;
+          border: none;
+          padding: 0.28rem 0.65rem;
+          border-radius: var(--radius-full);
+          cursor: pointer;
+          transition: all 0.22s ease;
+        }
+
+        .lang-btn:hover {
+          color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+          background: var(--accent-taupe);
+          color: #ffffff;
+          box-shadow: 0 2px 6px rgba(138, 110, 84, 0.3);
         }
 
         .nav-cta-btn {
-          padding: 0.45rem 1.05rem;
+          padding: 0.5rem 1.1rem;
           font-size: 0.82rem;
         }
 
         .mobile-toggle {
           display: none;
-          background: #ffffff;
-          border: 1px solid var(--border-subtle);
+          background: transparent;
+          border: 1px solid var(--border-medium);
+          padding: 0.4rem;
+          border-radius: 8px;
           color: var(--text-primary);
-          padding: 0.45rem;
-          border-radius: 7px;
           cursor: pointer;
         }
 
         .mobile-drawer {
-          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: #fbf9f5;
+          border-bottom: 1px solid var(--border-subtle);
+          padding: 1.25rem 1.5rem 1.5rem;
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .mobile-drawer-top {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          margin-bottom: 1rem;
+          padding-bottom: 0.75rem;
+          border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .lang-switcher-mobile {
+          display: flex;
+          align-items: center;
+          gap: 0.65rem;
+        }
+
+        .lang-mobile-label {
+          font-size: 0.8rem;
+          color: var(--text-secondary);
+        }
+
+        .mobile-nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .mobile-nav-item {
+          padding: 0.65rem 0.75rem;
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: var(--text-primary);
+          text-decoration: none;
+          border-radius: var(--radius-sm);
+          transition: background 0.15s ease;
+        }
+
+        .mobile-nav-item:hover {
+          background: var(--bg-secondary);
         }
 
         @media (max-width: 900px) {
@@ -232,40 +349,6 @@ export default function Navbar() {
             display: flex;
             align-items: center;
             justify-content: center;
-          }
-
-          .mobile-drawer {
-            display: block;
-            background: rgba(251, 249, 245, 0.98);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 1.25rem;
-            animation: slideDown 0.2s ease-out;
-            box-shadow: 0 10px 25px rgba(70, 55, 40, 0.06);
-          }
-
-          .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-          }
-
-          .mobile-nav-item {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            padding: 0.4rem 0;
-            border-bottom: 1px solid var(--border-subtle);
-          }
-        }
-
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
           }
         }
       `}</style>

@@ -8,21 +8,24 @@ import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ScrollRevealProvider from '@/components/ScrollRevealProvider';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 export default function Home() {
   return (
-    <ScrollRevealProvider>
-      <Navbar />
-      <main id="main-content">
-        <Hero />
-        <AboutMe />
-        <Education />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
-    </ScrollRevealProvider>
+    <LanguageProvider>
+      <ScrollRevealProvider>
+        <Navbar />
+        <main id="main-content">
+          <Hero />
+          <AboutMe />
+          <Education />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </ScrollRevealProvider>
+    </LanguageProvider>
   );
 }

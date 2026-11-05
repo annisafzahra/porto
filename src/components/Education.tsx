@@ -2,18 +2,25 @@
 
 import React from 'react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Education() {
+  const { language, t } = useLanguage();
+
   return (
     <section className="section-spacing education-section reveal-on-scroll" id="education">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Latar Belakang Akademik</div>
+          <div className="section-pill">{t('Latar Belakang Akademik', 'Academic Background')}</div>
           <h2 className="section-title">
-            Riwayat <span className="gradient-text">Pendidikan</span>
+            {t('Riwayat', 'Education')}{' '}
+            <span className="gradient-text">{t('Pendidikan', 'History')}</span>
           </h2>
           <p className="section-description">
-            Fondasi keilmuan teknologi informasi, rekayasa perangkat lunak, serta disiplin operasional dan orientasi pengguna.
+            {t(
+              'Fondasi keilmuan teknologi informasi, rekayasa perangkat lunak, serta disiplin operasional dan orientasi pengguna.',
+              'Foundational education in information technology, web engineering, operational discipline, and user-centric problem solving.'
+            )}
           </p>
         </div>
 
@@ -28,13 +35,17 @@ export default function Education() {
                 </svg>
               </div>
               <div className="edu-badges-row">
-                <span className="gpa-pill">IPK {PERSONAL_INFO.education.gpa}</span>
+                <span className="gpa-pill">{t('IPK', 'GPA')} {PERSONAL_INFO.education.gpa}</span>
                 <span className="period-pill">{PERSONAL_INFO.education.period}</span>
               </div>
             </div>
 
-            <div className="edu-degree-tag">{PERSONAL_INFO.education.degree}</div>
-            <h3 className="edu-title">{PERSONAL_INFO.education.major}</h3>
+            <div className="edu-degree-tag">
+              {t(PERSONAL_INFO.education.degree, PERSONAL_INFO.education.degreeEn)}
+            </div>
+            <h3 className="edu-title">
+              {t(PERSONAL_INFO.education.major, PERSONAL_INFO.education.majorEn)}
+            </h3>
             <div className="edu-institution">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 21h18"></path>
@@ -46,7 +57,9 @@ export default function Education() {
             </div>
 
             <p className="edu-desc">
-              Selama menempuh pendidikan D3 Teknik Informatika, fokus pembelajaran ditekankan pada pengujian perangkat lunak, perancangan antarmuka pengguna (UI/UX), rekayasa aplikasi web, serta analisis sistem informasi. Menyelesaikan tugas akhir berupa pengembangan sistem pendukung keputusan (SPK) berbasis web dengan metode Simple Additive Weighting (SAW).
+              {language === 'en'
+                ? 'During my Informatics diploma studies, coursework focused on software testing methodologies, UI/UX design principles, modern web engineering, and relational database systems. Developed an intelligent decision support system (DSS) for student placement as my final academic project.'
+                : 'Selama menempuh pendidikan D3 Teknik Informatika, fokus pembelajaran ditekankan pada pengujian perangkat lunak, perancangan antarmuka pengguna (UI/UX), rekayasa aplikasi web, serta analisis sistem informasi. Menyelesaikan tugas akhir berupa pengembangan sistem pendukung keputusan (SPK) berbasis web.'}
             </p>
 
             <div className="edu-highlights-list">
@@ -56,7 +69,7 @@ export default function Education() {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Pengujian API & Fungsionalitas Aplikasi</span>
+                <span>{t('Pengujian API & Fungsionalitas Aplikasi', 'API Testing & Functional App Verification')}</span>
               </div>
               <div className="hl-item">
                 <span className="hl-bullet">
@@ -64,7 +77,7 @@ export default function Education() {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Pengembangan Web Modern (Next.js &amp; React)</span>
+                <span>{t('Pengembangan Web Modern (Next.js & React)', 'Modern Web Development (Next.js & React)')}</span>
               </div>
               <div className="hl-item">
                 <span className="hl-bullet">
@@ -72,7 +85,7 @@ export default function Education() {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Analisis Kebutuhan &amp; Perancangan Basis Data</span>
+                <span>{t('Analisis Kebutuhan & Perancangan Basis Data', 'Requirements Analysis & Database Design')}</span>
               </div>
             </div>
           </div>
@@ -91,8 +104,12 @@ export default function Education() {
               </div>
             </div>
 
-            <div className="edu-degree-tag">{PERSONAL_INFO.secondaryEducation.degree}</div>
-            <h3 className="edu-title">{PERSONAL_INFO.secondaryEducation.major}</h3>
+            <div className="edu-degree-tag">
+              {t(PERSONAL_INFO.secondaryEducation.degree, PERSONAL_INFO.secondaryEducation.degreeEn)}
+            </div>
+            <h3 className="edu-title">
+              {t(PERSONAL_INFO.secondaryEducation.major, PERSONAL_INFO.secondaryEducation.majorEn)}
+            </h3>
             <div className="edu-institution">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 21h18"></path>
@@ -103,7 +120,9 @@ export default function Education() {
             </div>
 
             <p className="edu-desc">
-              Membekali pengalaman praktis mengenai standar pelayanan pelanggan, kedisiplinan pencatatan administrasi, koordinasi operasional tim, serta ketelitian kerja di lingkungan berstandar tinggi.
+              {language === 'en'
+                ? 'Equipped me with practical experience in high-standard customer service, meticulous record-keeping, operational team synchronization, and precision under operational deadlines.'
+                : 'Membekali pengalaman praktis mengenai standar pelayanan pelanggan, kedisiplinan pencatatan administrasi, koordinasi operasional tim, serta ketelitian kerja di lingkungan berstandar tinggi.'}
             </p>
 
             <div className="edu-highlights-list">
@@ -113,7 +132,7 @@ export default function Education() {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Ketelitian Administrasi &amp; Pencatatan Data</span>
+                <span>{t('Ketelitian Administrasi & Pencatatan Data', 'Administrative Rigor & Record Precision')}</span>
               </div>
               <div className="hl-item">
                 <span className="hl-bullet">
@@ -121,7 +140,7 @@ export default function Education() {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Pola Pikir Berorientasi Kepuasan Pengguna</span>
+                <span>{t('Pola Pikir Berorientasi Kepuasan Pengguna', 'User-Centric & Service Mindset')}</span>
               </div>
               <div className="hl-item">
                 <span className="hl-bullet">
@@ -129,7 +148,7 @@ export default function Education() {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Komunikasi Efektif &amp; Koordinasi Tim</span>
+                <span>{t('Komunikasi Efektif & Koordinasi Tim', 'Effective Team Communication & Sync')}</span>
               </div>
             </div>
           </div>
@@ -291,4 +310,3 @@ export default function Education() {
     </section>
   );
 }
-

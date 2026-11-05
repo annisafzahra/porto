@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import { PROJECTS, ProjectItem } from '@/data/portfolioData';
+import { PROJECTS, Project } from '@/data/portfolioData';
 import ProjectModal from './ProjectModal';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState<'all' | 'qa' | 'frontend'>('all');
+  const { language, t } = useLanguage();
 
   const filteredProjects = PROJECTS.filter((proj) => {
     if (activeFilter === 'qa') {
@@ -22,12 +24,16 @@ export default function Projects() {
     <section className="section-spacing projects-section reveal-on-scroll" id="projects">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill">Studi Kasus &amp; Portofolio</div>
+          <div className="section-pill">{t('Studi Kasus & Portofolio', 'Case Studies & Portfolio')}</div>
           <h2 className="section-title">
-            Proyek <span className="gradient-text">Unggulan</span>
+            {t('Proyek', 'Featured')}{' '}
+            <span className="gradient-text">{t('Unggulan', 'Projects')}</span>
           </h2>
           <p className="section-description">
-            Implementasi antarmuka web modern serta pengujian fungsionalitas dan integritas API secara mendalam.
+            {t(
+              'Implementasi antarmuka web modern serta pengujian fungsionalitas dan integritas API secara mendalam.',
+              'Modern web applications featuring structured functional testing, API validation, and clean UI engineering.'
+            )}
           </p>
 
           {/* Filter Pills */}
@@ -37,14 +43,14 @@ export default function Projects() {
               className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
               onClick={() => setActiveFilter('all')}
             >
-              Semua Proyek ({PROJECTS.length})
+              {t('Semua Proyek', 'All Projects')} ({PROJECTS.length})
             </button>
             <button
               type="button"
               className={`filter-btn ${activeFilter === 'qa' ? 'active' : ''}`}
               onClick={() => setActiveFilter('qa')}
             >
-              Fokus SQA &amp; API
+              {t('Fokus SQA & API', 'SQA & API Focus')}
             </button>
             <button
               type="button"
@@ -58,68 +64,74 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="projects-grid">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="project-card glass-card"
-              onClick={() => setSelectedProject(project)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setSelectedProject(project);
-                }
-              }}
-              id={`project-card-${project.id}`}
-            >
-              {/* Image Frame */}
-              <div className="card-image-box">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-img"
-                  loading="lazy"
-                />
-                <div className="card-category-tag">{project.category}</div>
-              </div>
+          {filteredProjects.map((project) => {
+            const title = language === 'en' && project.titleEn ? project.titleEn : project.title;
+            const tagline = language === 'en' && project.taglineEn ? project.taglineEn : project.tagline;
+            const qaSnippet = language === 'en' && project.qaVerificationEn ? project.qaVerificationEn[0] : project.qaVerification[0];
 
-              {/* Title & Tagline */}
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-tagline">{project.tagline}</p>
-
-              {/* QA Strip */}
-              <div className="qa-highlight-strip">
-                <div className="qa-strip-header">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <strong>Fokus Pengujian:</strong>
+            return (
+              <div
+                key={project.id}
+                className="project-card glass-card"
+                onClick={() => setSelectedProject(project)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setSelectedProject(project);
+                  }
+                }}
+                id={`project-card-${project.id}`}
+              >
+                {/* Image Frame */}
+                <div className="card-image-box">
+                  <img
+                    src={project.image}
+                    alt={title}
+                    className="project-img"
+                    loading="lazy"
+                  />
+                  <div className="card-category-tag">{project.category}</div>
                 </div>
-                <p className="qa-strip-desc">{project.qaVerification[0]}</p>
-              </div>
 
-              {/* Tech Stack Chips */}
-              <div className="card-tech-chips">
-                {project.techStack.slice(0, 4).map((tech) => (
-                  <span key={tech} className="tech-chip">{tech}</span>
-                ))}
-                {project.techStack.length > 4 && (
-                  <span className="tech-chip-more">+{project.techStack.length - 4}</span>
-                )}
-              </div>
+                {/* Title & Tagline */}
+                <h3 className="project-title">{title}</h3>
+                <p className="project-tagline">{tagline}</p>
 
-              {/* Card Action Trigger */}
-              <div className="card-action">
-                <span className="action-text">Detail &amp; Hasil Pengujian</span>
-                <span className="action-arrow">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </span>
+                {/* QA Strip */}
+                <div className="qa-highlight-strip">
+                  <div className="qa-strip-header">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <strong>{t('Fokus Pengujian:', 'Testing Focus:')}</strong>
+                  </div>
+                  <p className="qa-strip-desc">{qaSnippet}</p>
+                </div>
+
+                {/* Tech Stack Chips */}
+                <div className="card-tech-chips">
+                  {project.techStack.slice(0, 4).map((tech) => (
+                    <span key={tech} className="tech-chip">{tech}</span>
+                  ))}
+                  {project.techStack.length > 4 && (
+                    <span className="tech-chip-more">+{project.techStack.length - 4}</span>
+                  )}
+                </div>
+
+                {/* Card Action Trigger */}
+                <div className="card-action">
+                  <span className="action-text">{t('Detail & Hasil Pengujian', 'Details & Test Results')}</span>
+                  <span className="action-arrow">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

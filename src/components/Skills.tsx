@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { SKILL_CATEGORIES } from '@/data/portfolioData';
+import { useLanguage } from '@/context/LanguageContext';
 
 // Clean SVG icon renderer
 function SkillSvgIcon({ iconType }: { iconType?: string }) {
@@ -114,46 +115,62 @@ function SkillSvgIcon({ iconType }: { iconType?: string }) {
 }
 
 export default function Skills() {
+  const { language, t } = useLanguage();
+
   return (
     <section className="section-spacing skills-section reveal-on-scroll" id="skills">
       <div className="container">
         <div className="section-header">
-          <div className="section-pill section-pill-dark">Keahlian &amp; Toolkit</div>
+          <div className="section-pill section-pill-dark">{t('Keahlian & Toolkit', 'Skills & Toolkit')}</div>
           <h2 className="section-title section-title-dark">
-            Keahlian <span className="gradient-text-soft">Teknis</span>
+            {t('Keahlian', 'Technical')}{' '}
+            <span className="gradient-text-soft">{t('Teknis', 'Skills')}</span>
           </h2>
           <p className="section-description section-description-dark">
-            Kombinasi kapabilitas pengujian fungsionalitas sistem, rekayasa frontend modern, dan alur kerja kolaboratif.
+            {t(
+              'Kombinasi kapabilitas pengujian fungsionalitas sistem, rekayasa frontend modern, dan alur kerja kolaboratif.',
+              'A blend of functional system testing capabilities, modern frontend engineering, and collaborative workflow discipline.'
+            )}
           </p>
         </div>
 
         {/* 3 Categories Grid */}
         <div className="skills-grid">
-          {SKILL_CATEGORIES.map((cat, idx) => (
-            <div key={idx} className="skill-card glass-card">
-              <div className="skill-card-header">
-                <span className="category-num">0{idx + 1}</span>
-                <h3 className="category-title">{cat.title}</h3>
-                <p className="category-desc">{cat.description}</p>
-              </div>
+          {SKILL_CATEGORIES.map((cat, idx) => {
+            const title = language === 'en' && cat.titleEn ? cat.titleEn : cat.title;
+            const description = language === 'en' && cat.descriptionEn ? cat.descriptionEn : cat.description;
 
-              <div className="skill-items-list">
-                {cat.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="skill-item-row">
-                    <div className="skill-item-header">
-                      <span className="skill-icon-wrap">
-                        <SkillSvgIcon iconType={skill.iconType} />
-                      </span>
-                      <strong className="skill-name">{skill.name}</strong>
-                    </div>
-                    <div className="skill-desc-text">
-                      {skill.level}
-                    </div>
-                  </div>
-                ))}
+            return (
+              <div key={idx} className="skill-card glass-card">
+                <div className="skill-card-header">
+                  <span className="category-num">0{idx + 1}</span>
+                  <h3 className="category-title">{title}</h3>
+                  <p className="category-desc">{description}</p>
+                </div>
+
+                <div className="skill-items-list">
+                  {cat.skills.map((skill, sIdx) => {
+                    const skillName = language === 'en' && skill.nameEn ? skill.nameEn : skill.name;
+                    const skillLevel = language === 'en' && skill.levelEn ? skill.levelEn : skill.level;
+
+                    return (
+                      <div key={sIdx} className="skill-item-row">
+                        <div className="skill-item-header">
+                          <span className="skill-icon-wrap">
+                            <SkillSvgIcon iconType={skill.iconType} />
+                          </span>
+                          <strong className="skill-name">{skillName}</strong>
+                        </div>
+                        <div className="skill-desc-text">
+                          {skillLevel}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Workflow Methodology Bar */}
@@ -164,13 +181,13 @@ export default function Skills() {
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
               </svg>
             </div>
-            <h4>Siklus Alur Pengujian &amp; Penjaminan Mutu (SQA)</h4>
+            <h4>{t('Siklus Alur Pengujian & Penjaminan Mutu (SQA)', 'SQA Testing & Quality Assurance Cycle')}</h4>
           </div>
           
           <div className="workflow-steps">
             <div className="step-item">
               <span className="step-badge">1</span>
-              <span>Analisis Kebutuhan</span>
+              <span>{t('Analisis Kebutuhan', 'Requirement Analysis')}</span>
             </div>
             <div className="step-arrow">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -180,7 +197,7 @@ export default function Skills() {
             </div>
             <div className="step-item">
               <span className="step-badge">2</span>
-              <span>Eksekusi Postman / UI</span>
+              <span>{t('Eksekusi Postman / UI', 'Postman / UI Execution')}</span>
             </div>
             <div className="step-arrow">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -190,7 +207,7 @@ export default function Skills() {
             </div>
             <div className="step-item">
               <span className="step-badge">3</span>
-              <span>Dokumentasi Bug</span>
+              <span>{t('Dokumentasi Bug', 'Defect Logging')}</span>
             </div>
             <div className="step-arrow">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -200,7 +217,7 @@ export default function Skills() {
             </div>
             <div className="step-item">
               <span className="step-badge">4</span>
-              <span>Verifikasi Perbaikan</span>
+              <span>{t('Verifikasi Perbaikan', 'Fix Verification')}</span>
             </div>
           </div>
         </div>
